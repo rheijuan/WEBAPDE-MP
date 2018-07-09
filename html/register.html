@@ -12,32 +12,33 @@
     </head>
 
     <body>
+        
         <div class="container">
-            <div class="small">
-                <div class="ui form">
-                    <div class="field">
-                        <label>Username</label>
-                        <div class="top">        
-                            <textarea id="box"
-                                      rows="1"></textarea>
-                            <select id="occupation">
-                                <option value="">Occupation</option>
-                                <option value="1">Student</option>
-                                <option value="0">Admin</option>
-                            </select>
-                        </div>
-                        <div class="creds">
-                            <label> E-mail Address </label>
-                            <textarea id="box"
-                                      rows="1"></textarea>
-                            <label> Password </label>
-                            <textarea id="box"
-                                      rows="1"></textarea>
-                        </div>
+            <div class="center">
+                <div class="mini-container">
+                    <h1 class="form"> REGISTER </h1>
+                    <label> E-mail Address </label>
+                    <div class="ui left icon input"
+                         class="form">
+                            <input type="text" placeholder="E-mail Address">
+                            <i class="envelope icon"></i>
                     </div>
+                    <label>Password </label> 
+                    <div class="ui left icon input"
+                         class="form">
+                            <input type="password" placeholder="Password">
+                            <i class="lock icon"></i>
+                    </div>
+                    <label> Occupation </label>
+                    <select id="occupation">
+                            <option value="">Occupation</option>
+                            <option value="1">Student</option>
+                            <option value="0">Admin</option>
+                    </select>
+                    <button class="ui secondary button"
+                            class="form"> Register </button>
                 </div>
             </div>
-
         </div>
 
     </body>

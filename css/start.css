@@ -27,6 +27,7 @@ html, body {
     background-color: green;
     margin: 5px;
     margin-bottom: 40px;
+    width: 210px;
 }
 
 .ui.secondary.button:hover {
