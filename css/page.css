@@ -1,0 +1,32 @@
+#header {
+    color: green;   
+}
+
+.navigation {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+}
+
+.left {
+    display: flex;
+}
+
+.right {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.text {
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    color: white;
+    background-color: green;
+}
