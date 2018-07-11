@@ -7,7 +7,10 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     height: 100%;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 h1 {
@@ -16,6 +19,14 @@ h1 {
     font-size: 24px;
 }
 
-.ui.table {
-    margin: 40px;
+.empty {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+}
+
+.cancel {
+    height: 50px;
+    width: 20%;
+    background-color: white;
 }
