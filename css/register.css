@@ -57,3 +57,20 @@ label {
     padding: 5px;
     width: 500px;
 }
+
+.close {
+    margin: 5px;
+    margin-left: 10px;
+}
+
+.top {
+    display: flex;
+    justify-content: end;
+    flex-direction: row-reverse;
+    width: 100%;
+}
+
+.return {
+    width: 45px;
+    height: 45px;
+}

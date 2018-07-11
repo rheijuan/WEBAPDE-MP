@@ -2,22 +2,27 @@
 <html>
     <head>
         <link rel="stylesheet" 
-            type="text/css" 
-            href="../Semantic-UI-CSS-master/semantic.min.css">
+              type="text/css" 
+              href="../semantic/semantic.min.css">
         <link rel="stylesheet"
               type="text/css"
               href="../css/home.css">
     </head>
 
     <body> 
+        <div class="head">
+            <a href="start.html">
+                <button class="ui inverted green button">Log Out</button>
+            </a>
+        </div>
         <div class="main">
-            <div class="label"> LAB.RES.SYS </div>
+            <div class="label"> LAB.RES.SYS</div>
             <div class="container">
                 <div class="option"
                      id="search">
                     <img class="image"
                          src="../img/magnifier.png">
-                    <label> SEARCH LABS </label>
+                    <label> CHECK LABS </label>
                 </div>
                 <div class="option"
                      id="reserve">
@@ -34,4 +39,15 @@
             </div>
         </div>
     </body>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            type="text/javascript"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+    </script>
+
+    <script type="text/javascript"
+            src="../semantic/semantic.min.js"></script>
+    <script type="text/javascript" 
+            src="../js/home.js"></script>
 </html>
