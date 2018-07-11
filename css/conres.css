@@ -1,0 +1,76 @@
+#header {
+    color: green;   
+}
+
+.navigation {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+}
+
+.left {
+    display: flex;
+}
+
+.right {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.text {
+    padding: 10px;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    color: white;
+    background-color: green;
+}
+
+.GreenCont{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+}
+
+#dgreen{
+    margin-right: 100px;
+    margin-left: 100px;
+}
+#green{
+    margin-right: 100px;
+}
+#lgreen{
+    margin-right: 100px;
+}
+#llgreen{
+    margin-right: 100px;
+    
+}
+
+
+ li{
+    font-family: sans-serif;
+    font-size: 100%;
+    display: inline-block;
+    color: white;
+    padding: 10px 20px 10px 20px;            
+    height: 15px;
+    transition-property: height;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+
+.containerr{
+    outline-color: darkgreen;
+    outline-style: groove;
+    outline-width: thick
+}
+
+table, th, td {
+    border: 1px solid green;
+}
