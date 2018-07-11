@@ -3,7 +3,7 @@ $('#search').on('click', function() {
 })
 
 $('#reserve').on('click', function() {
-    window.location.href="../html/conres.html"
+    window.location.href="../html/selectFloor.html"
 })
 
 $('#check').on('click', function() {
