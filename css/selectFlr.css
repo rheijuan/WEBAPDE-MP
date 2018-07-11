@@ -91,11 +91,23 @@ body{
     margin-left: 20%;
     margin-right: 20%;
 }
+
+#thirdflr{
+    margin-left: 100px; 
+    width:500px;
+}
+#forthflr{
+    margin-left: 100px;
+     width:500px;
+}
+
 #prevbtn{
    margin-right: 300px;
 }
 
 
-#confbtn{
+#nextbtn{
     margin-left: 200px;
 }
+
+

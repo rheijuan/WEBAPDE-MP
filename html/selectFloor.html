@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <link rel="stylesheet" 
+              type="text/css" 
+              href="../Semantic-UI-CSS-master/semantic.min.css">
+        <link rel="stylesheet"
+              type="text/css"
+              href="../css/selectFlr.css">
+    </head>
+
+    <body> 
+        <h1 id="header"> LAB.RES.SYS </h1>
+        <nav id="navigation">
+            <div class="container">                <div class="left">
+                    <span id="username"
+                          class="text"> Good Day, Name 
+                    </span>
+                </div>
+                <div class="right">
+                  <ui>
+                      <li >Laboratory</li>
+                      <li >Reservations</li>
+                      <li >Log-in</li>
+                      <li >Register</li>
+                    </ui>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="ui ordered steps">
+          <div class="active step">
+            <div class="content">
+              <a href="selectFloor.html"><div class="title">Floor Select</div></a>
+              <div class="description">Choose your prefered floor</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="content">
+                <a href="selectLabRm.html"><div class="title">Computer Laboratory</div></a>
+              <div class="description">Choose your prefered laboratory room</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="content">
+                <a href="date&time.html"><div class="title">Date and Time</div></a>
+                <div class="description">Choose your prefered date and time of reservation</div>
+            </div>
+          </div><div class="step">
+            <div class="content">
+                <a href="conres.html"><div class="title">Confirm Reservation</div></a>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="ui segment">
+            <p>
+                <button id="thirdflr" class="ui button">3rd FLOOR</button>
+            </p>
+            <p>
+            <button id="forthflr" class="ui button">4th FLOOR</button>
+            </p>
+            
+            <p>
+            <button id="prevbtn" class="ui button">Previous</button>
+            <button id="nextbtn" class="ui primary button">Next Step</button>
+            </p>
+        </div>
+        
+        
+        
+    </body>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+    </script>
+
+    <script src="../Semantic-UI-CSS-master/semantic.min.js"></script>
+    <script src="../js/start.js"></script>
+</html>

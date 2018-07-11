@@ -1,9 +1,9 @@
 $("#dgreen").on("click", function(){
-console.log("clicked");    
+    
 });
 
 $("#green").on("click", function(){
-console.log("clicked green");    
+    
 });
 
 $("#lgreen").on("click", function(){
