@@ -3,7 +3,7 @@
     <head>
         <link rel="stylesheet" 
               type="text/css" 
-              href="../Semantic-UI-CSS-master/semantic.min.css">
+              href="../semantic/semantic.min.css">
         <link rel="stylesheet"
               type="text/css"
               href="../css/register.css">
@@ -13,6 +13,13 @@
         
         <div class="container">
             <div class="center">
+                <div class="top">
+                    <a class="close"
+                       href="start.html">
+                        <img class="return"
+                             src="../img/error.png">
+                     </a>
+                </div>
                 <div class="mini-container">
                     <h1 class="form"> REGISTER </h1>
                     <label> E-mail Address </label>
@@ -27,8 +34,10 @@
                             <input type="password" placeholder="Password">
                             <i class="lock icon"></i>
                     </div>
+                    <a href="start.html">
                     <button class="ui secondary button"
                             class="form"> Register </button>
+                    </a>                                
                 </div>
             </div>
         </div>
@@ -36,10 +45,13 @@
     </body>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            type="text/javascript"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous">
     </script>
 
-    <script src="path/to/semantic/semantic.min.js"></script>
-    <script src="../js/register.js"></script>
+    <script type="text/javascript"
+            src="../semantic/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="../js/register.js"></script>
 </html>

@@ -15,3 +15,7 @@ h1 {
     font-family: sans-serif;
     font-size: 24px;
 }
+
+.ui.table {
+    margin: 40px;
+}
