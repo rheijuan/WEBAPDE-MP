@@ -7,12 +7,12 @@
               href="../semantic/semantic.min.css">
         <link rel="stylesheet"
               type="text/css"
-              href="../css/conres.css">
+              href="../css/lab1.css">
     </head>
 
     <body> 
         <h1 id="header"> 
-            <nav id="navigation">
+       <nav id="navigation">
                 <div class="container"><div class="left">
                         <span id="username"
                               class="text"> LAB.RES.SYS 
@@ -36,6 +36,7 @@
             </nav>
         </h1>
         
+        
         <div class="ui ordered steps">
           
           <div class="completed step">
@@ -44,17 +45,17 @@
               <div class="description">Choose prefered laboratory room</div>
             </div>
           </div>
-          <div class="completed step">
+          <div class="active step">
             <div class="content">
             <div class="title">Seats</div>            <div class="description">Choose your seat in the laboratory</div>
             </div>
           </div>    
-          <div class="completed step">
+          <div class="step">
             <div class="content">
                 <div class="title">Date and Time</div>
                 <div class="description">Choose prefered date and time of reservation</div>
             </div>
-          </div><div class="active step">
+          </div><div class="step">
             <div class="content">
                <div class="title">Confirm Reservation</div>
             </div>
@@ -63,39 +64,18 @@
         
         
         <div class="ui segment">
+            <p>
+                
+            </p>
             
-                <div class="header">
-                    <h2>Your Reservation</h2>
-                    Confirm the information displayed below. This will be used to make your reservation.
-                </div>
-                <div class="body">
-                    <p>
-                        <p><text class="label">Name: </text>
-                        <text class="labelval">Lolo Mo</text></p>
-                        
-                        <p><text class="label">Email Address: </text>
-                        <text class="labelval">lolo_mo@dlsu.edu.ph</text></p>
-                        
-                        <p><text class="label">Laboratory Floor: </text>
-                        <text class="labelval">20</text></p>
-                        
-                        <p><text class="label">Laboratory Room: </text>
-                        <text class="labelval">2018</text></p>
-                        
-                        <p><text class="label">Date: </text>
-                        <text class="labelval">July 11, 2018</text></p>
-                        
-                        <p><text class="label">Time: </text>
-                        <text class="labelval">12:30 - 14:30</text></p>
-                    </p>
-                </div>
-                <div class="footer">
-                    <p>
-                        <button id="prevbtn" class="ui button">Back</button>
-                        <button id="confbtn" class="ui primary button">Confirm</button>
-                    </p>
-                </div>    
-        </div> 
+            <p>
+            <button id="prevbtn" class="ui button">Back</button>
+            
+             <button id="resbtn" class="ui primary button">Reserve</button>
+            </p>
+            
+        
+        </div>
         
     </body>
 
@@ -105,5 +85,5 @@
     </script>
 
     <script src="../semantic/semantic.min.js"></script>
-    <script src="../js/conres.js"></script>
+    <script src="../js/seatsLab1.js"></script>
 </html>

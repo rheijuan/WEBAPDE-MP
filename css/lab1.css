@@ -1,5 +1,5 @@
 #header {
-    color: white; 
+    color: black; 
     display: flex;
     flex:1;
     justify-content: center;
@@ -35,29 +35,8 @@ body{
     display: flex;
     width: 100%;
     align-items: center;
-    color: black;
-    background-color: white;
-}
-
-.GreenCont{
-    display: flex;
-    flex: 1;
-    justify-content: center;
-}
-
-#dgreen{
-    margin-right: 100px;
-    margin-left: 100px;
-}
-#green{
-    margin-right: 100px;
-}
-#lgreen{
-    margin-right: 100px;
-}
-#llgreen{
-    margin-right: 100px;
-    
+    color: white;
+    background-color: black;
 }
 
 
@@ -65,7 +44,7 @@ body{
     font-family: sans-serif;
     font-size: 100%;
     display: inline-block;
-    color: black;
+    color: white;
     padding: 10px 20px 10px 20px;            
     height: 15px;
     transition-property: height;
@@ -87,27 +66,41 @@ body{
     font-size: 16px;
 }
 
+.ui.ordered.steps{
+    display: flex;
+    flex: 1;
+justify-content: center;
+}
 .ui.segment{
     margin-left: 20%;
     margin-right: 20%;
 }
-
-/*#thirdflr{
-    margin-left: 100px; 
-    width:500px;
-}
-#forthflr{
-    margin-left: 100px;
-     width:500px;
-}*/
-
 #prevbtn{
-   margin-right: 300px;
+   margin-right: 50%;
 }
 
 
-#nextbtn{
-    margin-left: 200px;
+#resbtn{
+    margin-left: 25%;
+}
+
+table{
+    border-collapse: collapse;
+    border: solid black;
+    width: 100%;
+}
+
+tr, td{
+    padding: 20px;
+    border-collapse: collapse;
+    border: solid black;
+    text-align: center;
+    width 20%;
+}
+
+img{
+    transform: rotate(90deg);
+    margin-right: 5px;
 }
 
 

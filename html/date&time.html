@@ -11,45 +11,53 @@
     </head>
 
     <body> 
-        <h1 id="header"> LAB.RES.SYS </h1>
-        <nav id="navigation">
-            <div class="container">                <div class="left">
-                    <span id="username"
-                          class="text"> Good Day, Name 
-                    </span>
+        <h1 id="header"> 
+       <nav id="navigation">
+                <div class="container"><div class="left">
+                        <span id="username"
+                              class="text"> LAB.RES.SYS 
+                        </span>
+                    </div>
+                    <div class="left">
+                      <ui>
+                          <li >Home</li>
+                          <li >About</li>
+                          <li >Faqs</li>
+                          
+                        </ui>
+                    </div><div class="right">
+                      <ui>
+                          <li >Name mem</li>
+                          <li >Log-out</li>
+                          
+                        </ui>
+                    </div>
                 </div>
-                <div class="right">
-                  <ui>
-                      <li >Laboratory</li>
-                      <li >Reservations</li>
-                      <li >Log-in</li>
-                      <li >Register</li>
-                    </ui>
-                </div>
-            </div>
-        </nav>
+            </nav>
+        </h1>
+        
         
         <div class="ui ordered steps">
+          
           <div class="completed step">
             <div class="content">
-              <a href="selectFloor.html"><div class="title">Floor Select</div></a>
-              <div class="description">Choose your prefered floor</div>
+                <div class="title">Laboratory</div>
+              <div class="description">Choose prefered laboratory room</div>
             </div>
           </div>
           <div class="completed step">
             <div class="content">
-                <a href="selectLabRm.html"><div class="title">Computer Laboratory</div></a>
-              <div class="description">Choose your prefered laboratory room</div>
+            <div class="title">Seats</div>            <div class="description">Choose your seat in the laboratory</div>
             </div>
-          </div>
+          </div>    
           <div class="active step">
             <div class="content">
-                <a href="date&time.html"><div class="title">Date and Time</div></a>
-                <div class="description">Choose your prefered date and time of reservation</div>
+                <div class="title">Date and Time</div>
+                <div class="description">Choose prefered date and time of reservation</div>
             </div>
           </div><div class="step">
             <div class="content">
-                <a href="conres.html"><div class="title">Confirm Reservation</div></a>
+               <div class="title">Confirm Reservation</div>
             </div>
           </div>
         </div>
@@ -57,8 +65,8 @@
         
         <div class="ui segment">
              <p>
-            <button id="prevbtn" class="ui button">Previous</button>
-                <button id="nextbtn" class="ui primary button">Next Step</button>
+            <button id="prevbtn" class="ui button">Back</button>
+                <button id="nextbtn" class="ui primary button">Next</button>
             </p>
         </div>
         
@@ -70,5 +78,5 @@
     </script>
 
     <script src="../semantic/semantic.min.js"></script>
-    <script src="../js/start.js"></script>
+    <script src="../js/date&time.js"></script>
 </html>

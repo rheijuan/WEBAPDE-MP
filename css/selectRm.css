@@ -1,5 +1,5 @@
 #header {
-    color: white; 
+    color: black; 
     display: flex;
     flex:1;
     justify-content: center;
@@ -13,12 +13,12 @@ body{
 .navigation {
     display: flex;
     width: 100%;
-    align-items: center;
     flex-direction: row;
 }
 
 .left {
     display: flex;
+    align-items: left;
 }
 
 .right {
@@ -35,29 +35,8 @@ body{
     display: flex;
     width: 100%;
     align-items: center;
-    color: black;
-    background-color: white;
-}
-
-.GreenCont{
-    display: flex;
-    flex: 1;
-    justify-content: center;
-}
-
-#dgreen{
-    margin-right: 100px;
-    margin-left: 100px;
-}
-#green{
-    margin-right: 100px;
-}
-#lgreen{
-    margin-right: 100px;
-}
-#llgreen{
-    margin-right: 100px;
-    
+    color: white;
+    background-color: black;
 }
 
 
@@ -65,7 +44,7 @@ body{
     font-family: sans-serif;
     font-size: 100%;
     display: inline-block;
-    color: black;
+    color: white;
     padding: 10px 20px 10px 20px;            
     height: 15px;
     transition-property: height;
@@ -92,11 +71,27 @@ body{
     margin-right: 20%;
 }
 
+.ui.ordered.steps{
+    display: flex;
+    flex: 1;
+justify-content: center;
+}
+#lab1{
+    margin-left: 15%; 
+    width:70%;
+}
+#lab2{
+    margin-left: 15%;
+     width:70%;
+}
+
 #prevbtn{
-   margin-right: 300px;
+   margin-right: 50%;
 }
 
 
-#nextbtn{
-    margin-left: 200px;
+#resbtn{
+    margin-left: 25%;
 }
+
+
