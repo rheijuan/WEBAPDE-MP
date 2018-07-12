@@ -74,6 +74,7 @@ justify-content: center;
 .ui.segment{
     margin-left: 20%;
     margin-right: 20%;
+    
 }
 #prevbtn{
    margin-right: 50%;
@@ -98,9 +99,7 @@ tr, td{
     width 20%;
 }
 
-img{
-    transform: rotate(90deg);
-    margin-right: 5px;
-}
+
+
 
 
