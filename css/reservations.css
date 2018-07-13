@@ -19,6 +19,10 @@ h1 {
     font-size: 24px;
 }
 
+tr.clickable.clicked > td {
+    background-color: #00FF00;
+}
+
 .empty {
     display: flex;
     flex-direction: row-reverse;
@@ -26,7 +30,19 @@ h1 {
 }
 
 .cancel {
-    height: 50px;
-    width: 20%;
-    background-color: white;
+    height: 40px;
+    width: 8%;
+    background-color: #121212;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cancel:hover {
+    cursor: pointer;
+}
+
+#reserve {
+    font-size: 18px;
 }
