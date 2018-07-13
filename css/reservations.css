@@ -29,14 +29,15 @@ tr.clickable.clicked > td {
     width: 100%;
 }
 
-.cancel {
+#cancel {
     height: 40px;
-    width: 8%;
+    width: 15%;
     background-color: #121212;
     border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 
 .cancel:hover {
@@ -45,4 +46,49 @@ tr.clickable.clicked > td {
 
 #reserve {
     font-size: 18px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+li {
+    color: white;
+    display: inline-block;
+    position: relative;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+li:hover {
+    background-color: #50c878;
+    cursor: pointer; 
+}
+
+.right-item-button, .right-item {
+    float: right;
+    color: white;
+    position: relative;
+    font-size: 20px;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.right-item-button:hover {
+    background-color: #50c878;
+    cursor: pointer;
+}
+
+#logo {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+    display: inline-block;
+    vertical-align: middle;
 }

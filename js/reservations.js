@@ -12,6 +12,7 @@ reservations.push(new Reservation('cold@dlsu.edu.ph'));
 reservations.push(new Reservation('bark@dlsu.edu.ph'));
 
 $(".clickable").on("click", function() {
+    var flag = false;
 
     if ($(this).hasClass('clicked'))
         $(this).removeClass('clicked')
@@ -24,15 +25,29 @@ $(".clickable").on("click", function() {
 
             if(reservations[i].status) {
                 reservations[i].status = false;
-                $("#cancel").css('backgroundColor', '#121212')
+                document.getElementById("reserve").innerHTML = "Cancel Reservation";
             }
             else {
                 reservations[i].status = true;
-                $(this).css('backgroundColor', '#FFFFFF')
-                $("#cancel").css('backgroundColor', 'white')
+                $(this).css('backgroundColor', '#FFFFFF');
+                document.getElementById("reserve").innerHTML = "Cancel Reservation";
             }
         }
     }
-    document.getElementById("reserve").innerHTML = "Cancel";
 
+    for(var i = 0; i < reservations.length; i++) {
+        if(reservations[i].status) {
+            flag = true;
+            break;
+        }
+    }
+
+    if(flag)
+        $("#cancel").css('backgroundColor', 'white');
+    else
+        $("#cancel").css('backgroundColor', '#121212');
 });
+
+$("#cancel").on('click', function() {
+    $('.clicked').remove();
+})
