@@ -19,6 +19,7 @@
   "homepage": "https://github.com/rheijuan/WEBAPDE-MP1#readme",
   "dependencies": {
     "express": "^4.16.3",
+    "js-datepicker": "^3.3.1",
     "mime": "^2.3.1"
   }
 }
