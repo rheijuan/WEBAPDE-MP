@@ -12,7 +12,6 @@ reservations.push(new Reservation('cold@dlsu.edu.ph'));
 reservations.push(new Reservation('bark@dlsu.edu.ph'));
 
 $(".clickable").on("click", function() {
-<<<<<<< HEAD
     $(this).css('backgroundColor', "rgb(0,255,0)")  
 });
 
@@ -23,7 +22,7 @@ $("prevbtn").on('click', function(){
 $("#resbtn").on('click', function(){
     window.location.href="../html/conres.html"
 });
-=======
+
     var flag = false;
 
     if ($(this).hasClass('clicked'))
@@ -58,9 +57,7 @@ $("#resbtn").on('click', function(){
         $("#cancel").css('backgroundColor', 'white');
     else
         $("#cancel").css('backgroundColor', '#121212');
-});
 
 $("#cancel").on('click', function() {
     $('.clicked').remove();
 })
->>>>>>> 7cb1ab75bff9dcb545f6b69a47ee9734b2dc5702
