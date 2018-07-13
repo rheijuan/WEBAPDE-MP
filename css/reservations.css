@@ -19,25 +19,33 @@ h1 {
     font-size: 24px;
 }
 
+tr.clickable.clicked > td {
+    background-color: #00FF00;
+}
+
 .empty {
     display: flex;
     flex-direction: row-reverse;
     width: 100%;
 }
 
-.cancel {
-    height: 50px;
-    width: 20%;
-    background-color: white;
+#cancel {
+    height: 40px;
+    width: 15%;
+    background-color: #121212;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
 
-#logo {
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    padding: 20px;
-    display: inline-block;
-    vertical-align: middle;
+.cancel:hover {
+    cursor: pointer;
+}
+
+#reserve {
+    font-size: 18px;
 }
 
 ul {
@@ -76,6 +84,11 @@ li:hover {
     cursor: pointer;
 }
 
-a, a:hover { 
+#logo {
     color: white;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+    display: inline-block;
+    vertical-align: middle;
 }
