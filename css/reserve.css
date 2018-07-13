@@ -49,6 +49,10 @@ li:hover {
     cursor: pointer;
 }
 
+a, a:hover { 
+    color: white;
+}
+
 .steps-container {
     justify-content: center;
     display: flex;
