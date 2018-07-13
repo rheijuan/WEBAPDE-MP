@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" 
+              type="text/css" 
+              href="../semantic/semantic.min.css">
+        <link rel="stylesheet"
+              type="text/css"
+              href="../css/reserve.css">        
+    </head>
+
+    <body> 
+        <!-- this is the nav bar part -->
+        <header>
+            <div id="logo">LAB.RES.SYS</div>
+            <ul>
+                <li><a href="../html/home.html">Home</a></li>
+                <li><a href="../html/about.html">About</a></li>
+                <li><a href="../html/faqs.html">FAQs</a></li>
+            </ul>
+            <div class="right-item-button"><a href="../html/start.html">Log Out</a></div>
+            <div class="right-item">Juan Dela Cruz</div>
+        </header>
+
+        <!-- step part -->
+        <div class="steps-container">
+            <div class="ui ordered steps">
+                <div class="completed step">
+                    <div class="content">
+                        <div class="title">Floor Select</div>
+                        <div class="description">Choose your preferred floor</div>
+                    </div>
+                </div>
+                <div class="completed step">
+                    <div class="content">
+                        <div class="title">Computer Laboratory</div>
+                        <div class="description">Choose your preferred laboratory room</div>
+                    </div>
+                </div>
+                <div class="active step">
+                    <div class="content">
+                        <div class="title">Date and Time</div>
+                        <div class="description">Choose your preferred date and time of reservation</div>
+                    </div>
+                </div>
+                <div class="disabled step">
+                        <div class="content">
+                            <div class="title">Confirm Reservation</div>
+                        </div>
+                </div>            
+            </div>
+        </div>    
+        
+        <!-- to be changed -->
+        <div class="reserve-container">
+            <div class="datetimeslot">
+                <div id="time-title">
+                    Select Date
+                </div>
+                
+                <div class="dt-container">
+                    <input type="date">
+                </div>
+
+                <div id="time-title">
+                    Select Time
+                </div>
+
+                <div class="dt-container">
+                    <span>Start: </span><input type="time">
+                    <span>End: </span><input type="time">
+                </div>
+            </div>
+
+            <div class="slots">
+                <br>
+                <br>
+                <table id="table-slot">
+                    <tr>
+                        <td><input type="button" name="labslot" class="slot" value="01"></td> 
+                        <td><input type="button" name="labslot" class="slot" value="06"></td>
+                        <td></td>
+                        <td></td>
+                        <td><input type="button" name="labslot" class="slot" value="11"></td>
+                        <td><input type="button" name="labslot" class="slot" value="16"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" name="labslot" class="slot" value="02"></td> 
+                        <td><input type="button" name="labslot" class="slot" value="07"></td>
+                        <td></td>
+                        <td></td>
+                        <td><input type="button" name="labslot" class="slot" value="12"></td>
+                        <td><input type="button" name="labslot" class="slot" value="17"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" name="labslot" class="slot" value="03"></td> 
+                        <td><input type="button" name="labslot" class="slot" value="08"></td>
+                        <td></td>
+                        <td></td>
+                        <td><input type="button" name="labslot" class="slot" value="13"></td>
+                        <td><input type="button" name="labslot" class="slot" value="18"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" name="labslot" class="slot" value="04"></td> 
+                        <td><input type="button" name="labslot" class="slot" value="09"></td>
+                        <td></td>
+                        <td></td>
+                        <td><input type="button" name="labslot" class="slot" value="14"></td>
+                        <td><input type="button" name="labslot" class="slot" value="19"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" name="labslot" class="slot" value="05"></td> 
+                        <td><input type="button" name="labslot" class="slot" value="10"></td>
+                        <td></td>
+                        <td><div class="filler"></div></td>
+                        <td><input type="button" name="labslot" class="slot" value="15"></td>
+                        <td><input type="button" name="labslot" class="slot" value="20"></td>
+                    </tr>    
+                </table>
+            
+            <br>
+            <br>
+            <br>
+            
+            <button id="prevbtn" class="ui button">Back</button>
+            <button id="resbtn" class="ui primary button" style="float:right;">Reserve</button>
+            </div>
+        </div>
+    </body>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            type="text/javascript"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+    </script>
+
+    <script src="../datepicker/dist/helloweek.min.js"></script>
+
+    <script type="text/javascript"
+            src="../semantic/semantic.min.js"></script>
+    
+    <!-- <script type="text/javascript" 
+            src="../js/home.js"></script> -->
+            
+</html>

@@ -1,0 +1,135 @@
+html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    height: 90vh;
+}
+
+#logo {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+li {
+    color: white;
+    display: inline-block;
+    position: relative;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+li:hover {
+    background-color: #50c878;
+    cursor: pointer; 
+}
+
+.right-item-button, .right-item {
+    float: right;
+    color: white;
+    position: relative;
+    font-size: 20px;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.right-item-button:hover {
+    background-color: #50c878;
+    cursor: pointer;
+}
+
+a, a:hover { 
+    color: white;
+}
+
+.steps-container {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.reserve-container {
+    width: 1224.46px;
+    height: 550px;
+    background-color: whitesmoke;
+    position: relative;
+    top: 30px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.datetimeslot {
+    background-color: whitesmoke;
+    height: inherit;
+    width: 20%;
+    position: relative;
+    border-right-color: #121212;
+    border-right-style: solid;
+    border-right-width: 5px;
+}
+
+.slots {
+    background-color: whitesmoke;
+    height: inherit;
+    width: 80%;
+    float: right;
+    position: relative;
+    padding: 20px;
+    align-content: center;
+    align-items: center;
+}
+
+#time-title {
+    padding: 15px;
+    font-weight: bold;
+    font-size: 20pt;
+}
+
+.dt-container {
+    padding: 15px;
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+
+#table-slot{
+    margin-left: 0%;
+    margin-top: 2%;
+    margin: 0 auto;
+}
+
+.slot {
+    background-color: gray;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20pt;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.filler {
+   border: none;
+   padding: 15px 32px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 20pt;
+   margin: 4px 2px;
+}
+
