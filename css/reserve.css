@@ -27,14 +27,26 @@ li {
     display: inline-block;
     position: relative;
     padding: 10px;
+    transition: 0.3s;
 }
 
-.right-items {
+li:hover {
+    background-color: #50c878;
+    cursor: pointer; 
+}
+
+.right-item-button, .right-item {
     float: right;
     color: white;
     position: relative;
     font-size: 20px;
     padding: 20px;
+    transition: 0.3s;
+}
+
+.right-item-button:hover {
+    background-color: #50c878;
+    cursor: pointer;
 }
 
 .steps-container {
@@ -95,7 +107,7 @@ li {
 }
 
 .slot {
-     background-color: gray;
+    background-color: gray;
     border: none;
     color: white;
     padding: 15px 32px;
