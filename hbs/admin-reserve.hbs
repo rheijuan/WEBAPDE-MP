@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" 
+              type="text/css" 
+              href="../semantic/semantic.min.css">
+        <link rel="stylesheet"
+              type="text/css"
+              href="../css/reserve.css">        
+    </head>
+
+    <body> 
+        <!-- this is the nav bar part -->
+        <header>
+            <div id="logo">LAB.RES.SYS</div>
+            <ul>
+                <li><a href="../hbs/home.hbs">Home</a></li>
+                <li><a href="../hbs/about.hbs">About</a></li>
+                <li><a href="../hbs/faqs.hbs">FAQs</a></li>
+            </ul>
+            <div class="right-item-button"><a href="../hbs/index.hbs">Log Out</a></div>
+            <div class="right-item">Admin</div>
+        </header>
+
+        <!-- step part -->
+        <div class="steps-container">
+            <div class="ui ordered steps">
+                <div class="completed step">
+                    <div class="content">
+                        <div class="title">Laboratory</div>
+                        <div class="description">Choose preferred laboratory room </div>
+                    </div>
+                </div>
+                <div class="active step">
+                    <div class="content">
+                        <div class="title">Date, Time, and Seat</div>
+                        <div class="description">Choose your preferred laboratory room and time slot</div>
+                    </div>
+                </div>
+                <div class="disabled step">
+                        <div class="content">
+                            <div class="title">Confirm Reservation</div>
+                        </div>
+                </div>            
+            </div>
+        </div>    
+        
+        <!-- to be changed -->
+        <div class="reserve-container">
+            <div class="datetimeslot">
+                <div id="time-title">
+                    Select Date
+                </div>
+                
+                <div class="dt-container">
+                    <input type="date">
+                </div>
+
+                <div id="time-title">
+                    Select Time
+                </div>
+
+                <div class="dt-container">
+                    <span>Start: </span><input type="time">
+                    <span>End: </span><input type="time">
+                </div>
+            </div>
+
+            <div class="slots">
+                <br>
+                <br>
+                <table id="table-slot">
+                    <tr>
+                        <td>
+                            <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                1</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                6</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                11</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                16</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                       <td><div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                2</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                7</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                12</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                17</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                       <td>
+                           <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                3</div>
+                           </div>
+                        </td>
+                        <td>
+                            <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                8</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                13</div>
+                             </div>
+                        </td>
+                        <td>
+                            <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                18</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                       <td>
+                           <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                4</div>
+                           </div>
+                        </td>
+                        <td>
+                            <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                9</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                14</div>
+                             </div>
+                        </td>
+                        <td>
+                            <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                19</div>
+                            </div>
+                        </td>
+                    </tr>
+                   <tr>
+                       <td>
+                           <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                5</div>
+                           </div>
+                        </td>
+                        <td>
+                            <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                10</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                15</div>
+                             </div>
+                        </td>
+                        <td>
+                            <div class="ui animated button" tabindex="0">
+                              <div class="visible content"><i class="computer icon"></i></div>
+                              <div class="hidden content">
+                                20</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            
+            <br>
+            <br>
+            <br>
+               
+            
+            <button id="aprevbtn" class="ui button">Back</button>
+            <button id="aresbtn" class="ui primary button" style="float:right;">Reserve</button>
+            </div>
+        </div>
+    </body>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            type="text/javascript"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+    </script>
+
+    <script src="../datepicker/dist/helloweek.min.js"></script>
+
+    <script type="text/javascript"
+            src="../semantic/semantic.min.js"></script>
+    
+        <script type="text/javascript" 
+            src="../js/reservations.js"></script> 
+            
+</html>
