@@ -23,6 +23,14 @@ $("#resbtn").on('click', function(){
     window.location.href="../html/conres.html"
 });
 
+$("#aprevbtn").on('click', function(){
+    window.location.href="../html/admin-selectLabRm.html"
+});
+
+$("#aresbtn").on('click', function(){
+    window.location.href="../html/admin-conres.html"
+});
+
     var flag = false;
 
     if ($(this).hasClass('clicked'))

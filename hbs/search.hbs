@@ -6,46 +6,22 @@
               href="../semantic/semantic.min.css">
         <link rel="stylesheet"
               type="text/css"
-              href="../css/reserve.css">        
+              href="../css/search.css">
     </head>
 
-    <body> 
+    <body>
         <!-- this is the nav bar part -->
         <header>
-            <div id="logo">LAB.RES.SYS</div>
-            <ul>
-                <li><a href="../html/home.html">Home</a></li>
-                <li><a href="../html/about.html">About</a></li>
-                <li><a href="../html/faqs.html">FAQs</a></li>
-            </ul>
-            <div class="right-item-button"><a href="../html/index.html">Log Out</a></div>
-            <div class="right-item">Juan Dela Cruz</div>
-        </header>
+                <div id="logo">LAB.RES.SYS</div>
+                <ul>
+                    <li><a href="../hbs/home.hbs">Home</a></li>
+                    <li><a href="../hbs/about.hbs">About</a></li>
+                    <li><a href="../hbs/faqs.html">FAQs</a></li>
+                </ul>
+                <div class="right-item-button"><a href="../hbs/index.hbs">Log Out</a></div>
+                <div class="right-item">Juan Dela Cruz</div>
+        </header>        
 
-        <!-- step part -->
-        <div class="steps-container">
-            <div class="ui ordered steps">
-                <div class="completed step">
-                    <div class="content">
-                        <div class="title">Laboratory</div>
-                        <div class="description">Choose preferred laboratory room</div>
-                    </div>
-                </div>
-                <div class="active step">
-                    <div class="content">
-                        <div class="title">Date, Time, and Seat</div>
-                        <div class="description">Choose your preferred laboratory room and time slot</div>
-                    </div>
-                </div>
-                <div class="disabled step">
-                        <div class="content">
-                            <div class="title">Confirm Reservation</div>
-                        </div>
-                </div>            
-            </div>
-        </div>    
-        
-        <!-- to be changed -->
         <div class="reserve-container">
             <div class="datetimeslot">
                 <div id="time-title">
@@ -229,20 +205,9 @@
             <button id="resbtn" class="ui primary button" style="float:right;">Search</button>
             </div>
         </div>
+        
     </body>
-
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-            type="text/javascript"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous">
-    </script>
-
-    <script src="../datepicker/dist/helloweek.min.js"></script>
-
-    <script type="text/javascript"
-            src="../semantic/semantic.min.js"></script>
-    
-        <script type="text/javascript" 
+    <script type="text/javascript" 
             src="../js/reservations.js"></script> 
             
 </html>
