@@ -42,10 +42,10 @@ app.get("/html/register", (req, res, next) => {
 });
 
 app.post("/html/add", urlencoder, (req, res) => {
-    console.log("POST /ADD");
+    console.log("POST /ADD")
 
-    var mail = req.body.email;
-    var password = req.body.identification;
+    var mail = req.body.email
+    var password = req.body.identification
     
     if(mail && password) {
 
@@ -72,9 +72,47 @@ app.post("/html/add", urlencoder, (req, res) => {
         }, (error) => {
             console.log(error)
         })
-    } else 
+    } else if(mail && !password) {
         res.redirect("../WEBAPDE-MP1/html/register.html")
+    } else if(!mail && password) {
+
+    } else {
+
+    }
 });
+
+app.post("/html/log", urlencoder, (req, res) => {
+    console.log("POST /LOG")
+
+    var mail = req.body.email
+    var password = req.body.identification 
+
+    if(mail && password) {
+
+        User.findOne({
+            email: mail
+        }).then((doc) => {
+            if(doc != null) {
+                if(doc.email == mail && doc.password == password) {
+                    console.log("Welcome to my domain")
+                    res.redirect("../html/home.html")
+                }
+            } else {
+                console.log("No such user")
+                res.redirect("../html/index.html")
+            }
+        }, (error) => {
+            console.log(error)
+        })
+
+    } else if(mail && !password) {
+
+    } else if(!mail && password) {
+
+    } else {
+
+    }
+})
 
 app.listen(3000, () => {
     console.log("Listening in port 3000");
