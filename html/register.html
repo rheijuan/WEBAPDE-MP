@@ -14,30 +14,27 @@
         <div class="container">
             <div class="center">
                 <div class="top">
-                    <a class="close"
-                       href="index.html">
+                    <div class="close">
                         <img class="return"
                              src="../img/error.png">
-                     </a>
+                    </div>
                 </div>
                 <div class="mini-container">
-                    <h1 class="form"> REGISTER </h1>
-                    <label> E-mail Address </label>
-                    <div class="ui left icon input"
-                         class="form">
-                            <input type="text" placeholder="E-mail Address">
-                            <i class="envelope icon"></i>
-                    </div>
-                    <label>Password </label> 
-                    <div class="ui left icon input"
-                         class="form">
-                            <input type="password" placeholder="Password">
-                            <i class="lock icon"></i>
-                    </div>
-                    <a href="index.html">
-                    <button class="ui secondary button"
-                            class="form"> Register </button>
-                    </a>                                
+                    <form class="fill" method="POST" action="add">
+                        <h1 class="form"> REGISTER </h1>
+                        <label> E-mail Address </label>
+                        <div class="ui left icon input form">
+                                <input name="email" type="text" placeholder="E-mail Address">
+                                <i class="envelope icon"></i>
+                        </div>
+                        <label>Password </label> 
+                        <div class="ui left icon input form">
+                                <input name="identification" type="password" placeholder="Password">
+                                <i class="lock icon"></i>
+                        </div>
+                        
+                        <input type="submit" class="ui secondary button form" value="Register"> 
+                    </form>            
                 </div>
             </div>
         </div>
