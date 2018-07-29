@@ -35,7 +35,7 @@ app.get("/", (req, res, next) => {
     res.sendFile(path.join(__dirname, "../WEBAPDE-MP1/html/index.html"));
 }); 
 
-app.get("/register", (req, res, next) => {
+app.get("/html/register", (req, res, next) => {
     console.log("GET /register");
 
     res.sendFile(path.join(__dirname, "../WEBAPDE-MP1/html/register.html"));
@@ -51,29 +51,25 @@ app.post("/add", urlencoder, (req, res) => {
         User.findOne({
             email: email
         }).then(() => {
-            console.log()
+            var newUser = new User({
+                email,
+                password
+            })
+            newUser.save().then((newdoc) => {
+                console.log("Item has been added: " + newdoc)
+                res.redirect("/")
+            }, (error) => {
+                console.log("Username is in use")
+                console.log(error)
+                res.redirect("../WEBAPDE-MP1/html/register.html")
+            })
+            console.log("hello")
         }, () => {
-            res.redirect("/register")
+            console.log("mamamo")
+            res.redirect("../WEBAPDE-MP1/html/register.html")
         })
 
     }
-
-    //     if(checkIfAvailable({email, password})) {
-    //         req.session.email = email
-            
-    //         console.log("mamamo")
-    //         // redirect to log in page
-    //     } else {
-    //         // username has been taken
-    //     }
-    //     // check if the username exists in the database
-
-    //     //redirect to log in page
-    // } else {
-    //     console.log("Boop")
-    //     res.redirect("/register")
-    //     // uncomplete credentials error
-    // } 
 });
 
 app.listen(3000, () => {
