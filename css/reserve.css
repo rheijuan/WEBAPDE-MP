@@ -73,11 +73,12 @@ a, a:hover {
 .datetimeslot {
     background-color: whitesmoke;
     height: inherit;
-    width: 20%;
+    width: auto;
     position: relative;
     border-right-color: #121212;
     border-right-style: solid;
     border-right-width: 5px;
+    padding: 15px;
 }
 
 .slots {
@@ -91,6 +92,17 @@ a, a:hover {
     align-items: center;
 }
 
+#date-picker {
+    font-size: 9pt;
+    margin: 0 auto;
+}
+
+#date-title {
+    padding: 15px;
+    font-weight: bold;
+    font-size: 20pt;
+}
+
 #time-title {
     padding: 15px;
     font-weight: bold;
@@ -99,10 +111,9 @@ a, a:hover {
 
 .dt-container {
     padding: 15px;
-    font-size: 15pt;
+    font-size: 10pt;
     font-weight: bold;
 }
-
 
 #table-slot{
     margin-left: 0%;

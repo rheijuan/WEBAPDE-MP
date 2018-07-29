@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <head>                   
         <link rel="stylesheet" 
               type="text/css" 
               href="../semantic/semantic.min.css">
+              <link rel="stylesheet" 
+              href="../node_modules/semantic-ui-calendar/dist/calendar.min.css" />              
         <link rel="stylesheet"
               type="text/css"
-              href="../css/reserve.css">        
+              href="../css/reserve.css">
     </head>
 
     <body> 
@@ -48,21 +50,35 @@
         <!-- to be changed -->
         <div class="reserve-container">
             <div class="datetimeslot">
-                <div id="time-title">
+                <div id="date-title">
                     Select Date
                 </div>
-                
-                <div class="dt-container">
-                    <input type="date">
-                </div>
 
-                <div id="time-title">
-                    Select Time
+                <br>
+
+                <div class="ui calendar" id="date-picker">
                 </div>
 
                 <div class="dt-container">
-                    <span>Start: </span><input type="time">
-                    <span>End: </span><input type="time">
+                    <div id="time-title">
+                        Start Time
+                    </div>
+                    <div class="ui calendar" id="start-time">
+                            <div class="ui input left icon">
+                              <i class="time icon"></i>
+                              <input type="text" placeholder="Time">
+                            </div>
+                          </div>
+
+                    <div id="time-title">
+                        End Time
+                    </div>
+                    <div class="ui calendar" id="end-time">
+                        <div class="ui input left icon">
+                            <i class="time icon"></i>
+                            <input type="text" placeholder="Time">
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -237,12 +253,26 @@
             crossorigin="anonymous">
     </script>
 
-    <script src="../datepicker/dist/helloweek.min.js"></script>
-
     <script type="text/javascript"
             src="../semantic/semantic.min.js"></script>
-    
+            <script type="text/javascript" 
+            src="../node_modules/semantic-ui-calendar/dist/calendar.min.js"></script>            
+    <script>
+        $('#date-picker').calendar({
+            type: 'date',
+            inline: true
+        });
+
+        $('#start-time').calendar({
+            type: 'time'
+        });
+        
+        $('#end-time').calendar({
+            type: 'time'
+        });
+    </script>
         <script type="text/javascript" 
-            src="../js/reservations.js"></script> 
+            src="../js/reservations.js"></script>
+
             
 </html>
