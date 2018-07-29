@@ -13,7 +13,7 @@ mongoose.connect("mongodb://localhost:27017/UserList", {
 
 var User = mongoose.model("user", {
     email: String,
-    password: String
+    password: String    
 });
 
 const app = express();
@@ -41,35 +41,39 @@ app.get("/html/register", (req, res, next) => {
     res.sendFile(path.join(__dirname, "../WEBAPDE-MP1/html/register.html"));
 });
 
-app.post("/add", urlencoder, (req, res) => {
+app.post("/html/add", urlencoder, (req, res) => {
     console.log("POST /ADD");
 
-    var email = req.body.email;
+    var mail = req.body.email;
     var password = req.body.identification;
     
-    if(email && password) {
-        User.findOne({
-            email: email
-        }).then(() => {
-            var newUser = new User({
-                email,
-                password
-            })
-            newUser.save().then((newdoc) => {
-                console.log("Item has been added: " + newdoc)
-                res.redirect("/")
-            }, (error) => {
-                console.log("Username is in use")
-                console.log(error)
-                res.redirect("../WEBAPDE-MP1/html/register.html")
-            })
-            console.log("hello")
-        }, () => {
-            console.log("mamamo")
-            res.redirect("../WEBAPDE-MP1/html/register.html")
-        })
+    if(mail && password) {
 
-    }
+        User.find({
+            email: mail
+        }).then((doc) => {
+            if(doc.length == 0) {
+                var newUser = new User({
+                    email: mail,
+                    password
+                })
+
+                newUser.save().then((newdoc) => {
+                    console.log("A new user has been added")
+                    res.redirect("/")
+                }, (error) => {
+                    console.log(error)
+                })
+
+            } else {
+                console.log("Email already in use")
+                res.redirect("../html/register.html")
+            }
+        }, (error) => {
+            console.log(error)
+        })
+    } else 
+        res.redirect("../WEBAPDE-MP1/html/register.html")
 });
 
 app.listen(3000, () => {
