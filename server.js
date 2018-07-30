@@ -12,6 +12,7 @@ mongoose.connect("mongodb://localhost:27017/UserList", {
 });
 
 var User = mongoose.model("user", {
+    username: String,
     email: String,
     password: String    
 });
@@ -22,43 +23,46 @@ const urlencoder = bodyparser.urlencoded({
     extended: false
 });
 
-app.use(express.static(__dirname));
+app.use(express.static(__dirname))
 
-app.set("view engine", "hbs");
-app.use(express.static(__dirname+"/public"));
+app.set("view engine", "hbs")
+app.use(express.static(__dirname+"/public"))
 
 app.use(cookieparser());
 
 app.get("/", (req, res, next) => {
-    console.log("GET /");
+    console.log("GET /")
 
     res.sendFile(path.join(__dirname, "../WEBAPDE-MP1/html/index.html"));
 }); 
 
 app.get("/html/register", (req, res, next) => {
-    console.log("GET /register");
+    console.log("GET /register")
 
-    res.sendFile(path.join(__dirname, "../WEBAPDE-MP1/html/register.html"));
+    res.sendFile(path.join(__dirname, "../WEBAPDE-MP1/html/register.html"))
 });
 
 app.post("/html/add", urlencoder, (req, res) => {
     console.log("POST /ADD")
 
+    var username = req.body.username
     var mail = req.body.email
     var password = req.body.identification
     
     if(mail && password) {
 
         User.find({
+            username,
             email: mail
         }).then((doc) => {
             if(doc.length == 0) {
                 var newUser = new User({
+                    username,
                     email: mail,
                     password
                 })
 
-                newUser.save().then((newdoc) => {
+                newUser.save().then(() => {
                     console.log("A new user has been added")
                     res.redirect("/")
                 }, (error) => {
@@ -81,43 +85,25 @@ app.post("/html/add", urlencoder, (req, res) => {
     }
 });
 
-<<<<<<< HEAD
-app.post("/html/log", urlencoder, (req, res) => {
+app.post("/html/log", urlencoder, (req,res) => {
     console.log("POST /LOG")
 
     var mail = req.body.email
-    var password = req.body.identification 
+    var password = req.body.identification
 
     if(mail && password) {
 
-        User.findOne({
-            email: mail
-        }).then((doc) => {
-            if(doc != null) {
-                if(doc.email == mail && doc.password == password) {
-                    console.log("Welcome to my domain")
-                    res.redirect("../html/home.html")
-                }
-            } else {
-                console.log("No such user")
-                res.redirect("../html/index.html")
-            }
-        }, (error) => {
-            console.log(error)
-        })
-
+        res.sendFile(path.join(__dirname, "../WEBAPDE-MP1/html/home.html"))    
     } else if(mail && !password) {
 
+        
     } else if(!mail && password) {
 
-    } else {
+    } else {}
+    
 
-    }
 })
-=======
-
->>>>>>> c6e55e9701621952afdde1ff0540294e29cf49f4
-
+    
 app.listen(3000, () => {
     console.log("Listening in port 3000");
 });
