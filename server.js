@@ -39,7 +39,7 @@ app.get("/", (req, res, next) => {
 app.get("/html/register", (req, res, next) => {
     console.log("GET /register")
 
-    res.sendFile(path.join(__dirname, "../WEBAPDE-MP1/html/register.html"))
+    res.render("register.hbs")
 });
 
 app.post("/html/add", urlencoder, (req, res) => {
@@ -70,22 +70,30 @@ app.post("/html/add", urlencoder, (req, res) => {
                 })
 
             } else {
-                console.log("Email already in use")
-                res.redirect("../html/register.html")
+                res.render("register.hbs", {
+                    big_error: "Email/ Username is already in use"
+                })
             }
         }, (error) => {
             console.log(error)
         })
     } else if(mail && password && !username) {
-        res.redirect("../WEBAPDE-MP1/html/register.html")
+        res.render("register.hbs", {
+            username_error: "Please enter a username"
+        })
     } else if(mail && !password && username) {
-
+        res.render("register.hbs", {
+            username_error: "Please enter a password"
+        })
     } else if(!mail && password && username) {
-
-    } else if(!mail && !password && username || 
-        !mail && password && !username || mail && !password && !username) {
-            
-    }
+        res.render("register.hbs", {
+            username_error: "Please enter an email"
+        })
+    } else {
+        res.render("register.hbs", {
+            big_error: "Incomplete credentials! Please fill out the form again"
+        })
+    } 
 });
 
 app.post("/html/log", urlencoder, (req,res) => {

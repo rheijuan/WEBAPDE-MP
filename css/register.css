@@ -47,6 +47,7 @@ html, body {
 
 .form {
     padding: 10px;
+    margin: 2px;
 }
 
 label {
@@ -81,4 +82,13 @@ label {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.error {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 30px;
+    width: 300px;
+    color: #ED2939;
 }
