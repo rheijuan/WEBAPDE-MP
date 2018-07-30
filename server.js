@@ -81,6 +81,7 @@ app.post("/html/add", urlencoder, (req, res) => {
     }
 });
 
+<<<<<<< HEAD
 app.post("/html/log", urlencoder, (req, res) => {
     console.log("POST /LOG")
 
@@ -113,6 +114,9 @@ app.post("/html/log", urlencoder, (req, res) => {
 
     }
 })
+=======
+
+>>>>>>> c6e55e9701621952afdde1ff0540294e29cf49f4
 
 app.listen(3000, () => {
     console.log("Listening in port 3000");
