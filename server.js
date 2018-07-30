@@ -49,7 +49,7 @@ app.post("/html/add", urlencoder, (req, res) => {
     var mail = req.body.email
     var password = req.body.identification
     
-    if(mail && password) {
+    if(mail && password && username) {
 
         User.find({
             username,
@@ -76,12 +76,14 @@ app.post("/html/add", urlencoder, (req, res) => {
         }, (error) => {
             console.log(error)
         })
-    } else if(mail && !password) {
+    } else if(mail && password && !username) {
         res.redirect("../WEBAPDE-MP1/html/register.html")
-    } else if(!mail && password) {
+    } else if(mail && !password && username) {
+
+    } else if(!mail && password && username){
 
     } else {
-
+        
     }
 });
 
