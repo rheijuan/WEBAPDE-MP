@@ -76,6 +76,8 @@ app.post("/html/add", urlencoder, (req, res) => {
         res.redirect("../WEBAPDE-MP1/html/register.html")
 });
 
+
+
 app.listen(3000, () => {
     console.log("Listening in port 3000");
 });
