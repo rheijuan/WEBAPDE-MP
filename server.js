@@ -80,10 +80,11 @@ app.post("/html/add", urlencoder, (req, res) => {
         res.redirect("../WEBAPDE-MP1/html/register.html")
     } else if(mail && !password && username) {
 
-    } else if(!mail && password && username){
+    } else if(!mail && password && username) {
 
-    } else {
-
+    } else if(!mail && !password && username || 
+        !mail && password && !username || mail && !password && !username) {
+            
     }
 });
 
@@ -94,11 +95,11 @@ app.post("/html/log", urlencoder, (req,res) => {
     var password = req.body.identification
 
     if(mail && password) {
-
-        res.sendFile(path.join(__dirname, "../WEBAPDE-MP1/html/home.html"))    
+        res.render("home.hbs" ,{
+            username: mail
+        })
     } else if(mail && !password) {
 
-        
     } else if(!mail && password) {
 
     } else {}
