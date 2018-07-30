@@ -87,7 +87,10 @@ app.post("/html/add", urlencoder, (req, res) => {
     }
 });
 
+
+
 app.post("/html/log", urlencoder, (req,res) => {
+>>>>>>> af01d7d06e1d59673316620f0a01b3c4ced752a6
     console.log("POST /LOG")
 
     var mail = req.body.email
@@ -105,7 +108,15 @@ app.post("/html/log", urlencoder, (req,res) => {
     
 
 })
+<<<<<<< HEAD
+
+=======
+
+>>>>>>> c6e55e9701621952afdde1ff0540294e29cf49f4
+
+
     
+>>>>>>> af01d7d06e1d59673316620f0a01b3c4ced752a6
 app.listen(3000, () => {
     console.log("Listening in port 3000");
 });
