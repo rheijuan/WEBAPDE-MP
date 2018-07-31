@@ -12,6 +12,26 @@ html, body {
     background-color: white;
 }
 
+.info {
+    width: 50%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    padding-left: 125px;
+    padding-right: 125px;
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.title {
+    font-size: 30pt;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 20pt;
+}
+
 .ui.secondary.button {
     color: white;
     background-color: green;
