@@ -54,12 +54,22 @@ app.get("/html/home", (req, res) => {
     res.render("home.hbs")
 })
 
-app.get("/html/about", (req, res) => {
-    console.log("GET /ABOUT")
+app.get("/html/search", (req, res) => {
+    console.log("GET /SEARCH")
+
+    res.render("search.hbs")
 })
 
-app.get("/html/faqs", (req, res) => {
-    console.log("GET /FAQS")
+app.get("/html/reserve", (req, res) => {
+    console.log("GET /RESERVE")
+
+    res.render("selectLabRm.hbs")
+})
+
+app.get("/html/reservations", (req, res) => {
+    console.log("GET /RESERVATIONS")
+
+    res.render("reservations.hbs")
 })
 
 app.post("/html/add", urlencoder, (req, res) => {
@@ -123,9 +133,29 @@ app.post("/html/log", urlencoder, (req,res) => {
     var password = req.body.identification
 
     if(mail && password) {
-        res.render("home.hbs" ,{
-            username: mail
+
+        User.findOne({
+            email: mail
+        }).then((doc) => {
+            if(doc) {
+                if(doc.password == password) {
+                    res.render("home.hbs", {
+                        username: doc.username
+                    })
+                } else {
+                    res.render("index.hbs", {
+                        big_error: "Password doesn't match" 
+                    })
+                }
+            } else {
+                res.render("index.hbs", {
+                    big_error: "User does not exist"
+                })
+            }
+        }, (error) => {
+            console.log(error)
         })
+
     } else if(mail && !password) {
         res.render("index.hbs", {
             password_error: "Please enter a password"

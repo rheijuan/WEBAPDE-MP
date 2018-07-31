@@ -26,7 +26,9 @@
                 </form> --}}
             </div>
             <div class="right">
-                <div class="right-item"> {{username}} </div>
+                <form>
+                    <div class="right-item">{{username}}</div>
+                </form>
                 <form method="POST" action="/html/logout"> 
                     <input type="submit" class="button" value="Log Out"> 
                 </form>
@@ -36,24 +38,33 @@
         <div class="main">
             <div class="label">What do you want to do?</div><br>
             <div class="container">
-                <div class="option"
-                     id="search">
-                    <img class="image"
-                         src="../img/magnifier.png">
-                    <label> CHECK LABS </label>
-                </div>
-                <div class="option"
-                     id="reserve">
-                    <img class="image"
-                         src="../img/reserved.png">
-                    <label> RESERVE SLOT </label>
-                </div>
-                <div class="option"
-                     id="check">
-                    <img class="image"
-                         src="../img/shopping-cart.png">
-                    <label> MY RESERVATIONS </label>    
-                </div>
+                <form method="GET" action="/html/search">
+                    <button class="option"
+                            id="search">
+                            <img class="image"
+                                 src="../img/magnifier.png">
+                            <label> CHECK LABS </label>
+                    </button>
+                </form>
+
+                <form method="GET" action="/html/reserve">
+                    <button class="option"
+                            id="reserve">
+                            <img class="image"
+                                 src="../img/reserved.png">
+                            <label> RESERVE SLOT </label>
+                    </button>
+                </form>
+
+                <form method="GET" action="/html/reservations">
+                    <button class="option"
+                            id="check">
+                            <img class="image"
+                                 src="../img/shopping-cart.png">
+                            <label> MY RESERVATIONS </label>
+                    </button>
+                </form>
+
             </div>
         </div>
     </body>

@@ -22,6 +22,14 @@ html, body {
     border-radius: 5px;
 }
 
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
 .ui.secondary.button {
     color: white;
     background-color: green;
@@ -102,4 +110,35 @@ label {
     color: #FFFFFF;
     text-align: center;
     font-size: 16px;
+}
+
+.right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+}
+
+.left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+}
+
+.button {
+    background-color: transparent;
+    font-size: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: white;
+    padding: 20px;
+    transition: 0.3s;
+    border: none;
+}
+
+.button:hover {
+    background-color: #50c878;
+    cursor: pointer;
 }

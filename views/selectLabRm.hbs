@@ -12,16 +12,29 @@
 
     <body> 
         <!-- this is the nav bar part -->
-        <header>
+        <div class="header">
+            <div class="left">
                 <div id="logo">LAB.RES.SYS</div>
-                <ul>
-                    <li><a href="../hbs/home.hbs">Home</a></li>
-                    <li><a href="../hbs/about.hbs">About</a></li>
-                    <li><a href="../hbs/faqs.hbs">FAQs</a></li>
-                </ul>
-                <div class="right-item-button"><a href="../hbs/index.hbs">Log Out</a></div>
-                <div class="right-item">Juan Dela Cruz</div>
-        </header>
+                
+                <form method="GET" action="/html/home"> 
+                    <input type="submit" class="button" value="Home"> 
+                </form>
+                {{!-- <form method="GET" action="/html/about"> 
+                    <input type="submit" class="button" value="About"> 
+                </form>
+                <form method="GET" action="/html/faqs"> 
+                    <input type="submit" class="button" value="FAQs"> 
+                </form> --}}
+            </div>
+            <div class="right">
+                <form>
+                    <div class="right-item">{{username}}</div>
+                </form>
+                <form method="POST" action="/html/logout"> 
+                    <input type="submit" class="button" value="Log Out"> 
+                </form>
+            </div>
+        </div>
         
         <div class="ui ordered steps">
           
@@ -49,9 +62,6 @@
             <button id="lab1" class="ui button">Laboratory 1</button>    
             </p>
             <button id="lab2" class="ui button">Laboratory 2</button>  
-             <p>
-            <button id="prevbtn" class="ui button">Home</button>
-            </p>
         </div>
         
     </body>
