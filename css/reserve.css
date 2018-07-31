@@ -61,7 +61,7 @@ a, a:hover {
 
 .reserve-container {
     width: 1224.46px;
-    height: 550px;
+    height: auto;
     background-color: whitesmoke;
     position: relative;
     top: 30px;
@@ -144,4 +144,6 @@ a, a:hover {
    margin: 4px 2px;
 }
 
-
+#time-error {
+    color: red;
+}
