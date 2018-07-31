@@ -101,6 +101,7 @@ app.post("/html/log", urlencoder, (req,res) => {
 
     var mail = req.body.email
     var password = req.body.identification
+    var username = req.body.username
 
     if(mail && password) {
         res.render("home.hbs" ,{
@@ -114,6 +115,9 @@ app.post("/html/log", urlencoder, (req,res) => {
     
 
 })
+
+
+
 
 app.listen(3000, () => {
     console.log("Listening in port 3000");
