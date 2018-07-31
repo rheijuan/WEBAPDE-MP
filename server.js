@@ -36,43 +36,43 @@ app.get("/", (req, res) => {
     res.render("index.hbs")
 })
 
-app.get("/html/back", (req,res) => {
+app.get("/back", (req,res) => {
     console.log("GET /BACK")
 
     res.render("index.hbs")
 })
 
-app.get("/html/register", (req, res) => {
+app.get("/register", (req, res) => {
     console.log("GET /REGISTER")
 
     res.render("register.hbs")
 })
 
-app.get("/html/home", (req, res) => {
+app.get("/home", (req, res) => {
     console.log("GET /HOME")
 
     res.render("home.hbs")
 })
 
-app.get("/html/search", (req, res) => {
+app.get("/search", (req, res) => {
     console.log("GET /SEARCH")
 
     res.render("search.hbs")
 })
 
-app.get("/html/reserve", (req, res) => {
+app.get("/reserve", (req, res) => {
     console.log("GET /RESERVE")
 
     res.render("selectLabRm.hbs")
 })
 
-app.get("/html/reservations", (req, res) => {
+app.get("/reservations", (req, res) => {
     console.log("GET /RESERVATIONS")
 
     res.render("reservations.hbs")
 })
 
-app.post("/html/add", urlencoder, (req, res) => {
+app.post("/add", urlencoder, (req, res) => {
     console.log("POST /ADD")
 
     var username = req.body.username
@@ -113,20 +113,20 @@ app.post("/html/add", urlencoder, (req, res) => {
         })
     } else if(mail && !password && username) {
         res.render("register.hbs", {
-            username_error: "Please enter a password"
+            password_error: "Please enter a password"
         })
     } else if(!mail && password && username) {
         res.render("register.hbs", {
-            username_error: "Please enter an email"
+            email_error: "Please enter an email"
         })
     } else {
         res.render("register.hbs", {
-            big_error: "Incomplete credentials! Please fill out the form again"
+            big_error: "Incomplete credentials! Please accomplish all fields"
         })
     } 
 })
 
-app.post("/html/log", urlencoder, (req,res) => {
+app.post("/log", urlencoder, (req,res) => {
     console.log("POST /LOG")
 
     var mail = req.body.email
@@ -172,16 +172,11 @@ app.post("/html/log", urlencoder, (req,res) => {
     }
 })
 
-<<<<<<< HEAD
-app.post("/html/logout", (req, res) => {
+app.post("/logout", (req, res) => {
     console.log("POST /LOGOUT")
 
     res.redirect("/")
 })
-=======
-
-
->>>>>>> d0d47fa214a995dbcf0ddae1687ec6539b7c580a
 
 app.listen(3000, () => {
     console.log("Listening in port 3000");

@@ -13,9 +13,6 @@ $("#alab2").on('click', function(){
     window.location.href="../html/admin-reserve.html"
 })
 
-
-
 $("#prevbtn").on('click', function(){
     window.location.href="../html/home.html"
 })
-
