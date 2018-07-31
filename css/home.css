@@ -1,7 +1,7 @@
 html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #121212;
-    height: 90vh;
+    height: 89vh;
 }
 
 .container {
@@ -98,18 +98,50 @@ li:hover {
     cursor: pointer; 
 }
 
-.right-item-button, .right-item {
-    float: right;
-    color: white;
-    position: relative;
-    font-size: 20px;
-    padding: 20px;
-    transition: 0.3s;
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-.right-item-button:hover {
+.right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+}
+
+.left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+}
+
+.button {
+    background-color: transparent;
+    font-size: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    transition: 0.3s;
+    border: none;
+}
+
+.button:hover {
     background-color: #50c878;
     cursor: pointer;
+}
+
+.right-item {
+    color: white;
+    font-size: 20px;
 }
 
 a, a:hover { 

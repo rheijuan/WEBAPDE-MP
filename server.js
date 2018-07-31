@@ -30,7 +30,7 @@ app.use(express.static(__dirname+"/public"))
 
 app.use(cookieparser())
 
-app.get("/", (req, res, next) => {
+app.get("/", (req, res) => {
     console.log("GET /")
 
     res.render("index.hbs")
@@ -42,10 +42,24 @@ app.get("/html/back", (req,res) => {
     res.render("index.hbs")
 })
 
-app.get("/html/register", (req, res, next) => {
+app.get("/html/register", (req, res) => {
     console.log("GET /REGISTER")
 
     res.render("register.hbs")
+})
+
+app.get("/html/home", (req, res) => {
+    console.log("GET /HOME")
+
+    res.render("home.hbs")
+})
+
+app.get("/html/about", (req, res) => {
+    console.log("GET /ABOUT")
+})
+
+app.get("/html/faqs", (req, res) => {
+    console.log("GET /FAQS")
 })
 
 app.post("/html/add", urlencoder, (req, res) => {
@@ -122,9 +136,15 @@ app.post("/html/log", urlencoder, (req,res) => {
         })
     } else {
         res.render("index.hbs", {
-            big_error: "Please fill out the form"
+            big_error: "Please accomplish all fields"
         })
     }
+})
+
+app.post("/html/logout", (req, res) => {
+    console.log("POST /LOGOUT")
+
+    res.redirect("/")
 })
 
 app.listen(3000, () => {

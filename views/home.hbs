@@ -11,16 +11,27 @@
 
     <body> 
         <!-- this is the nav bar part -->
-        <header>
+        <div class="header">
+            <div class="left">
                 <div id="logo">LAB.RES.SYS</div>
-                <ul>
-                    <li><a href="../html/home.html">Home</a></li>
-                    <li><a href="../html/about.html">About</a></li>
-                    <li><a href="../html/faqs.html">FAQs</a></li>
-                </ul>
-                <div class="right-item-button"><a href="../html/index.html">Log Out</a></div>
+                
+                <form method="GET" action="/html/home"> 
+                    <input type="submit" class="button" value="Home"> 
+                </form>
+                {{!-- <form method="GET" action="/html/about"> 
+                    <input type="submit" class="button" value="About"> 
+                </form>
+                <form method="GET" action="/html/faqs"> 
+                    <input type="submit" class="button" value="FAQs"> 
+                </form> --}}
+            </div>
+            <div class="right">
                 <div class="right-item"> {{username}} </div>
-        </header>
+                <form method="POST" action="/html/logout"> 
+                    <input type="submit" class="button" value="Log Out"> 
+                </form>
+            </div>
+        </div>
     
         <div class="main">
             <div class="label">What do you want to do?</div><br>
