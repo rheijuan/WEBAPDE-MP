@@ -131,6 +131,7 @@ app.post("/html/log", urlencoder, (req,res) => {
 
     var mail = req.body.email
     var password = req.body.identification
+    var username = req.body.username
 
     if(mail && password) {
 
@@ -171,11 +172,16 @@ app.post("/html/log", urlencoder, (req,res) => {
     }
 })
 
+<<<<<<< HEAD
 app.post("/html/logout", (req, res) => {
     console.log("POST /LOGOUT")
 
     res.redirect("/")
 })
+=======
+
+
+>>>>>>> d0d47fa214a995dbcf0ddae1687ec6539b7c580a
 
 app.listen(3000, () => {
     console.log("Listening in port 3000");
