@@ -1,10 +1,10 @@
-const express = require("express");
-const hbs = require("hbs");
-const bodyparser = require("body-parser");
-const session = require("express-session");
-const path = require("path");
-const cookieparser = require("cookie-parser");
-const mongoose = require("mongoose");
+const express = require("express")
+const hbs = require("hbs")
+const bodyparser = require("body-parser")
+const session = require("express-session")
+const path = require("path")
+const cookieparser = require("cookie-parser")
+const mongoose = require("mongoose")
 
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost:27017/UserList", {
@@ -17,7 +17,7 @@ var User = mongoose.model("user", {
     password: String    
 });
 
-const app = express();
+const app = express()
 
 const urlencoder = bodyparser.urlencoded({
     extended: false
@@ -28,19 +28,25 @@ app.use(express.static(__dirname))
 app.set("view engine", "hbs")
 app.use(express.static(__dirname+"/public"))
 
-app.use(cookieparser());
+app.use(cookieparser())
 
 app.get("/", (req, res, next) => {
     console.log("GET /")
 
-    res.sendFile(path.join(__dirname, "../WEBAPDE-MP1/html/index.html"));
-}); 
+    res.render("index.hbs")
+})
+
+app.get("/html/back", (req,res) => {
+    console.log("GET /BACK")
+
+    res.render("index.hbs")
+})
 
 app.get("/html/register", (req, res, next) => {
-    console.log("GET /register")
+    console.log("GET /REGISTER")
 
     res.render("register.hbs")
-});
+})
 
 app.post("/html/add", urlencoder, (req, res) => {
     console.log("POST /ADD")
@@ -94,7 +100,7 @@ app.post("/html/add", urlencoder, (req, res) => {
             big_error: "Incomplete credentials! Please fill out the form again"
         })
     } 
-});
+})
 
 app.post("/html/log", urlencoder, (req,res) => {
     console.log("POST /LOG")
@@ -108,12 +114,18 @@ app.post("/html/log", urlencoder, (req,res) => {
             username: mail
         })
     } else if(mail && !password) {
-
+        res.render("index.hbs", {
+            password_error: "Please enter a password"
+        })
     } else if(!mail && password) {
-
-    } else {}
-    
-
+        res.render("index.hbs", {
+            email_error: "Please enter an email address"
+        })
+    } else {
+        res.render("index.hbs", {
+            big_error: "Please fill out the form"
+        })
+    }
 })
 
 
@@ -121,4 +133,4 @@ app.post("/html/log", urlencoder, (req,res) => {
 
 app.listen(3000, () => {
     console.log("Listening in port 3000");
-});
+})

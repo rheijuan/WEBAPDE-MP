@@ -12,11 +12,30 @@ html, body {
     background-color: white;
 }
 
+.info {
+    width: 50%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    padding-left: 125px;
+    padding-right: 125px;
+    padding-top: 200px;
+    padding-bottom: 200px;
+}
+
+.title {
+    font-size: 30pt;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 20pt;
+}
+
 .ui.secondary.button {
     color: white;
     background-color: green;
     margin: 5px;
-    margin-bottom: 40px;
     width: 490px;
     height: 40px;
     transition: .3s;
@@ -49,4 +68,17 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.error {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 30px;
+    width: 490px;
+    color: #ED2939;
+}
+
+.big.error {
+    margin-bottom: 30px;
 }
