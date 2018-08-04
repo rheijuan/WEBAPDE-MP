@@ -72,6 +72,24 @@ app.get("/reservations", (req, res) => {
     res.render("reservations.hbs")
 })
 
+app.get("/lab1", (req, res)=>{
+    console.log("GET /LAB1")
+    
+    res.render("reserve.hbs")
+})
+
+app.get("/lab2", (req, res)=>{
+    console.log("GET /LAB2")
+    
+    res.render("reserve.hbs")
+})
+
+app.get("/confirm", (req, res)=>{
+    console.log("GET /CONFIRM")
+    
+    res.render("conres.hbs")
+})
+
 app.post("/add", urlencoder, (req, res) => {
     console.log("POST /ADD")
 
