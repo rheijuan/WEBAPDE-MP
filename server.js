@@ -1,3 +1,4 @@
+/**********IMPORTS***********/
 const express = require("express")
 const hbs = require("hbs")
 const bodyparser = require("body-parser")
@@ -5,8 +6,23 @@ const session = require("express-session")
 const path = require("path")
 const cookieparser = require("cookie-parser")
 const mongoose = require("mongoose")
+const details = require("./models/details.js").details
+
+/********** SETUP ***********/
+const app = express()
+
+const urlencoder = bodyparser.urlencoded({
+    extended: false
+});
+
+app.set("view engine", "hbs")
+
+app.use(express.static(__dirname + "/public"))
+app.use(express.static(__dirname))
+
 
 mongoose.Promise = global.Promise;
+
 mongoose.connect("mongodb://localhost:27017/UserList", {
     useNewUrlParser: true
 });
@@ -17,18 +33,9 @@ var User = mongoose.model("user", {
     password: String    
 });
 
-const app = express()
-
-const urlencoder = bodyparser.urlencoded({
-    extended: false
-});
-
-app.use(express.static(__dirname))
-
-app.set("view engine", "hbs")
-app.use(express.static(__dirname+"/public"))
-
 app.use(cookieparser())
+
+/********** ROUTES ***********/
 
 app.get("/", (req, res) => {
     console.log("GET /")
@@ -60,32 +67,26 @@ app.get("/search", (req, res) => {
     res.render("search.hbs")
 })
 
-app.get("/reserve", (req, res) => {
-    console.log("GET /RESERVE")
-
-    res.render("selectLabRm.hbs")
-})
-
 app.get("/reservations", (req, res) => {
     console.log("GET /RESERVATIONS")
 
     res.render("reservations.hbs")
 })
 
-app.get("/lab1", (req, res)=>{
-    console.log("GET /LAB1")
-    
-    res.render("reserve.hbs")
+app.get("/reserve", (req, res) => {
+    console.log("GET /labRoom")
+
+    res.render("selectLabRm.hbs")
 })
 
-app.get("/lab2", (req, res)=>{
-    console.log("GET /LAB2")
+app.get("/lab", (req, res)=>{
+    console.log("GET /resDetails")
     
     res.render("reserve.hbs")
 })
 
 app.get("/confirm", (req, res)=>{
-    console.log("GET /CONFIRM")
+    console.log("GET /confirmRes")
     
     res.render("conres.hbs")
 })
@@ -158,8 +159,9 @@ app.post("/log", urlencoder, (req,res) => {
         }).then((doc) => {
             if(doc) {
                 if(doc.password == password) {
-                    res.render("home.hbs", {
-                        username: doc.username
+                    res.render("tempAdd.hbs", {
+                        username: doc.username,
+                        mail: doc.email
                     })
                 } else {
                     res.render("index.hbs", {
@@ -195,6 +197,45 @@ app.post("/logout", (req, res) => {
 
     res.redirect("/")
 })
+
+app.get("/notif", (req, res)=>{
+    console.log("GET /NOTIF")
+    var email = req.body.email
+    
+    res.render("home.hbs")
+})
+
+/***************ADDING***************/
+
+app.post("/store", urlencoder, (req, res)=>{
+    console.log("POST /STORE")
+    var username = req.body.username
+    var email = req.body.email
+    var labRm = req.body.labRm
+    var seatNo = req.body.seatNo 
+    var date = req.body.date
+    var startTime = req.body.startTime
+    var endTime = req.body.endTime
+    
+    var dets = new details({
+        labRm,
+        seatNo, 
+        date, 
+        startTime, 
+        endTime 
+    })
+    
+    dets.save().then((newDets)=>{
+        console.log("success")
+        res.render("notif.hbs")
+        
+    }, (err)=>{
+        console.log("fail " + err)
+        res.render("index.hbs")
+    })
+})
+
+/************** LISTEN **************/
 
 app.listen(3000, () => {
     console.log("Listening in port 3000");

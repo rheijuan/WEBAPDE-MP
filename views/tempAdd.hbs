@@ -1,0 +1,42 @@
+<html>
+    <head>
+        
+    </head>
+    
+    <body>
+        {{message}}
+        {{error}}
+        
+        <form action="store" method="post">
+        Name: {{username}}<br>
+        Email: {{email}} <br>
+        Lab Room:
+            <input type="number" name="labRm"><br>
+        Seat No:
+            <input type="number" name="seatNo"><br>
+        Date: 
+            <input type="date" name="date"><br>
+        Start Time: 
+            <input type="time" name="startTime"><br>
+        End Time: 
+            <input type="time" name="endTime"><br>
+
+            <input type="submit" value="Add"><br>
+        </form>
+        
+        {{#each details}}
+        <div>
+            Id: {{_id}}<br>
+            Email: {{email}}<br>
+            Lab Room: {{labRm}}<br>
+            Seat No:{{seatNo}}<br>
+            Date: {{date}}<br>
+            Start Time: {{startTime}}<br>
+            End Time: {{endTime}}<br>
+
+            
+        </div>
+        
+        {{/each }}
+    </body>
+</html>
