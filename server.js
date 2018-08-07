@@ -161,7 +161,7 @@ app.post("/log", urlencoder, (req,res) => {
                 if(doc.password == password) {
                     res.render("tempAdd.hbs", {
                         username: doc.username,
-                        mail: doc.email
+                        email: doc.email
                     })
                 } else {
                     res.render("index.hbs", {
@@ -200,8 +200,6 @@ app.post("/logout", (req, res) => {
 
 app.get("/notif", (req, res)=>{
     console.log("GET /NOTIF")
-    var email = req.body.email
-    
     res.render("home.hbs")
 })
 
@@ -227,11 +225,25 @@ app.post("/store", urlencoder, (req, res)=>{
     
     dets.save().then((newDets)=>{
         console.log("success")
-        res.render("notif.hbs")
+        res.render("tempAdd.hbs", {
+            newDets
+        })
         
     }, (err)=>{
         console.log("fail " + err)
         res.render("index.hbs")
+    })
+})
+
+/************** CANCEL **************/
+
+
+app.post("/cancelRes", urlencoder, (req, res)=>{
+    console.log("POST /cancelRes")
+    details.remove({
+        _id : req.body.id
+    }).then(()=>{
+        res.redirect("/")
     })
 })
 
