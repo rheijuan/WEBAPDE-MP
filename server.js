@@ -145,6 +145,12 @@ app.post("/add", urlencoder, (req, res) => {
     } 
 })
 
+app.post("/select", urlencoder, (req, res) => {
+    console.log("POST /select")
+
+    res.render("conres.hbs")
+})
+
 app.post("/log", urlencoder, (req,res) => {
     console.log("POST /LOG")
 
@@ -159,7 +165,7 @@ app.post("/log", urlencoder, (req,res) => {
         }).then((doc) => {
             if(doc) {
                 if(doc.password == password) {
-                    res.render("tempAdd.hbs", {
+                    res.render("home.hbs", {
                         username: doc.username,
                         email: doc.email
                     })
@@ -225,7 +231,7 @@ app.post("/store", urlencoder, (req, res)=>{
     
     dets.save().then((newDets)=>{
         console.log("success")
-        res.render("tempAdd.hbs", {
+        res.render("home.hbs", {
             newDets
         })
         

@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
-    
     <head>
         <link rel="stylesheet" 
               type="text/css" 
               href="../semantic/semantic.min.css">
+        <link rel="stylesheet" 
+              href="../node_modules/semantic-ui-calendar/dist/calendar.min.css" />              
         <link rel="stylesheet"
               type="text/css"
-              href="../css/selectRm.css">
+              href="../css/select.css">
     </head>
 
-    <body> 
+    <body>
         <!-- this is the nav bar part -->
         <div class="header">
             <div class="left">
@@ -34,53 +35,165 @@
                     <input type="submit" class="button" value="Log Out"> 
                 </form>
             </div>
-        </div>     
-        
-        <div class="ui ordered steps">
-          
-          <div class="active step">
-            <div class="content">
-                <div class="title">Laboratory</div>
-              <div class="description">Choose prefered laboratory room</div>
+        </div>       
+
+        <div class="container">
+            <div class="left-container">
+                <div class="date-container">
+                    <div id="date-title"> Select Date</div>
+
+                    <br>
+
+                    <div class="ui calendar" id="date-picker"> </div>
+
+                </div>
+
+                <div class="time-container">
+                    <div id="time-title"> Start Time </div>
+
+                    <div class="ui calendar" id="start-time">
+                        <div class="ui input left icon">
+                            <i class="time icon"></i>
+                            <input type="text" placeholder="Time">
+                        </div>
+                    </div>
+
+                    <div id="time-title"> End Time </div>
+
+                    <div class="ui calendar" id="end-time">
+                        <div class="ui input left icon">
+                            <i class="time icon"></i>
+                            <input type="text" placeholder="Time">
+                        </div>
+                    </div>
+
+                    <div id="time-error"> {{time_error}} </div>
+
+                </div>
+                
             </div>
-          </div>
-          <div class="step">
-                    <div class="content">
-                        <div class="title">Date, Time, and Seat</div>
-                        <div class="description">Choose your preferred laboratory room and time slot</div>
+
+            <div class="right-container">
+                
+                <div class="computer-rows">
+                    <div class="first row">
+                        <div class="computer">
+                            <label> 1 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 2 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 3 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 4 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                    </div>
+                    <div class="second row">
+                        <div class="computer">
+                            <label> 5 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 6 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 7 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 8 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                    </div>
+                    <div class="third row">
+                        <div class="computer">
+                            <label> 9 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 10 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 11 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 12 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                    </div>
+                    <div class="fourth row">
+                        <div class="computer">
+                            <label> 13 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 14 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 15 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 16 </label>
+                            <img src="../img/rentable.png">
+                        </div>                    
+                    </div>
+                    <div class="fifth row">
+                        <div class="computer">
+                            <label> 17 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 18 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 19 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 20   </label>
+                            <img src="../img/rentable.png">
+                        </div>                    
                     </div>
                 </div>
-          <div class="step">
-            <div class="content">
-               <div class="title">Confirm Reservation</div>
+
+                <div class="search-side">
+                    <div class="number-container">
+                        <button class="labNum"> 1 </button>
+                        <button class="labNum"> 2 </button>
+                    </div>
+                    
+                    <form method="POST" action="select"> 
+                        <button id="search-button"> Reserve </button>
+                    </form>
+                </div>
             </div>
-          </div>
         </div>
-        
-        <div class="ui segment">
-<<<<<<< HEAD
-            <p>
-            <button method="GET" action="lab1"
-                    id="lab1" 
-                    class="ui button">Laboratory 1</button>    
-            </p>
-            <button id="lab2" class="ui button">Laboratory 2</button>  
-=======
-            <form action="lab" method="get">
-                <button id="lab1" class="ui button">Laboratory 1</button>    
-            </form>
-            <form action="lab" method="get">
-                <button id="lab2" class="ui button">Laboratory 2</button>  
-            </form>
->>>>>>> 4b042fa14d32ada7611599e27cfbf147b881d408
-        </div>
+
         
     </body>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            type="text/javascript"
             integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
             crossorigin="anonymous">
     </script>
-
-    <script src="../semantic/semantic.min.js"></script>
+    <script type="text/javascript"
+            src="../semantic/semantic.min.js"></script>
+    <script type="text/javascript" 
+            src="../node_modules/semantic-ui-calendar/dist/calendar.min.js"></script>
+    <script type="text/javascript" 
+            src="../js/reserve.js"></script>
+            
 </html>
