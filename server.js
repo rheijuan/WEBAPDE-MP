@@ -42,16 +42,16 @@ app.get("/", (req, res) => {
     res.render("index.hbs")
 })
 
+app.get("/register.html", (req,res) => {
+    console.log("GET /register")
+
+    res.render("register.hbs")
+})
+
 app.get("/back", (req,res) => {
     console.log("GET /BACK")
 
     res.render("index.hbs")
-})
-
-app.get("/register", (req, res) => {
-    console.log("GET /REGISTER")
-
-    res.render("register.hbs")
 })
 
 app.get("/home", (req, res) => {
@@ -144,6 +144,12 @@ app.post("/add", urlencoder, (req, res) => {
     } 
 })
 
+app.post("/select", urlencoder, (req, res) => {
+    console.log("POST /select")
+
+    res.render("conres.hbs")
+})
+
 app.post("/log", urlencoder, (req,res) => {
     console.log("POST /LOG")
 
@@ -158,7 +164,7 @@ app.post("/log", urlencoder, (req,res) => {
         }).then((doc) => {
             if(doc) {
                 if(doc.password == password) {
-                    res.render("tempAdd.hbs", {
+                    res.render("home.hbs", {
                         username: doc.username,
                         email: doc.email
                     })
@@ -224,7 +230,7 @@ app.post("/store", urlencoder, (req, res)=>{
     
     dets.save().then((newDets)=>{
         console.log("success")
-        res.render("tempAdd.hbs", {
+        res.render("home.hbs", {
             newDets
         })
         

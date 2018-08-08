@@ -4,6 +4,8 @@
         <link rel="stylesheet" 
               type="text/css" 
               href="../semantic/semantic.min.css">
+        <link rel="stylesheet" 
+              href="../node_modules/semantic-ui-calendar/dist/calendar.min.css" />              
         <link rel="stylesheet"
               type="text/css"
               href="../css/search.css">
@@ -33,193 +35,159 @@
                     <input type="submit" class="button" value="Log Out"> 
                 </form>
             </div>
-        </div>        
+        </div>       
 
-        <div class="reserve-container">
-            <div class="datetimeslot">
-                <div id="time-title">
-                    Select Date
+        <div class="container">
+            <div class="left-container">
+                <div class="date-container">
+                    <div id="date-title"> Select Date</div>
+
+                    <br>
+
+                    <div class="ui calendar" id="date-picker"> </div>
+
+                </div>
+
+                <div class="time-container">
+                    <div id="time-title"> Start Time </div>
+
+                    <div class="ui calendar" id="start-time">
+                        <div class="ui input left icon">
+                            <i class="time icon"></i>
+                            <input type="text" placeholder="Time">
+                        </div>
+                    </div>
+
+                    <div id="time-title"> End Time </div>
+
+                    <div class="ui calendar" id="end-time">
+                        <div class="ui input left icon">
+                            <i class="time icon"></i>
+                            <input type="text" placeholder="Time">
+                        </div>
+                    </div>
+
+                    <div id="time-error"> {{time_error}} </div>
+
                 </div>
                 
-                <div class="dt-container">
-                    <input type="date">
-                </div>
-
-                <div id="time-title">
-                    Select Time
-                </div>
-
-                <div class="dt-container">
-                    <span>Start: </span><input type="time">
-                    <span>End: </span><input type="time">
-                </div>
             </div>
 
-            <div class="slots">
-                <br>
-                <br>
-                <table id="table-slot">
-                    <tr>
-                        <td>
-                            <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                1</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                6</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                11</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                16</div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                       <td><div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                2</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                7</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                12</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                17</div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                       <td>
-                           <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                3</div>
-                           </div>
-                        </td>
-                        <td>
-                            <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                8</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                13</div>
-                             </div>
-                        </td>
-                        <td>
-                            <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                18</div>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                       <td>
-                           <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                4</div>
-                           </div>
-                        </td>
-                        <td>
-                            <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                9</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                14</div>
-                             </div>
-                        </td>
-                        <td>
-                            <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                19</div>
-                            </div>
-                        </td>
-                    </tr>
-                   <tr>
-                       <td>
-                           <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                5</div>
-                           </div>
-                        </td>
-                        <td>
-                            <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                10</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                15</div>
-                             </div>
-                        </td>
-                        <td>
-                            <div class="ui animated button" tabindex="0">
-                              <div class="visible content"><i class="computer icon"></i></div>
-                              <div class="hidden content">
-                                20</div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            
-            <br>
-            <br>
-            <br>
-            
-            <button id="resbtn" class="ui primary button" style="float:right;">Search</button>
+            <div class="right-container">
+                
+                <div class="computer-rows">
+                    <div class="first row">
+                        <div class="computer">
+                            <label> 1 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 2 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 3 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 4 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                    </div>
+                    <div class="second row">
+                        <div class="computer">
+                            <label> 5 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 6 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 7 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 8 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                    </div>
+                    <div class="third row">
+                        <div class="computer">
+                            <label> 9 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 10 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 11 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 12 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                    </div>
+                    <div class="fourth row">
+                        <div class="computer">
+                            <label> 13 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 14 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 15 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 16 </label>
+                            <img src="../img/rentable.png">
+                        </div>                    
+                    </div>
+                    <div class="fifth row">
+                        <div class="computer">
+                            <label> 17 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 18 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 19 </label>
+                            <img src="../img/rentable.png">
+                        </div>
+                        <div class="computer">
+                            <label> 20   </label>
+                            <img src="../img/rentable.png">
+                        </div>                    
+                    </div>
+                </div>
+
+                <div class="search-side">
+
+                    <button id="search-button"> Search </button>
+                </div>
             </div>
         </div>
+
         
     </body>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            type="text/javascript"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+    </script>
+    <script type="text/javascript"
+            src="../semantic/semantic.min.js"></script>
     <script type="text/javascript" 
-            src="../js/reservations.js"></script> 
+            src="../node_modules/semantic-ui-calendar/dist/calendar.min.js"></script>
+    <script type="text/javascript" 
+            src="../js/reserve.js"></script>
             
 </html>
