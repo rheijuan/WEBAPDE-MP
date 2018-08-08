@@ -11,90 +11,60 @@
 
     <body> 
         <!-- this is the nav bar part -->
-            <div class="header">
-                <div class="left">
-                    <div id="logo">LAB.RES.SYS</div>
-                    
-                    <form method="GET" action="home"> 
-                        <input type="submit" class="button" value="Home"> 
-                    </form>
-                    {{!-- <form method="GET" action="/html/about"> 
-                        <input type="submit" class="button" value="About"> 
-                    </form>
-                    <form method="GET" action="/html/faqs"> 
-                        <input type="submit" class="button" value="FAQs"> 
-                    </form> --}}
-                </div>
-                <div class="right">
-                    <form>
-                        <div class="right-item">{{username}}</div>
-                    </form>
-                    <form method="POST" action="logout"> 
-                        <input type="submit" class="button" value="Log Out"> 
-                    </form>
-                </div>
-            </div>    
-        
-        
-        <div class="ui ordered steps">
-          
-          <div class="completed step">
-            <div class="content">
-                <div class="title">Laboratory</div>
-              <div class="description">Choose prefered laboratory room</div>
+        <div class="header">
+            <div class="left">
+                <div id="logo">LAB.RES.SYS</div>
+                <form method="GET" action="home"> 
+                    <input type="submit" class="button" value="Home"> 
+                </form>
+                {{!-- <form method="GET" action="/html/about"> 
+                    <input type="submit" class="button" value="About"> 
+                </form>
+                <form method="GET" action="/html/faqs"> 
+                    <input type="submit" class="button" value="FAQs"> 
+                </form> --}}
             </div>
-          </div>
-          <div class="completed step">
-                    <div class="content">
-                        <div class="title">Date, Time, and Seat</div>
-                        <div class="description">Choose your preferred laboratory room and time slot</div>
-                    </div>
-                </div>   
-          <div class="active step">
-            <div class="content">
-               <div class="title">Confirm Reservation</div>
+            <div class="right">
+                <form>
+                    <div class="right-item">{{username}}</div>
+                </form>
+                <form method="POST" action="logout"> 
+                    <input type="submit" class="button" value="Log Out"> 
+                </form>
             </div>
-          </div>
         </div>
-        
-        
-        <div class="ui segment">
-            
-                <div class="header">
-                    <h2>Your Reservation</h2>
-                    Confirm the information displayed below. This will be used to make your reservation.
-                </div>
-                <div class="body">
-                    <p>
-                        <p><text class="label">Name: </text>
-                        <text class="labelval">Lolo Mo</text></p>
-                        
-                        <p><text class="label">Email Address: </text>
-                        <text class="labelval">lolo_mo@dlsu.edu.ph</text></p>
-                        
-                        <p><text class="label">Laboratory Room: </text>
-                        <text class="labelval">2</text></p>
-                        
-                        <p><text class="label">Date: </text>
-                        <text class="labelval">July 11, 2018</text></p>
-                        
-                        <p><text class="label">Start Time: </text>
-                        <text class="labelval">12:30</text></p>
-                    
-                        <p><text class="label">End Time: </text>
-                        <text class="labelval">14:30</text></p>
-                    </p>
-                </div>
-                <div class="footer">
-                    <p>
-                     <form action="/lab" method="get"  >  
-                         <button id="prevbtn" class="ui button">Back</button></form>
-                    <form action="/home" method="get"  >  
-                        <button id="confbtn" class="ui primary button" style="float:right;">Confirm</button>
+
+        <div class="details-container">
+            <div class="details">
+                <div class="small">
+                    <h1 class="text"> Your Reservation </h1> 
+                    <h3 class="text"> Confirm the information displayed below. 
+                    This will be used to make your reservation.</h3>
+
+                    <h4 class="text"> Name: Dummy Data </h4>      
+                    <h4 class="text"> Email Address: dummy_data@dlsu.edu.ph </h4> 
+                    <h4 class="text"> Laboratory Room: 1 </h4> 
+                    <h4 class="text"> Laboratory Seat: 12 </h4>
+                    <h4 class="text"> Date: July 11, 2018 </h4>  
+                    <h4 class="text"> Start Time: 8:00 AM </h4> 
+                    <h4 class="text"> End Time: 12:00 PM </h4> 
+                    <h4 class="text"> Name: Dummy Data </h4>
+
+                    <div class="buttons">
+                        <form method="POST" action="okay">
+                            <button class="bbutton"> Reserve </button>
                         </form>
-                    </p>
-                </div>    
-        </div> 
+
+                        <form method="GET" action="backselect"> 
+                            <button class="bbutton"> Cancel </button>
+                        </form> 
+                    </div>
+                </div>
+            </div>
+            
+            
+
+        </div>    
         
     </body>
 
