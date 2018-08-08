@@ -101,9 +101,7 @@ app.post("/okay", (req,res) => {
 
     res.render("home.hbs")
 })
-/*
 
-//Register function
 app.post("/add", urlencoder, (req, res) => {
     console.log("POST /ADD")
 
@@ -157,7 +155,6 @@ app.post("/add", urlencoder, (req, res) => {
         })
     } 
 })
-*/
 
 app.post("/select", urlencoder, (req, res) => {
     console.log("POST /select")

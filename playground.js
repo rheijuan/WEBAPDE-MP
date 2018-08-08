@@ -11,91 +11,108 @@ mongoose.connect("mongodb://localhost:27017/ReservationList", {
 });
 
 var User = mongoose.model("user", {
+    id: Number,
     username: String,
     email: String,
     password: String,
-    
+    reservations: Array
 });
 
 var Reservation = mongoose.model("reservation", {
-    startTimeHour: Number,
-    startTimeMin: Number,
-    endTimeHour: Number,
-    endTimeMin: Number,
-
+    room: Number,
+    seat: Number,
+    startTime: String,
+    endTime: String,
+    date: Date,
+    user_id: Number
 })
 
 /** USER DATABASE **/
 
-/** RESERVATION DATABASE **/
-
-    
-=======
 // CREATE
-User.save().then((user) => {
-    console.log("Successfully added: " + user)
-}, (error) => {
-    console.log(error)
-})
+function addUser(user) {
+    user.save().then((doc) => {
+        console.log("Successfully added: " + doc)
+    }, (error) => {
+        console.log(error)
+    })
+}
 
 // READ
-User.find({
-    email,
-}).then((users) => {
-    console.log(users)
-}, (error) => {
-    console.log(error)
-})
+function findUser(id) {
+    User.find({
+        id,
+    }).then((users) => {
+        console.log(users)
+    }, (error) => {
+        console.log(error)
+    })
+}
 
 // UPDATE
-User.findOneAndUpdate({
-    email,
-}).then((updatedUser) => {
-    console.log("Updated user: " + JSON.stringify(updatedUser))
-}, (error) => {
-    console.log(error)
-})
+function updateUser(id, update) {
+    User.findOneAndUpdate({
+        id,
+        username: update,
+    }).then((updatedUser) => {
+        console.log("Updated user: " + JSON.stringify(updatedUser))
+    }, (error) => {
+        console.log(error)
+    })
+}
 
 // DELETE
-User.deleteOne({
-    email,
-}).then((user) => {
-    console.log("Deleted " + user.username + " user")
-}, (error) => {
-    console.log(error)
-})
+function deleteUser(id) {
+    User.deleteOne({
+        id,
+    }).then((user) => {
+        console.log("Deleted " + user.username + " user")
+    }, (error) => {
+        console.log(error)
+    })
+}
+
 
 /** RESERVATION DATABASE **/
 // CREATE
-Reservation.save().then((reservation) => {
-    console.log("Successfully added: " + reservation)
-}, (error) => {
-    console.log(error)
-})
+function addReservation(reservation) {
+    reservation.save().then((doc) => {
+        console.log("Successfully added " + doc)
+    }, (error) => {
+        console.log(error)
+    })
+}
 
 // READ
-Reservation.find({
-    _id: "",
-}).then((reservations) => {
-    console.log(reservations)
-}, (error) => {
-    console.log(error)
-})
+function findReservation(id) {
+    Reservation.find({
+        _id: id,
+    }).then((reservations) => {
+        console.log(reservations)
+    }, (error) => {
+        console.log(error)
+    })
+}
 
 // UPDATE
-Reservation.findOneAndUpdate({
-    _id: "",
-}).then((updatedReservation) => {
-    console.log("Updated user: " + JSON.stringify(updatedReservation))
-}, (error) => {
-    console.log(error)
-})
+function updateReservation(id, update) {
+    Reservation.findOneAndUpdate({
+        _id: id,
+        room: update,
+    }).then((updatedReservation) => {
+        console.log("Updated user: " + JSON.stringify(updatedReservation))
+    }, (error) => {
+        console.log(error)
+    })
+}
 
 // DELETE
-Reservation.deleteOne({
-    _id: "",
-}).then((reservation) => {
-    console.log("Deleted reservation of user" + reservation.startTimeHour)
-}, (error) => {
-    console.log(error)
-})
+function deleteReservation(id) {
+    Reservation.deleteOne({
+        _id: id,
+    }).then((reservation) => {
+        console.log("Deleted reservation " + reservation)
+    }, (error) => {
+        console.log(error)
+    })
+}
