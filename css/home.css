@@ -145,9 +145,16 @@ li:hover {
     width: auto;
     color: white;
     font-size: 20px;
-
 }
 
 a, a:hover { 
     color: white;
+}
+
+label {
+    font-weight: bold;
+}
+
+p {
+    font-size: 12pt;
 }

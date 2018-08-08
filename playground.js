@@ -2,11 +2,11 @@
  * to the CRUD operations of the 2 databases**/
 const mongoose = require("mongoose")
 
-mongoose.connect("mongodb://localhost:27017/Users", {
+mongoose.connect("mongodb://localhost:27017/UserList", {
     useNewUrlParser: true
 });
 
-mongoose.connect("mongodb://localhost:27017/Users", {
+mongoose.connect("mongodb://localhost:27017/ReservationList", {
     useNewUrlParser: true
 });
 
@@ -24,6 +24,7 @@ var Reservation = mongoose.model("reservation", {
     endTimeMin: Number,
 
 })
+
 /** USER DATABASE **/
 // CREATE
 User.save().then((user) => {
