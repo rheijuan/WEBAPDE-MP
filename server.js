@@ -20,7 +20,6 @@ app.set("view engine", "hbs")
 app.use(express.static(__dirname + "/public"))
 app.use(express.static(__dirname))
 
-
 mongoose.Promise = global.Promise;
 
 mongoose.connect("mongodb://localhost:27017/UserList", {
@@ -254,7 +253,6 @@ app.post("/store", urlencoder, (req, res)=>{
 })
 
 /************** CANCEL **************/
-
 
 app.post("/cancelRes", urlencoder, (req, res)=>{
     console.log("POST /cancelRes")

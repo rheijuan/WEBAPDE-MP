@@ -1,6 +1,14 @@
 const mongoose = require("mongoose")
 
 var detailsSchema = mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
     labRm: {
         type: Number,
         required: true
