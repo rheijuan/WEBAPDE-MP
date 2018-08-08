@@ -101,7 +101,9 @@ app.post("/okay", (req,res) => {
 
     res.render("home.hbs")
 })
+/*
 
+//Register function
 app.post("/add", urlencoder, (req, res) => {
     console.log("POST /ADD")
 
@@ -155,6 +157,7 @@ app.post("/add", urlencoder, (req, res) => {
         })
     } 
 })
+*/
 
 app.post("/select", urlencoder, (req, res) => {
     console.log("POST /select")
@@ -162,6 +165,7 @@ app.post("/select", urlencoder, (req, res) => {
     res.render("conres.hbs")
 })
 
+//Log-In function
 app.post("/log", urlencoder, (req,res) => {
     console.log("POST /LOG")
 
@@ -220,7 +224,7 @@ app.get("/notif", (req, res)=>{
     res.render("home.hbs")
 })
 
-/***************ADDING***************/
+
 
 app.post("/store", urlencoder, (req, res)=>{
     console.log("POST /STORE")
@@ -233,6 +237,8 @@ app.post("/store", urlencoder, (req, res)=>{
     var endTime = req.body.endTime
     
     var dets = new details({
+        name: username,
+        email,
         labRm,
         seatNo, 
         date, 
@@ -243,12 +249,12 @@ app.post("/store", urlencoder, (req, res)=>{
     dets.save().then((newDets)=>{
         console.log("success")
         res.render("home.hbs", {
-            newDets
+            username
         })
         
     }, (err)=>{
         console.log("fail " + err)
-        res.render("index.hbs")
+        res.render("tempAdd.hbs")
     })
 })
 
