@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <script src="jquery-3.3.1.js"></script>
+        <script>
+            $(document).ready(function(){
+                //detect if user clicks on button.delete
+                $("button.cancel").click(function(){ //arrow functions dont scope down "this" variable. "this" will be the parent for =>{} 
+                    // get attr data-id from the clicked button
+                    var id = $(this).attr("data-id") // convert js object to jquery obj
+                    // place data-id into input#deleteid
+                    $("input#cancelres").val(id)
+                    //submit the form#deleteform
+                    $("form#cancelform").submit()
+                })
+            })
+        </script>
+    </head>
+    
+    <body>
+        {{message}}
+        {{error}}
+        
+        <form action="store" method="post">
+        Name: {{username}}<br>
+        Email: {{email}} <br>
+        Lab Room:
+            <input type="number" name="labRm"><br>
+        Seat No:
+            <input type="number" name="seatNo"><br>
+        Date: 
+            <input type="date" name="date"><br>
+        Start Time: 
+            <input type="time" name="startTime"><br>
+        End Time: 
+            <input type="time" name="endTime"><br>
+
+            <input type="submit" value="Add"><br>
+        </form>
+        <form id="cancelform" action="cancelRes" method="POST">
+            <input id="cancelres" type="hidden" value="{{_id}}" name="id">
+        </form>
+        
+        {{#each newDets}}
+        <div>
+            Id: {{_id}}<br>
+            Email: {{email}}<br>
+            Lab Room: {{labRm}}<br>
+            Seat No:{{seatNo}}<br>
+            Date: {{date}}<br>
+            Start Time: {{startTime}}<br>
+            End Time: {{endTime}}<br>
+            <button class="cancel" data-id="{{_id}}">Delete</button>
+
+        </div>
+        
+        {{/each }}
+    </body>
+</html>
