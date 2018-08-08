@@ -36,16 +36,16 @@ app.get("/", (req, res) => {
     res.render("index.hbs")
 })
 
+app.get("/register.html", (req,res) => {
+    console.log("GET /register")
+
+    res.render("register.hbs")
+})
+
 app.get("/back", (req,res) => {
     console.log("GET /BACK")
 
     res.render("index.hbs")
-})
-
-app.get("/register", (req, res) => {
-    console.log("GET /REGISTER")
-
-    res.render("register.hbs")
 })
 
 app.get("/home", (req, res) => {

@@ -1,5 +1,23 @@
 html, body {
     background-color: #121212;
+    height: 90vh;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+}
+
+.left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
 }
 
 #logo {
@@ -9,51 +27,6 @@ html, body {
     padding: 20px;
     display: inline-block;
     vertical-align: middle;
-}
-
-.header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    font-size: 20px;
-    vertical-align: middle;
-}
-
-li {
-    color: white;
-    display: inline-block;
-    position: relative;
-    padding: 10px;
-    transition: 0.3s;
-}
-
-li:hover {
-    background-color: #50c878;
-    cursor: pointer; 
-}
-
-.right {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    width: 50%;
-}
-
-.left {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 50%;
 }
 
 .button {
@@ -72,48 +45,12 @@ li:hover {
     cursor: pointer;
 }
 
-a, a:hover { 
-    color: white;
-}
-
-
-html, body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212;
-    height: 90vh;
-}
-
-#logo {
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    font-size: 20px;
-    vertical-align: middle;
-}
-
-li {
-    color: white;
-    display: inline-block;
-    position: relative;
-    padding: 10px;
-    transition: 0.3s;
-}
-
-li:hover {
-    background-color: #50c878;
-    cursor: pointer; 
+.right {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
 }
 
 .right-item-button, .right-item {
@@ -130,46 +67,59 @@ li:hover {
     cursor: pointer;
 }
 
-a, a:hover { 
-    color: white;
-}
-
-.steps-container {
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-}
-
 .reserve-container {
-    width: 1224.46px;
-    height: 550px;
-    background-color: whitesmoke;
-    position: relative;
-    top: 30px;
-    margin: 0 auto;
+    height: 100%;
+    width: 100%;
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
     flex-direction: row;
 }
 
-.datetimeslot {
+.left-container {
     background-color: whitesmoke;
-    height: inherit;
+    height: 90%;
     width: 20%;
-    position: relative;
-    border-right-color: #121212;
-    border-right-style: solid;
-    border-right-width: 5px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.slots {
-    background-color: whitesmoke;
-    height: inherit;
-    width: 80%;
-    float: right;
-    position: relative;
+.date-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.time-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 85%;
+    padding-bottom: 50px;
+}
+
+#date-title {
+    padding-left: 30px;
+    padding-top: 30px;
+    font-weight: bold;
+    font-size: 20pt;
+    margin-top: 10px;
+}
+
+#date-picker {
     padding: 20px;
-    align-content: center;
-    align-items: center;
 }
 
 #time-title {
@@ -178,39 +128,61 @@ a, a:hover {
     font-size: 20pt;
 }
 
-.dt-container {
-    padding: 15px;
-    font-size: 15pt;
-    font-weight: bold;
+#time-error {
+    height: 20%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ED2939;
+    margin: 1px;
 }
 
-
-#table-slot{
-    margin-left: 0%;
-    margin-top: 2%;
-    margin: 0 auto;
+.right-container {
+    background-color: whitesmoke;
+    height: 90%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }
 
-.slot {
-    background-color: gray;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20pt;
-    margin: 4px 2px;
+.computer-rows {
+    height: 90%;
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.computer {
+    display: flex;
+    flex-direction: row;
     cursor: pointer;
 }
 
-.filler {
-   border: none;
-   padding: 15px 32px;
-   text-align: center;
-   text-decoration: none;
-   display: inline-block;
-   font-size: 20pt;
-   margin: 4px 2px;
+.search-side {
+    height: 75%;
+    width: 15%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
 }
 
+#search-button {
+    color: white;
+    background-color: green;
+    border: none;
+    height: 50px;
+    width: 100px;
+    cursor: pointer;
+    border-radius: 5px;
+}
