@@ -1,13 +1,15 @@
-#header {
-    color: black; 
-    display: flex;
-    flex:1;
-    justify-content: center;
+html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    height: 89vh;
 }
 
-
-body{
-    background-color: black;
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .navigation {
@@ -19,12 +21,17 @@ body{
 
 .left {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
 }
 
 .right {
     display: flex;
-    flex: 1;
+    flex-direction: row;
     justify-content: flex-end;
+    align-items: center;
+    width: 50%;
 }
 
 .text {
@@ -82,15 +89,6 @@ justify-content: center;
 
 #nextbtn{
     margin-left: 50%;
-}
-
-#logo {
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    padding: 20px;
-    display: inline-block;
-    vertical-align: middle;
 }
 
 ul {
@@ -154,7 +152,9 @@ a, a:hover {
     color: white;
     font-size: 30px;
     font-weight: bold;
-    padding: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     display: inline-block;
     vertical-align: middle;
 }
@@ -187,17 +187,18 @@ a, a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90%;
+    height: 95%;
     width: 100%;
 }
 
 .details {
-    height: 85%;
+    height: 100%;
     width: 50%;
     background-color: whitesmoke;
     border-radius: 5px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    padding: 20px;
 }
 
 .text {
@@ -208,22 +209,25 @@ a, a:hover {
     height: 100%;
     width: 100%;
     display: flex;
-
-    flex-direction: column
+    flex-direction: column;
 }
 
 .buttons {
-    margin: 5px;
+    margin: 20px;
+    margin-left: 10;
     display: flex;
     flex-direction: row;
 }
 
-.bbutton {
-    margin: 5px;
-    background-color: green;
-    color: white;
-    border: none;
-    height: 30px;
-    width: 70px;
-    cursor: pointer;
+h1 {
+    font-size: 25pt;
+}
+
+p {
+    font-size: 12pt;
+    font-weight: normal;
+}
+
+p.blurb {
+    padding-left: 15px;
 }

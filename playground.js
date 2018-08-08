@@ -1,101 +1,101 @@
 /** This file contains the functions 
  * to the CRUD operations of the 2 databases**/
+const mongoose = require("mongoose")
 
+mongoose.connect("mongodb://localhost:27017/UserList", {
+    useNewUrlParser: true
+});
 
-/** USER DATABASE **/
-//Register function
-app.post("/add", urlencoder, (req, res) => {
-    console.log("POST /ADD")
+mongoose.connect("mongodb://localhost:27017/ReservationList", {
+    useNewUrlParser: true
+});
 
-    var username = req.body.username
-    var mail = req.body.email
-    var password = req.body.identification
+var User = mongoose.model("user", {
+    username: String,
+    email: String,
+    password: String,
     
-    if(mail && password && username) {
+});
 
-        User.find({
-            username,
-            email: mail
-        }).then((doc) => {
-            if(doc.length == 0) {
-                var newUser = new User({
-                    username,
-                    email: mail,
-                    password
-                })
+var Reservation = mongoose.model("reservation", {
+    startTimeHour: Number,
+    startTimeMin: Number,
+    endTimeHour: Number,
+    endTimeMin: Number,
 
-                newUser.save().then(() => {
-                    console.log("A new user has been added")
-                    res.redirect("/")
-                }, (error) => {
-                    console.log(error)
-                })
-
-            } else {
-                res.render("register.hbs", {
-                    big_error: "Email/ Username is already in use"
-                })
-            }
-        }, (error) => {
-            console.log(error)
-        })
-    } else if(mail && password && !username) {
-        res.render("register.hbs", {
-            username_error: "Please enter a username"
-        })
-    } else if(mail && !password && username) {
-        res.render("register.hbs", {
-            password_error: "Please enter a password"
-        })
-    } else if(!mail && password && username) {
-        res.render("register.hbs", {
-            email_error: "Please enter an email"
-        })
-    } else {
-        res.render("register.hbs", {
-            big_error: "Incomplete credentials! Please accomplish all fields"
-        })
-    } 
 })
 
-
+/** USER DATABASE **/
 
 /** RESERVATION DATABASE **/
 
-
-app.post("/store", urlencoder, (req, res)=>{
-    console.log("POST /STORE")
-    var username = req.body.username
-    var email = req.body.email
-    var labRm = req.body.labRm
-    var seatNo = req.body.seatNo 
-    var date = req.body.date
-    var startTime = req.body.startTime
-    var endTime = req.body.endTime
     
-    var dets = new details({
-        name: username,
-        email,
-        labRm,
-        seatNo, 
-        date, 
-        startTime, 
-        endTime 
-    })
-    
-    dets.save().then((newDets)=>{
-        console.log("success")
-        res.render("home.hbs", {
-            username
-        })
-        
-    }, (err)=>{
-        console.log("fail " + err)
-        res.render("tempAdd.hbs")
-    })
+=======
+// CREATE
+User.save().then((user) => {
+    console.log("Successfully added: " + user)
+}, (error) => {
+    console.log(error)
 })
 
-/************** CANCEL **************/
+// READ
+User.find({
+    email,
+}).then((users) => {
+    console.log(users)
+}, (error) => {
+    console.log(error)
+})
 
-app.post("/cancelRes", urlencoder, (req, res)=>{
-    
+// UPDATE
+User.findOneAndUpdate({
+    email,
+}).then((updatedUser) => {
+    console.log("Updated user: " + JSON.stringify(updatedUser))
+}, (error) => {
+    console.log(error)
+})
+
+// DELETE
+User.deleteOne({
+    email,
+}).then((user) => {
+    console.log("Deleted " + user.username + " user")
+}, (error) => {
+    console.log(error)
+})
+
+/** RESERVATION DATABASE **/
+// CREATE
+Reservation.save().then((reservation) => {
+    console.log("Successfully added: " + reservation)
+}, (error) => {
+    console.log(error)
+})
+
+// READ
+Reservation.find({
+    _id: "",
+}).then((reservations) => {
+    console.log(reservations)
+}, (error) => {
+    console.log(error)
+})
+
+// UPDATE
+Reservation.findOneAndUpdate({
+    _id: "",
+}).then((updatedReservation) => {
+    console.log("Updated user: " + JSON.stringify(updatedReservation))
+}, (error) => {
+    console.log(error)
+})
+
+// DELETE
+Reservation.deleteOne({
+    _id: "",
+}).then((reservation) => {
+    console.log("Deleted reservation of user" + reservation.startTimeHour)
+}, (error) => {
+    console.log(error)
+})

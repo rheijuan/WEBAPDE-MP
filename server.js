@@ -29,7 +29,7 @@ mongoose.connect("mongodb://localhost:27017/UserList", {
 var User = mongoose.model("user", {
     username: String,
     email: String,
-    password: String    
+    password: String
 });
 
 app.use(cookieparser())
