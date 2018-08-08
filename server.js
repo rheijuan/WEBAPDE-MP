@@ -90,6 +90,18 @@ app.get("/confirm", (req, res)=>{
     res.render("conres.hbs")
 })
 
+app.get("/backselect", (req, res) => {
+    console.log("GET /backselect")
+
+    res.render("selectLabRm.hbs")
+})
+
+app.post("/okay", (req,res) => {
+    console.log("POST /okay")
+
+    res.render("home.hbs")
+})
+
 app.post("/add", urlencoder, (req, res) => {
     console.log("POST /ADD")
 
