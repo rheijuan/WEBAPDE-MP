@@ -15,7 +15,9 @@ var User = mongoose.model("user", {
     username: String,
     email: String,
     password: String,
-    reservations: Array
+    reservations: [
+         ReservationSchema
+    ]
 });
 
 var Reservation = mongoose.model("reservation", {
@@ -65,8 +67,8 @@ function updateUser(id, update) {
 function deleteUser(id) {
     User.deleteOne({
         id,
-    }).then((user) => {
-        console.log("Deleted " + user.username + " user")
+    }).then(() => {
+        console.log("Deleted user")
     }, (error) => {
         console.log(error)
     })
@@ -86,7 +88,7 @@ function addReservation(reservation) {
 // READ
 function findReservation(id) {
     Reservation.find({
-        _id: id,
+        user_id: id,
     }).then((reservations) => {
         console.log(reservations)
     }, (error) => {
@@ -97,7 +99,7 @@ function findReservation(id) {
 // UPDATE
 function updateReservation(id, update) {
     Reservation.findOneAndUpdate({
-        _id: id,
+        user_id: id,
         room: update,
     }).then((updatedReservation) => {
         console.log("Updated user: " + JSON.stringify(updatedReservation))
@@ -109,10 +111,79 @@ function updateReservation(id, update) {
 // DELETE
 function deleteReservation(id) {
     Reservation.deleteOne({
-        _id: id,
-    }).then((reservation) => {
-        console.log("Deleted reservation " + reservation)
+        user_id: id,
+    }).then(() => {
+        console.log("Deleted reservation")
     }, (error) => {
         console.log(error)
     })
 }
+
+// sample code for adding a user    
+// addUser(new User ({
+//     id: 45,
+//     username: "Dummy",
+//     email: "something@gmail.com",
+//     password: "string",
+// }))
+
+// addUser(new User ({
+//     id: 25,
+//     username: "Hello",
+//     email: "hello@gmail.com",
+//     password: "sampledata",
+// }))
+
+// addUser(new User ({
+//     id: 54,
+//     username: "Hi",
+//     email: "elloh@gmail.com",
+//     password: "eksdee",
+// }))
+
+// sample code for deleting a user
+// deleteUser(25)
+
+// // sample code for searching for a user
+// findUser(54)
+
+// // sample code for updating a user account
+// updateUser(25, "HelloPo")
+
+// sample code for adding a reservation 
+// addReservation(new Reservation({
+//     room: 2,
+//     seat: 13,
+//     startTime: "0800",
+//     endTime: "0900",
+//     Date: "Jan 1, 2018",
+//     user_id: 34567890
+// }))
+
+// addReservation(new Reservation({
+//     room: 1,
+//     seat: 17,
+//     startTime: "1400",
+//     endTime: "1600",
+//     Date: "Aug 16, 2018",
+//     user_id: 2685412
+// }))
+
+// addReservation(new Reservation({
+//     room: 2,
+//     seat: 20,
+//     startTime: "1000",
+//     endTime: "1200",
+//     Date: "Jun 14, 2018",
+//     user_id: 3468485310
+// }))
+
+
+// sample code for deleting a reservation
+// deleteReservation(3468485310)
+
+// // sample code for searching for a user
+// findReservation(2685412)
+
+// // sample code for updating a reservation
+// updateUser(34567890, 1)
