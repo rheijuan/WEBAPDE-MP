@@ -222,6 +222,7 @@ app.get("/notif", (req, res)=>{
 })
 
 
+/*
 
 app.post("/store", urlencoder, (req, res)=>{
     console.log("POST /STORE")
@@ -255,7 +256,7 @@ app.post("/store", urlencoder, (req, res)=>{
     })
 })
 
-/************** CANCEL **************/
+************* CANCEL *************
 
 app.post("/cancelRes", urlencoder, (req, res)=>{
     console.log("POST /cancelRes")
@@ -265,6 +266,7 @@ app.post("/cancelRes", urlencoder, (req, res)=>{
         res.redirect("/")
     })
 })
+*/
 
 /************** LISTEN **************/
 
