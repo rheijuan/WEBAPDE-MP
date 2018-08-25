@@ -32,6 +32,17 @@ var User = mongoose.model("user", {
     password: String
 });
 
+
+app.use(session({
+    secret : "labressysSecret",
+    name : "labressys",
+    resave: true,
+    saveUninitialized : true,
+    cookie: {
+        maxAge:1000*60*60*24*7*3,
+    }
+}))
+
 app.use(cookieparser())
 
 /********** ROUTES ***********/
@@ -176,7 +187,10 @@ app.post("/log", urlencoder, (req,res) => {
             email: mail
         }).then((doc) => {
             if(doc) {
+                
                 if(doc.password == password) {
+                    req.session.email = mail
+                    req.session.username = username
                     res.render("home.hbs", {
                         username: doc.username,
                         email: doc.email
@@ -213,6 +227,8 @@ app.post("/log", urlencoder, (req,res) => {
 app.post("/logout", (req, res) => {
     console.log("POST /LOGOUT")
 
+     request.session.destroy()
+    
     res.redirect("/")
 })
 
@@ -252,8 +268,6 @@ app.post("/store", urlencoder, (req, res)=>{
         res.render("tempAdd.hbs")
     })
 })
-
-/************** CANCEL **************/
 
 app.post("/cancelRes", urlencoder, (req, res)=>{
     console.log("POST /cancelRes")
