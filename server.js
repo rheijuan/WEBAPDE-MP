@@ -113,6 +113,11 @@ app.post("/okay", (req,res) => {
     res.render("home.hbs")
 })
 
+app.get("/editPage", (req, res)=>{
+    console.log("POST /editPage")
+    
+    res.render("editPage.hbs")
+})
 app.post("/add", urlencoder, (req, res) => {
     console.log("POST /ADD")
 
