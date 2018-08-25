@@ -42,13 +42,13 @@ app.get("/", (req, res) => {
     res.render("index.hbs")
 })
 
-app.get("/register.html", (req,res) => {
+app.get("/register", (req,res) => {
     console.log("GET /register")
 
     res.render("register.hbs")
 })
 
-app.get("/back", (req,res) => {
+app.get("/index", (req,res) => {
     console.log("GET /BACK")
 
     res.render("index.hbs")
@@ -220,8 +220,6 @@ app.get("/notif", (req, res)=>{
     console.log("GET /NOTIF")
     res.render("home.hbs")
 })
-
-
 
 app.post("/store", urlencoder, (req, res)=>{
     console.log("POST /STORE")
