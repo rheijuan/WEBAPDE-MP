@@ -11,3 +11,15 @@ router.get("/", function(req, res) {
     console.log("GET /")
     res.render("index")
 })
+
+router.get("/register", function(req, res) {
+    console.log("GET /register")
+    res.render("register.hbs")
+})
+
+router.get("/index", function(req, res) {
+    console.log("GET /index")
+    res.render("index.hbs")
+})
+
+module.exports = router

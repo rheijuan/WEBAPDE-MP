@@ -1,8 +1,7 @@
 const express = require("express")
 const router = express.Router()
-const User = require("../modes/user")
+const User = require("../models/user")
 const bodyparser = require("body-parser")
-const auth = require("../middlewares/auth")
 
 const app = express()
 
@@ -11,3 +10,5 @@ const urlencoder = bodyparser.urlencoded({
 })
 
 router.use(urlencoder)
+
+module.exports = router
