@@ -106,12 +106,14 @@ justify-content: center;
 }
 
 #logo {
+    background-color: transparent;
     color: white;
     font-size: 30px;
     font-weight: bold;
     padding: 20px;
     display: inline-block;
     vertical-align: middle;
+     border: none;
 }
 
 ul {
