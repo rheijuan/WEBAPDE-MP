@@ -240,46 +240,6 @@ app.get("/notif", (req, res)=>{
     res.render("home.hbs")
 })
 
-app.post("/store", urlencoder, (req, res)=>{
-    console.log("POST /STORE")
-    var username = req.body.username
-    var email = req.body.email
-    var labRm = req.body.labRm
-    var seatNo = req.body.seatNo 
-    var date = req.body.date
-    var startTime = req.body.startTime
-    var endTime = req.body.endTime
-    
-    var dets = new details({
-        name: username,
-        email,
-        labRm,
-        seatNo, 
-        date, 
-        startTime, 
-        endTime 
-    })
-    
-    dets.save().then((newDets)=>{
-        console.log("success")
-        res.render("home.hbs", {
-            username
-        })
-        
-    }, (err)=>{
-        console.log("fail " + err)
-        res.render("tempAdd.hbs")
-    })
-})
-
-app.post("/cancelRes", urlencoder, (req, res)=>{
-    console.log("POST /cancelRes")
-    details.remove({
-        _id : req.body.id
-    }).then(()=>{
-        res.redirect("/")
-    })
-})
 
 /************** LISTEN **************/
 
