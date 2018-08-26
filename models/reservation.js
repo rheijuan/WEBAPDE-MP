@@ -13,9 +13,9 @@ var Reservation = mongoose.model("reservation", reservationSchema)
 
 exports.create = function(reservation) {
     return new Promise(function(resolve, reject) {
-        var u = new Reservation(reservation)
+        var r = new Reservation(reservation)
 
-        u.save().then((newReservation) => {
+        r.save().then((newReservation) => {
             resolve(newReservation)
         }, (error) => {
             reject(error)
@@ -25,9 +25,9 @@ exports.create = function(reservation) {
 
 exports.get = function(id) {
     return new Promise(function(resolve, reject) {
-        User.findOne({_id:id}).then((post) => {
+        Reservation.findOne({_id:id}).then((post) => {
             console.log(reservation)
-            resolve(user)
+            resolve(reservation)
         }, (error) => {
             reject(error)
         })

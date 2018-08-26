@@ -1,11 +1,22 @@
 const mongoose = require("mongoose")
 
+mongoose.connect("mongodb://localhost:27017/UserList", {
+    useNewUrlParser: true
+});
+
 var userSchema = mongoose.Schema({
-    id: Number,
     username: String,
     email: String,
     password: String,
-    reservations: [] // can be replaced with the reservationSchema
+    reservations: [],
+    validated: {
+        type: Boolean,
+        defaulValue: false
+    },
+    isAdmin: {
+        type: Boolean,
+        defaulValue: false
+    }
 })
 
 var User = mongoose.model("user", userSchema)
