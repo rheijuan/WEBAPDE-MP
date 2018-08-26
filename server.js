@@ -39,9 +39,7 @@ app.use(session({
     resave: true,
     saveUninitialized : true,
     cookie: {
-        maxAge:1000*60*60*24*7*3
-        
-        ,
+        maxAge:1000*60*60*24*7*3,
     }
 }))
 
@@ -55,13 +53,13 @@ app.get("/", (req, res) => {
     res.render("index.hbs")
 })
 
-app.get("/register.html", (req,res) => {
+app.get("/register", (req,res) => {
     console.log("GET /register")
 
     res.render("register.hbs")
 })
 
-app.get("/back", (req,res) => {
+app.get("/index", (req,res) => {
     console.log("GET /BACK")
 
     res.render("index.hbs")
@@ -243,9 +241,6 @@ app.get("/notif", (req, res)=>{
     res.render("home.hbs")
 })
 
-
-/*
-
 app.post("/store", urlencoder, (req, res)=>{
     console.log("POST /STORE")
     var username = req.body.username
@@ -278,8 +273,6 @@ app.post("/store", urlencoder, (req, res)=>{
     })
 })
 
-************* CANCEL *************
-
 app.post("/cancelRes", urlencoder, (req, res)=>{
     console.log("POST /cancelRes")
     details.remove({
@@ -288,7 +281,6 @@ app.post("/cancelRes", urlencoder, (req, res)=>{
         res.redirect("/")
     })
 })
-*/
 
 /************** LISTEN **************/
 

@@ -9,7 +9,7 @@ var reservationSchema = mongoose.Schema({
     occupant: String
 })
 
-var Reservation = mongoose.model("user", reservationSchema)
+var Reservation = mongoose.model("reservation", reservationSchema)
 
 exports.create = function(reservation) {
     return new Promise(function(resolve, reject) {
