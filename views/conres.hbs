@@ -7,6 +7,7 @@
         <link rel="stylesheet"
               type="text/css"
               href="../css/conres.css">
+        
         <script src="../public/jquery-3.3.1.js">
         </script>
     </head>
@@ -35,12 +36,13 @@
                 <p class="blurb">Confirm the information displayed below. 
                 This will be used to make your reservation.</p>
                 
+                <!-- dont mine ung %nbsp kasi pang tab siya sa html para magka spacing sa letters. -->
                 <div class="small">
                     <h4 class="text"> Reserved by:     &nbsp;  &nbsp; {{username}} &nbsp; &nbsp; &nbsp;&nbsp;({{email}})</h4> 
                     
-                    <h4 class="text"> Where: &nbsp; &nbsp; &nbsp; &nbsp; Gokogwei Lab Rm: {{room}} ,&nbsp; &nbsp;  Seat No: {{seat}} </h4>
+                    <h4 class="text"> Where: &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;Gokogwei Lab Rm: {{room}} ,&nbsp; &nbsp;  Seat No: {{seat}} </h4>
                     
-                    <h4 class="text"> When: &nbsp; &nbsp; &nbsp; &nbsp; {{date}}  &nbsp; &nbsp; {{startTime}}-{{endTime}}</h4>
+                    <h4 class="text"> When: &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{date}}  &nbsp; &nbsp; {{startTime}}-{{endTime}}</h4>
                    
                     <img src="../public/img/Barcode-PNG-Photos-420x140.png" id="barcode">
                     
