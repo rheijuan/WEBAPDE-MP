@@ -6,9 +6,8 @@ const session = require("express-session")
 const path = require("path")
 const cookieparser = require("cookie-parser")
 const mongoose = require("mongoose")
-const details = require("./models/details.js").details
-
 /********** SETUP ***********/
+
 const app = express()
 
 const urlencoder = bodyparser.urlencoded({

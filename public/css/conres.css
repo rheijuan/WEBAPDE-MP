@@ -36,6 +36,9 @@ html, body {
 
 .text {
     padding: 10px;
+    font-size: 30px;
+    font-weight: bold;
+
 }
 
 .container {
@@ -232,4 +235,8 @@ p {
 
 p.blurb {
     padding-left: 15px;
+}
+
+#barcode{
+    padding: 50px;
 }
