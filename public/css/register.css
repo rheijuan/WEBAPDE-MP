@@ -22,22 +22,12 @@ html, body {
     border-radius: 5px;
 }
 
-.header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.ui.secondary.button {
+.ui.secondary.button.form {
     color: white;
     background-color: green;
-    margin: 5px;
-    margin-bottom: 40px;
-    margin-top: 10px;
-    width: 490px;
+    width: 85%;
     transition: 0.3s;
+    margin: 15px;
 }
 
 .ui.secondary.button:hover {
@@ -55,26 +45,12 @@ html, body {
 
 .form {
     padding: 10px;
-    margin: 2px;
-}
-
-label {
-    margin: 5px;
+    margin: 15px;
 }
 
 .ui.left.icon.input {
     padding: 5px;
-    width: 500px;
-}
-
-.close {
-    margin: 5px;
-    margin-left: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 85%;
 }
 
 .top {
@@ -84,16 +60,12 @@ label {
     width: 100%;
 }
 
-.return {
-    width: 45px;
-    height: 45px;
-}
-
 .fill {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .error {
@@ -101,53 +73,24 @@ label {
     font-size: 14px;
     font-weight: 500;
     height: 30px;
-    width: 490px;
+    width: 85%;
     color: #ED2939;
 }
 
 .close {
+    margin: 10px;
     border-radius: 50%;
     background-color: #000000;
     height: 36px;
     width: 36px;
     border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 16px;
-}
-
-.right {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    width: 50%;
-}
-
-.left {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 50%;
-}
-
-.button {
-    background-color: transparent;
-    font-size: 20px;
-    margin-left: 5px;
-    margin-right: 5px;
-    color: white;
-    padding: 20px;
-    transition: 0.3s;
-    border: none;
-}
-
-.button:hover {
-    background-color: #50c878;
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 span {
     color: whitesmoke;
-    font: 12px;
+    font-size: 16px;
 }

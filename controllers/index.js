@@ -7,6 +7,18 @@ const Reservation = require("../models/reservation")
 router.use("/reservation", require("./reservation"))
 router.use("/user", require("./user"))
 
+app.use(session({
+    secret : "labressysSecret",
+    name : "labressys",
+    resave: true,
+    saveUninitialized : true,
+    cookie: {
+        maxAge:1000*60*60*24*7*3,
+    }
+}))
+
+app.use(cookieparser())
+
 router.get("/", function(req, res) {
     console.log("GET /")
     res.render("index")
@@ -15,11 +27,6 @@ router.get("/", function(req, res) {
 router.get("/register", function(req, res) {
     console.log("GET /register")
     res.render("register.hbs")
-})
-
-router.get("/index", function(req, res) {
-    console.log("GET /index")
-    res.render("index.hbs")
 })
 
 module.exports = router

@@ -24,6 +24,7 @@
     "js-datepicker": "^3.3.1",
     "mime": "^2.3.1",
     "mongoose": "^5.2.5",
+    "nodemailer": "^2.7.2",
     "semantic-ui-calendar": "0.0.8"
   },
   "devDependencies": {},

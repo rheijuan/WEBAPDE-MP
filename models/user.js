@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-mongoose.connect("mongodb://localhost:27017/UserList", {
+mongoose.connect("mongodb://localhost:27017/Users", {
     useNewUrlParser: true
 });
 
@@ -16,7 +16,8 @@ var userSchema = mongoose.Schema({
     isAdmin: {
         type: Boolean,
         defaulValue: false
-    }
+    },
+    verification: Number
 })
 
 var User = mongoose.model("user", userSchema)
@@ -33,11 +34,20 @@ exports.create = function(user) {
     })
 }
 
-exports.get = function(id) {
+exports.findByEmail = function(email) {
     return new Promise(function(resolve, reject) {
-        User.findOne({_id:id}).then((post) => {
-            console.log(user)
+        User.findOne({email}).then((user) => {
             resolve(user)
+        }, (error) => {
+            reject(error)
+        })
+    })
+}
+
+exports.findAccountToVerify = function(verification) {
+    return new Promise(function(resolve, reject) {
+        User.find({verification}).then((users) => {
+            resolve(users)
         }, (error) => {
             reject(error)
         })
@@ -54,14 +64,13 @@ exports.getAll = function() {
     })
 }
 
-exports.edit = function(id, update) {
+exports.validateAccount = function(id, update) {
     return new Promise(function(resolve, reject) {
-        User.findByIdAndUpdate({
-            _id: id
-        }, update, {
-            new: true
-        }).then((newUser) => {
-            resolve(newUser)
+        User.findOneAndUpdate({
+            _id: id,
+            validated: true
+        }).then((updatedUser) => {
+           resolve(updatedUser)
         }, (error) => {
             reject(error)
         })

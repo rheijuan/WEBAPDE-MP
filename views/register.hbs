@@ -10,35 +10,46 @@
     </head>
 
     <body>
+        <div class="ui basic modal">
+                <div class="ui icon header">
+                        <i class="check circle icon"></i>
+                                Register Successful
+                </div>
+                
+                <div class="content">
+                        <p>You have successfully registered an account. Please verify the account through your mail</p>
+                </div>
+                
+                <div class="actions">
+                        <button class="ui inverted green basic button">Okay</button>
+                </div>
+        </div>
         
         <div class="container">
             <div class="center">
                 <div class="top">
-                    <a href="index" class="close"> 
+                    <a href="/" class="close"> 
                         <span> X </span>
                     </a>
                 </div>
                 <div class="mini-container">
-                    <form class="fill" method="POST" action="add">
+                    <form class="fill" method="POST" action="../user/add">
                         <h1 class="form"> REGISTER </h1>
                         <div class="ui left icon input form">
                                 <input name="username" type="text" placeholder="Username">
                                 <i class="user icon"></i>
                         </div>
-                        <div class="error"> {{username_error}} </div>
                         <div class="ui left icon input form">
                                 <input name="email" type="text" placeholder="E-mail Address">
                                 <i class="envelope icon"></i>
                         </div>
-                        <div class="error"> {{email_error}} </div>
                         <div class="ui left icon input form">
                                 <input name="identification" type="password" placeholder="Password">
                                 <i class="lock icon"></i>
                         </div>
-                        <div class="error"> {{password_error}} </div>
                         
                         <input type="submit" class="ui secondary button form" value="Register"> 
-                        <div class="error"> {{big_error}} </div>
+                        <div class="error"> {{error}} </div>
                     </form>            
                 </div>
             </div>
@@ -46,12 +57,7 @@
 
     </body>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-            type="text/javascript"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous">
-    </script>
-
+    <script src="jquery-3.3.1.js"></script>
     <script type="text/javascript"
             src="../semantic/semantic.min.js"></script>
 </html>
