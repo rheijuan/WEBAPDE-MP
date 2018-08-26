@@ -231,8 +231,7 @@ app.post("/log", urlencoder, (req,res) => {
 
 app.post("/logout", (req, res) => {
     console.log("POST /LOGOUT")
-
-     request.session.destroy()
+    req.session.destroy();
     
     res.redirect("/")
 })
