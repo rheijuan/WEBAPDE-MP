@@ -14,17 +14,18 @@
         <!-- this is the nav bar part -->
         <div class="header">
             <div class="left">
-               <form action="okay" method="POST">
-                    <input type="submit" id="logo" value="LAB.RES.SYS">
-                </form>
+                <a href="/home">
+                    <div class="logo"> LAB.RES.SYS </div>
+                </a>
             </div>
             <div class="right">
-                <form>
-                    <div class="right-item">{{username}}</div>
-                </form>
-                <form method="POST" action="logout"> 
+                <form class="right-item" method="POST" action="/logout"> 
                     <input type="submit" class="button" value="Log Out"> 
                 </form>
+                <a href="../reservation/reservations"> 
+                    <div class="right-item reservations"> My Reservations</div>
+                </a>
+                <div class="right-item name">{{username}}</div>
             </div>
         </div>
              

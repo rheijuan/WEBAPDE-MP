@@ -1,0 +1,67 @@
+<html>
+    
+    <head>
+        <link rel="stylesheet" 
+              type="text/css" 
+              href="../semantic/semantic.min.css">
+        <link rel="stylesheet"
+              type="text/css"
+              href="../css/confirm.css">
+    </head>
+
+    <body> 
+        <!-- this is the nav bar part -->
+        <div class="header">
+            <div class="left">
+                <a href="/home">
+                    <div class="logo"> LAB.RES.SYS </div>
+                </a>
+            </div>
+            <div class="right">
+                <form class="right-item" method="POST" action="/logout"> 
+                    <input type="submit" class="button" value="Log Out"> 
+                </form>
+                <a href="../reservation/reservations"> 
+                    <div class="right-item reservations"> My Reservations</div>
+                </a>
+                <div class="right-item name">{{username}}</div>
+            </div>
+        </div>
+
+        <div class="details-container">
+            <div class="details">
+                <h1 class="text"> Confirm Reservation</h1>
+                <div class="small">
+                    <p class="blurb">Confirm the information displayed below. 
+                    This will be used to make your reservation.</p>
+                    <h4 class="text"> Name: {{Name}} </h4>      
+                    <h4 class="text"> Email Address: {{Email}} </h4> 
+                    <h4 class="text"> Gokongwei Laboratory Floor: {{Floor}} </h4> 
+                    <h4 class="text"> Laboratory Seat: {{SeatNumber}} </h4>
+                    <h4 class="text"> Date: {{Date}} </h4>  
+                    <h4 class="text"> Start Time: {{StartTime}} </h4> 
+                    <h4 class="text"> End Time: {{EndTime}} </h4>
+
+                    <div class="buttons">
+                        <form method="POST" action="../reservation/reserve">
+                            <button class="ui button green"> Reserve </button>
+                        </form>
+
+                        <form method="GET" action="../reservation/back"> 
+                            <button class="ui button"> Cancel </button>
+                        </form> 
+                    </div>
+                </div>
+            </div>
+        </div>    
+        
+    </body>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+    </script>
+
+    <script src="../semantic/semantic.min.js"></script>
+    <script src="../js/conres.js"></script>
+</html>

@@ -1,162 +1,268 @@
-html, body {
+ html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #121212;
-    height: 89vh;
+    height: 94vh;
 }
 
-.container {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-    height: 50%;
-}
-
-.option {
-    width: 300px;
-    height: 300px;
-    background-color: whitesmoke;
-    margin: 10px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: 0.3s;
-    border: none;
-}
-
-.option:hover {
-    background-color: #50c878;
-    cursor: pointer;
-}
-
-.image {
-    height: 128px;
-    width: 128px;
-    margin-bottom: 15px;
-}
-
-label {
-    font-size: 20px;
-}
-
-.label {
-    color: white;
-    font-size: 40px;
-    font-weight: bold;
-    margin: 20px;
-}
-
-.main {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-}
-
-.head {
-    margin: 5px;
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-.ui.inverted.green.button {
-    margin-top: 15px;
-    width: 200px;
-    font-size: 16px;
-}
-
-#logo {
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    padding: 20px;
-   
-    display: inline-block;
-    vertical-align: middle;
-    background-color: transparent;
-    border: none;
-
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    font-size: 20px;
-    vertical-align: middle;
-}
-
-li {
-    color: white;
-    display: inline-block;
-    position: relative;
-    padding: 10px;
-    transition: 0.3s;
-}
-
-li:hover {
-    background-color: #50c878;
-    cursor: pointer; 
-}
-
+/*** CSS for the nav bar ***/
 .header {
+    height: 13%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 100%;
-}
-
-.right {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    width: 50%;
 }
 
 .left {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    height: 100%;
     width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.right {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.right-item {
+    margin: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.right-item.name {
+    color: white;
+    font-size: 26px;
+    padding: 20px;
+}
+
+.right-item.reservations {
+    color: white;
+    font-size: 26px;
+    padding: 20px;
 }
 
 .button {
+    margin-top: 5px;
+    height: 60%;
+    margin-right: 10px;
     background-color: transparent;
-    font-size: 20px;
-    margin-left: 5px;
-    margin-right: 5px;
     color: white;
-    padding: 20px;
     transition: 0.3s;
     border: none;
+    font-size: 24px;
 }
 
 .button:hover {
     background-color: #50c878;
-    cursor: pointer;
 }
 
-.right-item {
-    height: auto;
-    width: auto;
-    color: white;
-    font-size: 20px;
+/*** CSS for the bottom part ***/
+
+.container {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }
 
-a, a:hover { 
-    color: white;
+.left-container {
+    background-color: whitesmoke;
+    height: 100%;
+    width: 25%;
+    margin: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding-left: 20px;
 }
 
-label {
+.info {
+    height: 5%;
+    width: 100%;
+}
+
+.text {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.date-container {
+    height: 30%;
+    width: 100%;
+    display: flex;
+}
+
+.right-container {
+    background-color: whitesmoke;
+    height: 100%;
+    width: 50%;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.computer-rows {
+    height: 90%;
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.computer.ui.button {
+    height: 85%;
+}
+
+.reserve-button {
+    height: 90%;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.button.ui.fluid.green {
+    height: 10%;
+    margin: 5px;
+    margin-bottom: 0px;
+}
+
+/*
+
+.reserve-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+
+
+
+
+.time-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 85%;
+    padding-bottom: 50px;
+}
+
+#date-title {
+    padding-left: 30px;
     font-weight: bold;
+    font-size: 20pt;
+    margin-top: 10px;
 }
 
-p {
-    font-size: 12pt;
+#date-picker {
+    padding: 20px;
 }
+
+#time-title {
+    padding: 15px;
+    font-weight: bold;
+    font-size: 20pt;
+}
+
+#time-error {
+    height: 20%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ED2939;
+    margin: 1px;
+}
+
+.search-side {
+    height: 75%;
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#search-button {
+    color: white;
+    background-color: green;
+    border: none;
+    height: 50px;
+    width: 100px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.number-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.labNum {
+    height: 80px;
+    width: 80px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: green;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+}
+
+.button.ui.button:focus {
+    background-color: #5BC236;
+}
+
+#start-time, #end-time {
+    width: 550px;
+}
+
+p.blurb {
+    font-weight: normal;
+    font-size: 15px;
+    padding-left: 30px;
+    margin-top: 10px;
+} 
+*/

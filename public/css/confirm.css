@@ -1,0 +1,121 @@
+html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    height: 89vh;
+}
+
+/*** CSS for the nav bar ***/
+.header {
+    height: 13%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.left {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.right {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.right-item {
+    margin: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.right-item.name {
+    color: white;
+    font-size: 26px;
+    padding: 20px;
+}
+
+.right-item.reservations {
+    color: white;
+    font-size: 26px;
+    padding: 20px;
+}
+
+.button {
+    margin-top: 5px;
+    height: 60%;
+    margin-right: 10px;
+    background-color: transparent;
+    color: white;
+    transition: 0.3s;
+    border: none;
+    font-size: 24px;
+}
+
+.button:hover {
+    background-color: #50c878;
+}
+
+.details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85%;
+    width: 100%;
+}
+
+.details {
+    height: 100%;
+    width: 50%;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 25pt;
+    width: 100%;
+}
+
+.blurb {
+    width: 100%;
+    padding-left: 13px;
+}
+
+.small {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons {
+    margin: 20px;
+    margin-left: 10;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.ui.button {
+    height: 10%;
+}
+
+.text {
+    margin: 15px;
+}

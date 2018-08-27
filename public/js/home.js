@@ -1,13 +1,21 @@
-/*
-$('#search').on('click', function() {
-    window.location.href="../html/search.html"
-})
-*/
+var year = -1;
+var month = -1;
+var day = -1;
+var startHour = -1;
+var startMinute = -1;
+var endHour = -1;
+var endMinute = -1;
+var selectedFloor = -1;
 
-$('#reserve').on('click', function() {
-    window.location.href="../html/selectLabRm.html"
-})
+$("#date-picker").calendar({
+    type: 'date',
+    inline: true,
+    onChange: function(date) {
+        year = parseInt(date.getFullYear());
+        month = parseInt(date.getMonth() + 1);
+        day = parseInt(date.getDate());
+        //selectedFloor = parseInt($(".ui.selection.dropdown").dropdown('get value'));
 
-$('#check').on('click', function() {
-    window.location.href="../html/reservations.html"
-})
+        console.log(year + '-' + month + '-' + day);
+    }
+});

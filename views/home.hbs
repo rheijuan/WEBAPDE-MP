@@ -14,66 +14,155 @@
         <!-- this is the nav bar part -->
         <div class="header">
             <div class="left">
-                <form action="okay" method="POST">
-                    <input type="submit" id="logo" value="LAB.RES.SYS">
-                </form>
+                <a href="/home">
+                    <div class="logo"> LAB.RES.SYS </div>
+                </a>
             </div>
             <div class="right">
-                <form>
-                    <div class="right-item">{{username}}</div>
-                </form>
-                <form method="POST" action="logout"> 
+                <form class="right-item" method="POST" action="/logout"> 
                     <input type="submit" class="button" value="Log Out"> 
                 </form>
+                <a href="../reservation/reservations"> 
+                    <div class="right-item reservations"> My Reservations</div>
+                </a>
+                <div class="right-item name">{{username}}</div>
             </div>
         </div>
     
-        <div class="main">
-            <div class="label">What do you want to do?</div><br>
-            <div class="container">
+        <div class="container">
+            <div class="left-container">
+                <div class="info left">
+                    <div class="text"> Reserve Slot </div>
+                </div>
 
-                <form method="GET" action="search">
-                    <button class="option"
-                            id="search">
-                            <img class="image"
-                                 src="../img/magnifier.png">
-                            <label> CHECK LABS </label>
-                            <p>Look at the computer slots in the laboratory before you reserve.</p>
-                    </button>
+                <div class="date-container left">
+                    <div id="date-title" class = "text">Select Date</div>
+                    <div class="ui calendar" id="date-picker"> </div>
+                </div>
+
+                {{!-- <div class="time-container left">
+                    <div id="time-title"> Start Time </div>
+                    <div class="ui calendar" id="start-time">
+                        <div class="ui input left icon">
+                            <i class="time icon"></i>
+                            <input type="text" placeholder="Time">
+                        </div>
+                    </div>
+
+                    <div id="time-title"> End Time </div>
+
+                    <div class="ui calendar" id="end-time">
+                        <div class="ui input left icon">
+                            <i class="time icon"></i>
+                            <input type="text" placeholder="Time">
+                        </div>
+                    </div>
+                    <div id="time-error"> {{time_error}} </div>
+                </div> --}}
+            </div>
+            
+            <div class="right-container">
+                <div class="computer-rows">
+                    <div class="first row">
+                        <button class="computer ui button" id="1">
+                            <label> 01 </label>
+                            <img src="../img/rentable.png">
+                        </button>
+                        <button class="computer ui button" id="2">
+                            <label> 02 </label>
+                            <img src="../img/rentable.png">
+                        </button>
+                        <button class="computer ui button" id="3">
+                            <label> 03 </label>
+                            <img src="../img/rentable.png">
+                        </button>
+                        <button class="computer ui button" id="4">
+                            <label> 04 </label>
+                            <img src="../img/rentable.png">
+                        </button>
+                    </div>
+                    <div class="second row">
+                        <button class="computer ui button" id="5">
+                            <label> 05 </label>
+                            <img src="../img/rentable.png">
+                        </button>
+                        <button class="computer ui button" id="6">
+                            <label> 06 </label>
+                            <img src="../img/rentable.png">
+                        </button>
+                        <button class="computer ui button" id="7">
+                            <label> 07 </label>
+                            <img src="../img/rentable.png">
+                        </button>
+                        <button class="computer ui button" id="8">
+                            <label> 08 </label>
+                            <img src="../img/rentable.png">
+                        </button>
+                    </div>
+                    <div class="third row">
+                        <button class="computer ui button" id="9">
+                            <label> 09 </label>
+                            <img src="../img/rentable.png">
+                        </button>
+                        <button class="computer ui button" id="10">
+                            <label> 10 </label>
+                            <img src="../img/rentable.png">
+                        </button>
+                        <button class="computer ui button" id="11">
+                            <label> 11 </label>
+                            <img src="../img/rentable.png">
+                        </button>
+                        <button class="computer ui button" id="12">
+                            <label> 12 </label>
+                            <img src="../img/rentable.png">
+                        </button>
+                    </div>
+                    <div class="fourth row">
+                        <button class="computer ui button" id="13">
+                            <label> 13 </label>
+                            <img src="../img/rentable.png">
+                        </button>
+                        <button class="computer ui button" id="14">
+                            <label> 14 </label>
+                            <img src="../img/rentable.png">
+                        </button>
+                        <button class="computer ui button" id="15">
+                            <label> 15 </label>
+                            <img src="../img/rentable.png">
+                        </button>
+                        <button class="computer ui button" id="16">
+                            <label> 16 </label>
+                            <img src="../img/rentable.png">
+                        </button>                    
+                    </div>
+                    <div class="fifth row">
+                        <button class="computer ui button" id="17">
+                            <label> 17 </label>
+                            <img src="../img/rentable.png">
+                        </button>
+                        <button class="computer ui button" id="18">
+                            <label> 18 </label>
+                            <img src="../img/rentable.png">
+                        </button>
+                        <button class="computer ui button" id="19">
+                            <label> 19 </label>
+                            <img src="../img/rentable.png">
+                        </button>
+                        <button class="computer ui button" id="20">
+                            <label> 20   </label>
+                            <img src="../img/rentable.png">
+                        </button>                    
+                    </div>    
+                </div>
+                <form class="reserve-button" method="POST" action="../reservation/select">
+                        <button class="button ui fluid green" >Reserve</button>
                 </form>
-
-                <form method="GET" action="reserve">
-                    <button class="option"
-                            id="reserve">
-                            <img class="image"
-                                 src="../img/reserved.png">
-                            <label> RESERVE SLOT </label>
-                            <p>Reserve a computer slot in your desire date and time.</p>
-                    </button>
-                </form>
-
-                <form method="GET" action="reservations">
-                    <button class="option"
-                            id="check">
-                            <img class="image"
-                                 src="../img/shopping-cart.png">
-                            <label> MY RESERVATIONS </label>
-                            <p>Check your reservations that you have made.</p>        
-                    </button>
-                </form>
-
             </div>
         </div>
     </body>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-            type="text/javascript"
-            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-            crossorigin="anonymous">
-    </script>
-
     <script type="text/javascript"
-            src="../semantic/semantic.min.js"></script>
-    <script type="text/javascript" 
-            src="../js/home.js"></script>
+            src="/../public/jquery-3.3.1.js"></script>
+    <script type="text/javascript"
+            src="/../semantic/semantic.min.js"></script>
 </html>

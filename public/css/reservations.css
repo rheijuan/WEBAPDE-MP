@@ -1,8 +1,76 @@
 html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #121212;
-    height: 89vh;
+    height: 94vh;
 }
+
+/*** CSS for the nav bar ***/
+.header {
+    height: 13%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.left {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.right {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.right-item {
+    margin: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.right-item.name {
+    color: white;
+    font-size: 26px;
+    padding: 20px;
+}
+
+.right-item.reservations {
+    color: white;
+    font-size: 26px;
+    padding: 20px;
+}
+
+.button {
+    margin-top: 5px;
+    height: 60%;
+    margin-right: 10px;
+    background-color: transparent;
+    color: white;
+    transition: 0.3s;
+    border: none;
+    font-size: 24px;
+}
+
+.button:hover {
+    background-color: #50c878;
+}
+
+/*
 
 .container {
     display: flex;
@@ -52,105 +120,4 @@ tr.clickable.clicked > td {
 #reserve {
     font-size: 18px;
 }
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    font-size: 20px;
-    vertical-align: middle;
-}
-
-li {
-    color: white;
-    display: inline-block;
-    position: relative;
-    padding: 10px;
-    transition: 0.3s;
-}
-
-li:hover {
-    background-color: #50c878;
-    cursor: pointer; 
-}
-
-.right-item-button, .right-item {
-    float: right;
-    color: white;
-    position: relative;
-    font-size: 20px;
-    padding: 20px;
-    transition: 0.3s;
-}
-
-.right-item-button:hover {
-    background-color: #50c878;
-    cursor: pointer;
-}
-
-#logo {
-    background-color: transparent;
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    padding-top: 14px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    display: inline-block;
-    vertical-align: middle;
-    border: none;
-}
-
-.header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.right {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-    width: 50%;
-}
-
-.left {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 50%;
-}
-
-.button {
-    background-color: transparent;
-    font-size: 20px;
-    margin-left: 5px;
-    margin-right: 5px;
-    color: white;
-    padding: 20px;
-    transition: 0.3s;
-    border: none;
-}
-
-.button:hover {
-    background-color: #50c878;
-    cursor: pointer;
-}
-
-div.description-container {
-    color: white;
-    font-size: 15pt;
-    display: flex;
-    flex-direction: row;
-}
-
-.reservation-title {
-    font-size: 20pt;
-    color: white;
-    font-weight: bold;
-}
+*/

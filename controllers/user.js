@@ -37,6 +37,7 @@ router.post("/log", urlencoder, function(req, res) {
             if(user) {
                 if(email == user.email && password == user.password) {
                     if(user.validated) {
+                        res.locals.username = user.username
                         res.render("home" , {
                             username: user.username
                         })
