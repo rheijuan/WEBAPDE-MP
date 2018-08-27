@@ -44,6 +44,16 @@ exports.findByEmail = function(email) {
     })
 }
 
+exports.findByUsername = function(username) {
+    return new Promise(function(resolve, reject) {
+        User.findOne({username}).then((user) => {
+            resolve(user)
+        }, (error) => {
+            reject(error)
+        })
+    })
+}
+
 exports.findAccountToVerify = function(verification) {
     return new Promise(function(resolve, reject) {
         User.find({verification}).then((users) => {
