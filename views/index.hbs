@@ -10,7 +10,21 @@
               href="../../css/index.css">
     </head>
 
-    <body> 
+    <body>
+        <div class="ui basic modal">
+                <div class="ui icon header">
+                        <i class="check circle icon"></i>
+                                Register Successful
+                </div>
+                
+                <div class="content">
+                        <p>You have successfully registered an account. Please verify the account through your mail</p>
+                </div>
+                
+                <div class="actions">
+                        <button class="ui inverted green basic button">Okay</button>
+                </div>
+        </div>  
 
         <div class="center">
             <div class="mini-container">
@@ -51,4 +65,7 @@
     <script src="jquery-3.3.1.js"></script>
     <script type="text/javascript"
             src="../semantic/semantic.min.js"></script>
+    <script> 
+            $('.ui.basic.modal').modal({{status}});
+    </script>
 </html>

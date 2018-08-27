@@ -19,7 +19,6 @@ html, body {
     color: white;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
     padding-left: 125px;
     padding-right: 125px;
@@ -97,59 +96,6 @@ html, body {
 
 .ui.secondary.button.register {
     height: 6.3%;
-}
-
-#register-modal {
-    width: 550px;
-    height: 600px;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    border-radius: 5px;
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: whitesmoke;
-    border-radius: 5px;
-    border: 1px solid black;
-    z-index: 3;
-}
-
-#overlay {
-    position: fixed; 
-    display: none; 
-    width: 100%; 
-    height: 100%; 
-    background-color: rgba(0,0,0,0.5); 
-    z-index: 2;
-    cursor: pointer; 
-}
-
-.fill {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 90%;
-    width: 100%;
-}
-
-#close-button {
-    background-color: black;
-    height: 36px;
-    width: 36px;
-    cursor: pointer;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-}
-
-.close {
-    color: whitesmoke;
 }
 
 .error {
