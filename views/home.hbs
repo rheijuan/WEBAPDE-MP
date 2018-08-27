@@ -31,34 +31,46 @@
     
         <div class="container">
             <div class="left-container">
-                <div class="info left">
-                    <div class="text"> Reserve Slot </div>
-                </div>
-
-                <div class="date-container left">
-                    <div id="date-title" class = "text">Select Date</div>
-                    <div class="ui calendar" id="date-picker"> </div>
-                </div>
-
-                {{!-- <div class="time-container left">
-                    <div id="time-title"> Start Time </div>
-                    <div class="ui calendar" id="start-time">
-                        <div class="ui input left icon">
-                            <i class="time icon"></i>
-                            <input type="text" placeholder="Time">
+                <div class="time-container">
+                    <div id="time-title"> Choose Room </div>
+                    <div class="ui selection dropdown" id="floors">
+                        <input type="hidden" name="laboratory">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Gokongwei Laboratory Floor</div>
+                        <div class="menu">
+                            <div class="item" data-value="1">1st Floor</div>
+                            <div class="item" data-value="2">2nd Floor</div>
                         </div>
                     </div>
 
-                    <div id="time-title"> End Time </div>
-
-                    <div class="ui calendar" id="end-time">
-                        <div class="ui input left icon">
-                            <i class="time icon"></i>
-                            <input type="text" placeholder="Time">
+                    <div id="date-title">Select Date</div>
+                    <div class="calendar-container">
+                        <div class="ui calendar" id="date-picker"> </div>
+                    </div>
+                    
+                    <div class="time-box">
+                        <div class="start-container">
+                            <div id="time-title-start"> Start Time </div>
+                            <div class="ui calendar" id="start-time">
+                                <div class="ui input left icon">
+                                    <i class="time icon"></i>
+                                    <input type="text" placeholder="Time">
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="end-container">
+                            <div id="time-title-start"> End Time </div>
+                            <div class="ui calendar" id="end-time">
+                                <div class="ui input left icon">
+                                    <i class="time icon"></i>
+                                    <input type="text" placeholder="Time">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div id="time-error"> {{time_error}} </div>
-                </div> --}}
+                </div>
+                <div class="ui button search" id="search">Search</div>
             </div>
             
             <div class="right-container">
@@ -165,4 +177,8 @@
             src="/../public/jquery-3.3.1.js"></script>
     <script type="text/javascript"
             src="/../semantic/semantic.min.js"></script>
+    <script type="text/javascript" 
+            src="../node_modules/semantic-ui-calendar/dist/calendar.min.js"></script>
+    <script type="text/javascript" 
+            src="../js/home.js"></script>
 </html>
