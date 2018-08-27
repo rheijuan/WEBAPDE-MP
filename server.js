@@ -6,8 +6,9 @@ const session = require("express-session")
 const path = require("path")
 const cookieparser = require("cookie-parser")
 const mongoose = require("mongoose")
-/********** SETUP ***********/
+//const details = require("./models/details.js").details
 
+/********** SETUP ***********/
 const app = express()
 
 const urlencoder = bodyparser.urlencoded({
@@ -31,6 +32,22 @@ var User = mongoose.model("user", {
     password: String
 });
 
+// temp
+mongoose.connect("mongodb://localhost:27017/Reservations", {
+    useNewUrlParser: true
+});
+
+var ReservationSchema = mongoose.Schema({
+    room: Number,
+    seat: Number,
+    startTime: Number,
+    endTime: Number,
+    date: String,
+    occupant: String
+})
+
+var Reservation = mongoose.model("reservation", ReservationSchema)
+// end of temp
 
 app.use(session({
     secret : "labressysSecret",
@@ -240,9 +257,92 @@ app.get("/notif", (req, res)=>{
     res.render("home.hbs")
 })
 
+app.post("/store", urlencoder, (req, res)=>{
+    console.log("POST /STORE")
+    var username = req.body.username
+    var email = req.body.email
+    var labRm = req.body.labRm
+    var seatNo = req.body.seatNo 
+    var date = req.body.date
+    var startTime = req.body.startTime
+    var endTime = req.body.endTime
+    
+    var dets = new details({
+        name: username,
+        email,
+        labRm,
+        seatNo, 
+        date, 
+        startTime, 
+        endTime 
+    })
+    
+    dets.save().then((newDets)=>{
+        console.log("success")
+        res.render("home.hbs", {
+            username
+        })
+        
+    }, (err)=>{
+        console.log("fail " + err)
+        res.render("tempAdd.hbs")
+    })
+})
+
+app.post("/cancelRes", urlencoder, (req, res)=>{
+    console.log("POST /cancelRes")
+    details.remove({
+        _id : req.body.id
+    }).then(()=>{
+        res.redirect("/")
+    })
+})
+
+
+/***** FOR TESTING PURPOSES ONLY *****/
+app.post("/addslot", urlencoder, (req, res)=> {
+    console.log("POST /addslot")
+
+    var room = req.body.selectedFloor
+    var seat = req.body.compNumber
+    var date = req.body.date
+    var startTime = req.body.startTime
+    var endTime = req.body.endTime
+
+    /*
+
+    console.log("Selected Room: " + room)
+    console.log("Computer Number: " + seat)
+    console.log("Date: " + date)
+    console.log("Start Time: " + startTime)
+    console.log("End Time: " + endTime)
+
+    */
+
+    var slot = new Reservation({
+        room, seat, startTime, endTime,
+        date, occupant: "Add Tester"
+    })
+
+    slot.save().then((newSlot)=> {
+        res.send(newSlot)
+    }, (err)=> {
+        res.send(err)
+    })
+})
+
+app.get("/getslots", (req, res)=> {
+    console.log("POST /getslots")
+
+    Reservation.find().then((slots)=> {
+        res.send(slots)
+    }, (err)=> {
+        res.send(err)
+    })
+})
 
 /************** LISTEN **************/
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log("Listening in port 3000");
 })

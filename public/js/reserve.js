@@ -7,28 +7,29 @@ var endHour = -1;
 var endMinute = -1;
 var selectedFloor = -1;
 
-// this is temporary only.
-var ReservationSlot = function (year, month, day, floor, slot, 
-    startHour, startMinute, endHour, endMinute) {
-        this.year = year;
-        this.month = month;
-        this.day = day;
+var selected = -1;
+
+/**** CONSTRUCTOR FOR CHECKING ONLY ****/
+var SlotBasis = function (date, floor, slot, 
+    startTime, endTime) {
+        this.date = date;
         this.floor = floor;
         this.slot = slot;
-        this.startHour = startHour;
-        this.startMinute = startMinute;
-        this.endHour = endHour;
-        this.endMinute = endMinute;
+        this.startTime = startTime;
+        this.endTime = endTime;
 }
+/****************************************/
 
-// Will remove once database is integrated to the UI.
-var tempSlots = []
 
-tempSlots.push(new ReservationSlot(2018, 8, 9, 2, 8, 10, 0, 11, 0))
-tempSlots.push(new ReservationSlot(2018, 8, 9, 1, 2, 8, 0, 8, 30))
-tempSlots.push(new ReservationSlot(2018, 8, 9, 2, 5, 9, 00, 9, 30))
-tempSlots.push(new ReservationSlot(2018, 8, 9, 1, 6, 11, 0, 11, 30))
-tempSlots.push(new ReservationSlot(2018, 8, 9, 1, 20, 13, 0, 13, 30))
+
+$(".computer.ui.button").on("click", function() {
+    selected = $(this).attr("id");
+    console.log(selected);
+});
+
+function getSelected() {
+    return selected;
+}
 
 function clearSlots() {
     for (var i = 1; i <= 20; i++) {
@@ -36,27 +37,65 @@ function clearSlots() {
     }
 }
 
-function slotsChecker() {
-    for (var i = 1; i <= 20; i++) {
-        tempSlots.filter((revSlot)=> {
-            if (revSlot.slot == i && revSlot.startHour >= startHour && revSlot.endHour == endHour 
-                && revSlot.endMinute == endMinute && revSlot.floor == selectedFloor && revSlot.month == month
-            && revSlot.year == year && revSlot.day == day) {
-                $("#"+i).addClass('red disabled')
+function slotsChecker(resultSlots, baseSlot) {
+    // Still Buggy
+    for (var i = 0; i <= resultSlots.length; i++) {
+        if (resultSlots[i].date == baseSlot.date && 
+            resultSlots[i].room == baseSlot.floor) {
+
+            if (resultSlots[i].endTime <= baseSlot.startTime) {
+                $("#"+resultSlots[i].seat).addClass('red disabled')
+            } else if (resultSlots[i].startTime >= baseSlot.startTime && resultSlots[i].endTime <= baseSlot.endTime)  {
+                $("#"+resultSlots[i].seat).addClass('red disabled')
             }
-        });
+        }
     }
 }
 
+// For searching of slots
+$("#search").on("click", function() {
+    clearSlots()
+    selectedFloor = parseInt($(".ui.selection.dropdown").dropdown('get value'))
+
+    var date = month + "/" + day + "/" + year
+
+    var startTime = parseInt(startHour + "" + startMinute)
+    var endTime = parseInt(endHour + "" + endMinute)
+    
+    if (startMinute === 0)
+        startTime = startTime * 10;
+
+    if (endMinute === 0)
+        endTime = endTime * 10;
+
+    console.log("Start Time: " + startTime)
+    console.log("End Time: " + endTime);
+
+    var compNumber = selected;
+
+    var slotBasis = new SlotBasis(date, selectedFloor, compNumber, startTime, endTime)
+
+    $.ajax({
+        method: "get",
+        url: "getslots",
+        data: {
+            date, startTime, endTime, selectedFloor, compNumber
+        },
+    
+        success: function(slots) {           
+            slotsChecker(slots, slotBasis)
+            console.log("Success!")
+        }
+    })    
+})
+
 $("#date-picker").calendar({
     type: 'date',
-    inline: true,
     onChange: function(date) {
         year = parseInt(date.getFullYear());
         month = parseInt(date.getMonth() + 1);
         day = parseInt(date.getDate());
-        //selectedFloor = parseInt($(".ui.selection.dropdown").dropdown('get value'));
-
+        
         console.log(year + '-' + month + '-' + day);
     }
 });
@@ -64,19 +103,16 @@ $("#date-picker").calendar({
 $('.ui.dropdown').dropdown({
     onChange: function(val) {
         selectedFloor = val;
-        clearSlots();
-        slotsChecker();
     }
 });
 
 $("#start-time").calendar({
     type : "time",
     ampm : false,
+    minuteStep: 30,
     onChange: function (date, text, mode) {
         startHour = parseInt(date.getHours());
         startMinute = parseInt(date.getMinutes());
-        //selectedFloor = parseInt($(".ui.selection.dropdown").dropdown('get value'));
-        clearSlots();
 
         // checking status
         if (startHour >= 0 && startMinute >= 0 && 
@@ -87,20 +123,17 @@ $("#start-time").calendar({
                 $("#time-error").text(" ");
             }
         }
-        
-        slotsChecker();
     }  
   })
 
 $('#end-time').calendar({
     type: 'time',
     ampm : false,
+    minuteStep: 30,
     onChange: function (date, text, mode) {
         endHour = parseInt(date.getHours());
         endMinute = parseInt(date.getMinutes());
         selectedFloor = parseInt($(".ui.selection.dropdown").dropdown('get value'));
-
-        clearSlots();
 
         if (startHour >= 0 && startMinute >= 0 && 
             endHour >= 0 && endMinute >= 0) {
@@ -110,17 +143,5 @@ $('#end-time').calendar({
                 $("#time-error").text(" ");
             }
         }
-
-        slotsChecker();
     }
 });
-
-var selected = null; 
-$(".computer.ui.button").on("click", function() {
-    selected = $(this).attr("id");
-    console.log(selected);
-});
-
-function getSelected() {
-    return selected;
-}

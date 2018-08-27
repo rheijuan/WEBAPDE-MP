@@ -94,6 +94,7 @@ The following settings are supported by this module:
     disableYear: false,   // disable year selection mode
     disableMonth: false,  // disable month selection mode
     disableMinute: false, // disable minute selection mode
+	minuteStep: 5,        // how many minutes to separate an hour, can be 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30.
     formatInput: true,    // format the input text upon input blur and module creation
     startCalendar: null,  // jquery object or selector for another calendar that represents the start date of a date range
     endCalendar: null,    // jquery object or selector for another calendar that represents the end date of a date range

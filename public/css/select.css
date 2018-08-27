@@ -124,19 +124,18 @@ html, body {
     padding-bottom: 50px;
 }
 
-#date-title {
-    padding-left: 30px;
+#reserve-title, #date-title {
     font-weight: bold;
     font-size: 20pt;
-    margin-top: 10px;
 }
 
-#date-picker {
-    padding: 20px;
+#date-title {
+    margin-bottom: 15pt;
 }
 
 #time-title {
-    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     font-weight: bold;
     font-size: 20pt;
 }
@@ -224,13 +223,12 @@ html, body {
     background-color: #5BC236;
 }
 
-#start-time, #end-time {
-    width: 550px;
+#start-time, #end-time, #date-picker {
+    width: 575px;
 }
 
 p.blurb {
     font-weight: normal;
     font-size: 15px;
-    padding-left: 30px;
     margin-top: 10px;
 }
