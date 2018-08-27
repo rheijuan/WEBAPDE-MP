@@ -73,6 +73,7 @@
             module.debug('Initializing calendar for', element);
 
             isTouch = module.get.isTouch();
+            module.setup.calculateMinutes();
             module.setup.popup();
             module.setup.inline();
             module.setup.input();
@@ -96,6 +97,21 @@
           },
 
           setup: {
+              calculateMinutes: function () {
+                  function isWhole(n) {
+                      return !(n % 1);
+                  }
+                  if (settings.minuteStep === 60 || !isWhole(60 / settings.minuteStep)) {
+                      settings.minuteStep = 5;
+                  }
+
+                  var cells = 60 / settings.minuteStep;
+                  var root = Math.sqrt(cells);
+                  settings._minuteRows = new Array(Math.floor(cells / 2)).fill().map(function (n, i) { return i + 1; })
+                      .filter(function (n) { return isWhole(cells / n); })
+                      .sort(function (a, b) { return Math.abs(a - root) < Math.abs(b - root) ? -1 : 1; })[0];
+                  settings._minuteColumns = cells / settings._minuteRows;
+              },
             popup: function () {
               if (settings.inline) {
                 return;
@@ -203,9 +219,8 @@
               var startMonth = display.getMonth() + monthOffset;
               var year = display.getFullYear();
 
-              var columns = isDay ? 7 : isHour ? 4 : 3;
-              var columnsString = columns === 7 ? 'seven' : columns === 4 ? 'four' : 'three';
-              var rows = isDay || isHour ? 6 : 4;
+              var columns = isDay ? 7 : isHour ? 4 : settings._minuteColumns;
+              var rows = isDay || isHour ? 6 : settings._minuteRows;
               var pages = isDay ? multiMonth : 1;
 
               var container = $container;
@@ -239,7 +254,7 @@
                 var nextFirst = isYear ? new Date(Math.ceil(year / 10) * 10 + 1, 0, 1) :
                   isMonth ? new Date(year + 1, 0, 1) : isDay ? new Date(year, month + 1, 1) : new Date(year, month, day + 1);
 
-                var table = $('<table/>').addClass(className.table).addClass(columnsString + ' column').addClass(mode).appendTo(container);
+                var table = $('<table/>').addClass(className.table).addClass(mode).appendTo(container);
 
                 //no header for time-only mode
                 if (!isTimeOnly) {
@@ -286,7 +301,7 @@
                   for (c = 0; c < columns; c++, i++) {
                     var cellDate = isYear ? new Date(i, month, 1, hour, minute) :
                       isMonth ? new Date(year, i, 1, hour, minute) : isDay ? new Date(year, month, i, hour, minute) :
-                        isHour ? new Date(year, month, day, i) : new Date(year, month, day, hour, i * 5);
+                        isHour ? new Date(year, month, day, i) : new Date(year, month, day, hour, i * settings.minuteStep);
                     var cellText = isYear ? i :
                       isMonth ? settings.text.monthsShort[i] : isDay ? cellDate.getDate() :
                         formatter.time(cellDate, settings, true);
@@ -454,7 +469,7 @@
                   var mode = module.get.mode();
                   var bigIncrement = mode === 'day' ? 7 : mode === 'hour' ? 4 : 3;
                   var increment = event.keyCode === 37 ? -1 : event.keyCode === 38 ? -bigIncrement : event.keyCode == 39 ? 1 : bigIncrement;
-                  increment *= mode === 'minute' ? 5 : 1;
+                  increment *= mode === 'minute' ? settings.minuteStep : 1;
                   var focusDate = module.get.focusDate() || module.get.date() || new Date();
                   var year = focusDate.getFullYear() + (mode === 'year' ? increment : 0);
                   var month = focusDate.getMonth() + (mode === 'month' ? increment : 0);
@@ -747,19 +762,19 @@
               var isYearOrMonth = isYear || mode === 'month';
               var isMinute = mode === 'minute';
               var isHourOrMinute = isMinute || mode === 'hour';
-              //only care about a minute accuracy of 5
+
               date1 = new Date(
                 isTimeOnly ? 2000 : date1.getFullYear(),
                 isTimeOnly ? 0 : isYear ? 0 : date1.getMonth(),
                 isTimeOnly ? 1 : isYearOrMonth ? 1 : date1.getDate(),
                 !isHourOrMinute ? 0 : date1.getHours(),
-                !isMinute ? 0 : 5 * Math.floor(date1.getMinutes() / 5));
+                !isMinute ? 0 : settings.minuteStep * Math.floor(date1.getMinutes() / settings.minuteStep));
               date2 = new Date(
                 isTimeOnly ? 2000 : date2.getFullYear(),
                 isTimeOnly ? 0 : isYear ? 0 : date2.getMonth(),
                 isTimeOnly ? 1 : isYearOrMonth ? 1 : date2.getDate(),
                 !isHourOrMinute ? 0 : date2.getHours(),
-                !isMinute ? 0 : 5 * Math.floor(date2.getMinutes() / 5));
+                !isMinute ? 0 : settings.minuteStep * Math.floor(date2.getMinutes() / settings.minuteStep));
               return date2.getTime() - date1.getTime();
             },
             dateEqual: function (date1, date2, mode) {
@@ -771,7 +786,7 @@
                 minDate = startDate && settings.minDate ? new Date(Math.max(startDate, settings.minDate)) : startDate || settings.minDate;
                 maxDate = settings.maxDate;
               }
-              minDate = minDate && new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate(), minDate.getHours(), 5 * Math.ceil(minDate.getMinutes() / 5));
+              minDate = minDate && new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate(), minDate.getHours(), settings.minuteStep * Math.ceil(minDate.getMinutes() / settings.minuteStep));
               return !(!date ||
               (minDate && module.helper.dateDiff(date, minDate, mode) > 0) ||
               (maxDate && module.helper.dateDiff(maxDate, date, mode) > 0));
@@ -782,7 +797,7 @@
                 minDate = startDate && settings.minDate ? new Date(Math.max(startDate, settings.minDate)) : startDate || settings.minDate;
                 maxDate = settings.maxDate;
               }
-              minDate = minDate && new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate(), minDate.getHours(), 5 * Math.ceil(minDate.getMinutes() / 5));
+              minDate = minDate && new Date(minDate.getFullYear(), minDate.getMonth(), minDate.getDate(), minDate.getHours(), settings.minuteStep * Math.ceil(minDate.getMinutes() / settings.minuteStep));
               var isTimeOnly = settings.type === 'time';
               return !date ? date :
                 (minDate && module.helper.dateDiff(date, minDate, 'minute') > 0) ?
@@ -1010,6 +1025,9 @@
     disableYear: false,   // disable year selection mode
     disableMonth: false,  // disable month selection mode
     disableMinute: false, // disable minute selection mode
+    minuteStep: 5,        // how many minutes to separate an hour, can be 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30.
+    _minuteColumns: null,
+    _minuteRows: null,
     formatInput: true,    // format the input text upon input blur and module creation
     startCalendar: null,  // jquery object or selector for another calendar that represents the start date of a date range
     endCalendar: null,    // jquery object or selector for another calendar that represents the end date of a date range

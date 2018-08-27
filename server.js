@@ -6,7 +6,7 @@ const session = require("express-session")
 const path = require("path")
 const cookieparser = require("cookie-parser")
 const mongoose = require("mongoose")
-const details = require("./models/details.js").details
+//const details = require("./models/details.js").details
 
 /********** SETUP ***********/
 const app = express()
@@ -32,6 +32,22 @@ var User = mongoose.model("user", {
     password: String
 });
 
+// temp
+mongoose.connect("mongodb://localhost:27017/Reservations", {
+    useNewUrlParser: true
+});
+
+var ReservationSchema = mongoose.Schema({
+    room: Number,
+    seat: Number,
+    startTime: Number,
+    endTime: Number,
+    date: String,
+    occupant: String
+})
+
+var Reservation = mongoose.model("reservation", ReservationSchema)
+// end of temp
 
 app.use(session({
     secret : "labressysSecret",
@@ -282,8 +298,51 @@ app.post("/cancelRes", urlencoder, (req, res)=>{
     })
 })
 
+
+/***** FOR TESTING PURPOSES ONLY *****/
+app.post("/addslot", urlencoder, (req, res)=> {
+    console.log("POST /addslot")
+
+    var room = req.body.selectedFloor
+    var seat = req.body.compNumber
+    var date = req.body.date
+    var startTime = req.body.startTime
+    var endTime = req.body.endTime
+
+    /*
+
+    console.log("Selected Room: " + room)
+    console.log("Computer Number: " + seat)
+    console.log("Date: " + date)
+    console.log("Start Time: " + startTime)
+    console.log("End Time: " + endTime)
+
+    */
+
+    var slot = new Reservation({
+        room, seat, startTime, endTime,
+        date, occupant: "Add Tester"
+    })
+
+    slot.save().then((newSlot)=> {
+        res.send(newSlot)
+    }, (err)=> {
+        res.send(err)
+    })
+})
+
+app.get("/getslots", (req, res)=> {
+    console.log("POST /getslots")
+
+    Reservation.find().then((slots)=> {
+        res.send(slots)
+    }, (err)=> {
+        res.send(err)
+    })
+})
+
 /************** LISTEN **************/
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log("Listening in port 3000");
 })

@@ -27,18 +27,40 @@
                     <input type="submit" class="button" value="Log Out"> 
                 </form>
             </div>
-        </div>       
-
+        </div>
+        
         <div class="container">
             <div class="left-container">
                 <div class="date-container">
-                    <div id="date-title">Edit Reservation</div>
-                     <p class="blurb">Choose the reservation details you want to edit.</p>
-                    <div id="date-title">Select Date</div>
-                    <div class="ui calendar" id="date-picker"> </div>
+                    
                 </div>
 
                 <div class="time-container">
+                    <div id="reserve-title">Reserve Slot</div>
+                    <p class="blurb">Choose the date you want to reserve your laboratory slot.</p>
+                    <div id="time-title"> Choose Room </div>
+                    <div class="ui selection dropdown" id="floors">
+                        <input type="hidden" name="laboratory">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Gokongwei Laboratory Floor</div>
+                        <div class="menu">
+                            <div class="item" data-value="1">1st Floor</div>
+                            <div class="item" data-value="2">2nd Floor</div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div id="date-title">Select Date</div>
+                    <div class="ui calendar" id="date-picker">
+                        <div class="ui input left icon">
+                            <i class="calendar icon"></i>
+                            <input type="text" placeholder="Date">
+                        </div>
+                    </div>
+
+                    <br>
+                    <br>
                     <div id="time-title"> Start Time </div>
                     <div class="ui calendar" id="start-time">
                         <div class="ui input left icon">
@@ -58,21 +80,15 @@
 
                     <div id="time-error"> {{time_error}} </div>
 
+                    <br>
+                    <br>
+                    <div class="ui button" id="search">Search</div>
                 </div>
                 
             </div>
             
             <div class="right-container">
                 <div class="computer-rows">
-                    <div class="ui selection dropdown" id="floors">
-                        <input type="hidden" name="laboratory">
-                        <i class="dropdown icon"></i>
-                        <div class="default text">Gokongwei Laboratory Floor</div>
-                        <div class="menu">
-                            <div class="item" data-value="1">1st Floor</div>
-                            <div class="item" data-value="2">2nd Floor</div>
-                        </div>
-                    </div>
                     <br>
                     <div class="first row">
                         <button class="computer ui button" id="1">
@@ -167,7 +183,7 @@
 
                     <form method="POST" action="select">
                         <br>
-                        <button class="button ui fluid green" >Finish Editing</button>
+                        <button class="button ui fluid green" >Reserve</button>
                     </form>
                 </div>
             </div>
@@ -186,6 +202,6 @@
     <script type="text/javascript" 
             src="../node_modules/semantic-ui-calendar/dist/calendar.min.js"></script>
     <script type="text/javascript" 
-            src="../js/edit.js"></script>
+            src="../js/reserve.js"></script>
             
 </html>
