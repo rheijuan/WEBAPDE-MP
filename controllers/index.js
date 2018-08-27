@@ -20,23 +20,20 @@ router.use("/user", require("./user"))
 
 router.get("/", function(req, res) {
     console.log("GET /")
-    console.log(req.cookies.username)
-    console.log(req.user)
+    console.log(req.cookies)
+
 
     res.render("index")
 })
 
 router.get("/register", function(req, res) {
     console.log("GET /register")
-    console.log(req.cookies.username)
-
+    
     res.render("register.hbs")
 })
 
 router.get("/home", function(req, res) {
     console.log("GET /home")
-    console.log(req.cookies.username)
-    console.log(req.user)
 
     res.render("home", {
         username: req.cookies.username

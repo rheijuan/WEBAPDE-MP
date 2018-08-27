@@ -40,6 +40,13 @@
                                 <input name="identification" type="password" placeholder="Password">
                                 <i class="lock icon"></i>
                         </div>
+                        
+                        <div class="remember">
+                                <div class="ui checkbox">
+                                        <input type="checkbox">
+                                        <label>Remember Me</label>
+                                </div>
+                        </div>
 
                         <button class="ui secondary button"> Log In </button>
                         <div class="big error"> {{error}} </div>
@@ -65,7 +72,4 @@
     <script src="jquery-3.3.1.js"></script>
     <script type="text/javascript"
             src="../semantic/semantic.min.js"></script>
-    <script> 
-            $('.ui.basic.modal').modal({{status}});
-    </script>
 </html>

@@ -28,7 +28,6 @@ var rand, mailOptions, host, link
 /****  Function used to log in  ****/
 router.post("/log", urlencoder, function(req, res) {
     console.log("POST /log")
-    console.log(req.cookies.username)
 
     var email = req.body.email
     var password = req.body.identification
@@ -38,11 +37,9 @@ router.post("/log", urlencoder, function(req, res) {
             if(user) {
                 if(email == user.email && password == user.password) {
                     if(user.validated) {
-                        req.cookies = {
-                            username: user.username,
-                            maxAge: 1000 * 60 * 60 * 24 * 7 * 3
-                        }
-                        console.log(req.cookies.username)
+                        res.cookie('labressys', user.username, {maxAge: 1000 * 60 * 60 * 24 * 7 * 3})
+                        
+                        console.log(req.cookies)
                         res.render("home" , {
                             username: user.username
                         })
