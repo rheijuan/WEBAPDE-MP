@@ -9,6 +9,8 @@ var selectedFloor = -1;
 
 var selected = -1;
 
+var username = $("#username").val();
+
 /**** CONSTRUCTOR FOR CHECKING ONLY ****/
 var SlotBasis = function (date, floor, slot, 
     startTime, endTime) {
@@ -85,10 +87,9 @@ $("#search").on("click", function() {
     var slotBasis = new SlotBasis(date, selectedFloor, compNumber, startTime, endTime)
     
     /*
-    
     $.ajax({
         method: "post",
-        url: "addslot",
+        url: "../reservation/addslot",
         data: {
             date, startTime, endTime, selectedFloor, compNumber
         },
@@ -96,13 +97,13 @@ $("#search").on("click", function() {
         success: function(slots) {           
             console.log("Success!")
         }
-    })   
-    */
+    })
 
+    */
     
     $.ajax({
         method: "get",
-        url: "getslots",
+        url: "../reservation/getslots",
         data: {
             date, startTime, endTime, selectedFloor, compNumber
         },
@@ -112,20 +113,19 @@ $("#search").on("click", function() {
             console.log("Success!")
         }
     })
-    
 })
-
 
 // For confirmation of reservation
 $("form#confirmation").submit(function(event) {
     var startTime = convertTime(startHour, startMinute)
     var endTime = convertTime(endHour, endMinute)
     var date = month + "/" + day + "/" + year
-    $("input[name=room]").val(selectedFloor)
-    $("input[name=date]").val(date)
-    $("input[name=seat]").val(selected)
-    $("input[name=startTime]").val(startTime)
-    $("input[name=endTime]").val(endTime)
+
+    $("input[name=Floor]").val(selectedFloor)
+    $("input[name=Date]").val(date)
+    $("input[name=SeatNumber]").val(selected)
+    $("input[name=StartTime]").val(startTime)
+    $("input[name=EndTime]").val(endTime)
     return;
 })
 

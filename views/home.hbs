@@ -45,7 +45,7 @@
 
                     <div id="date-title">Select Date</div>
                     <div class="calendar-container">
-                        <div class="ui calendar" id="date-picker"> </div>
+                        <div class="ui calendar" id="date-picker"></div>
                     </div>
                     
                     <div class="time-box">
@@ -166,8 +166,14 @@
                         </button>                    
                     </div>    
                 </div>
-                <form class="reserve-button" method="POST" action="../reservation/select">
-                        <button class="button ui fluid green" >Reserve</button>
+                <form id="confirmation" class="reserve-button" method="POST" action="../reservation/select">
+                    <input id="username" type="hidden" name="Username" value="{{username}}">
+                    <input id="floor" type="hidden" name="Floor">
+                    <input id="date" type="hidden" name="Date">
+                    <input id="slot" type="hidden" name="SeatNumber">
+                    <input id="start" type="hidden" name="StartTime">
+                    <input id="end" type="hidden" name="EndTime">
+                    <input type="submit" class="button ui fluid green" value="Reserve">
                 </form>
             </div>
         </div>

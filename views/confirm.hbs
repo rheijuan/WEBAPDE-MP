@@ -34,8 +34,8 @@
                 <div class="small">
                     <p class="blurb">Confirm the information displayed below. 
                     This will be used to make your reservation.</p>
-                    <h4 class="text"> Name: {{Name}} </h4>      
-                    <h4 class="text"> Email Address: {{Email}} </h4> 
+                    <h4 class="text"> Name: {{username}} </h4>      
+                    <h4 class="text"> Email Address: {{user.email}} </h4> 
                     <h4 class="text"> Gokongwei Laboratory Floor: {{Floor}} </h4> 
                     <h4 class="text"> Laboratory Seat: {{SeatNumber}} </h4>
                     <h4 class="text"> Date: {{Date}} </h4>  
@@ -43,8 +43,14 @@
                     <h4 class="text"> End Time: {{EndTime}} </h4>
 
                     <div class="buttons">
-                        <form method="POST" action="../reservation/reserve">
-                            <button class="ui button green"> Reserve </button>
+                        <form id="reserve" method="POST" action="../reservation/reserve">
+                            <input id="username" type="hidden" name="Username" value="{{username}}">
+                            <input id="floor" type="hidden" name="Floor" value="{{Floor}}">
+                            <input id="date" type="hidden" name="Date" value="{{Date}}">
+                            <input id="slot" type="hidden" name="SeatNumber" value="{{SeatNumber}}">
+                            <input id="start" type="hidden" name="StartTime" value="{{StartTime}}">
+                            <input id="end" type="hidden" name="EndTime" value="{{EndTime}}">
+                            <input type="submit" class="button ui fluid green" value="Reserve">
                         </form>
 
                         <form method="GET" action="../reservation/back"> 
@@ -56,7 +62,7 @@
         </div>    
         
     </body>
-
-    <script src="jquery-3.3.1.js"></script>
+    <script src="../public/js/confirm.js"></script>
+    <script src="/../public/jquery-3.3.1.js"></script>
     <script src="../semantic/semantic.min.js"></script>
 </html>

@@ -171,4 +171,19 @@ router.post("/add", urlencoder, (req, res) => {
     res.redirect("/")
  })
 
+
+router.post("/getuser", urlencoder, function(req, res) {
+    console.log("POST /user/getuser")
+    var username = req.body.username
+
+    User.findByUsername(username).then((user)=> {
+        res.send(user)
+    }, (err)=> {
+        res.send(err)
+    })
+    
+    
+}) 
+
+
 module.exports = router

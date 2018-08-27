@@ -246,3 +246,7 @@
     background-color: green;
     align-items: center;
 }
+
+.computer.ui.button:focus {
+    background-color: #5BC236;
+}
