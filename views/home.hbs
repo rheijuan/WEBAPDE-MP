@@ -76,10 +76,11 @@
             <div class="right-container">
                 
                 <div class="computer-rows">
-                    
-                    <div class="ui input">
-                        <input type="hidden" placeholder="Enter ID number here...">
-                    </div>
+                    {{#if admin}}
+                        <div class="ui input">
+                            <input type="hidden" placeholder="Enter ID number here...">
+                        </div> 
+                    {{/if}}
 
                     <br>
                     
