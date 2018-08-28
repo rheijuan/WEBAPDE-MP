@@ -14,7 +14,7 @@
         <!-- this is the nav bar part -->
         <div class="header">
             <div class="left">
-                <a href="/home">
+                <a href="/home?username={{username}}">
                     <div class="logo"> LAB.RES.SYS </div>
                 </a>
             </div>
@@ -22,7 +22,7 @@
                 <form class="right-item" method="POST" action="/logout"> 
                     <input type="submit" class="button" value="Log Out"> 
                 </form>
-                <a href="../reservation/reservations"> 
+                <a href="../reservation/reservations?username={{username}}"> 
                     <div class="right-item reservations"> My Reservations</div>
                 </a>
                 <div class="right-item name">{{username}}</div>
@@ -51,15 +51,17 @@
                       </div>
                       <div class="description">
                         Gokongwei Laboratory: {{room}} <br>
-                          Seat Number: {{seat}}
+                          Seat Number: {{seat}} <br>
+                          ID: {{_id}} <br>
+                          Occupant: {{occupant}}
                       </div>
                     </div>
                     <div class="extra content">
                     
                       <div class="ui two buttons">
-                        <a href="../reservation/edit">
-                           <div class="ui button"> Edit</div></a>
-                        <form action="../reservation/delete" method="post">
+                        <a href="../reservation/edit?username={{occupant}}&id={{_id}}" class="ui button">
+                           <div > Edit</div></a>
+                        <form action= "../reservation/delete?username={{occupant}}&id={{_id}}" method="post">
                             <input class="ui red button" type="submit" value="Cancel"></form>
                       </div>
                     </div>

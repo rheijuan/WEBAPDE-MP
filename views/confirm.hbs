@@ -13,7 +13,7 @@
         <!-- this is the nav bar part -->
         <div class="header">
             <div class="left">
-                <a href="/home">
+                <a href="/home?username={{username}}">
                     <div class="logo"> LAB.RES.SYS </div>
                 </a>
             </div>
@@ -21,7 +21,7 @@
                 <form class="right-item" method="POST" action="/logout"> 
                     <input type="submit" class="button" value="Log Out"> 
                 </form>
-                <a href="../reservation/reservations"> 
+                <a href="../reservation/reservations?username={{username}}"> 
                     <div class="right-item reservations"> My Reservations</div>
                 </a>
                 <div class="right-item name">{{username}}</div>

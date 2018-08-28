@@ -15,30 +15,31 @@ router.use(urlencoder)
 router.get("/reservations", urlencoder, function(req,res) {
     console.log("GET /reservation/reservations")
     
-    var Username = req.body.Username
+    var username = req.query.username
+    console.log("username: "+ username)
     
-    Reservation.getAll().then((reservations)=>{
+    Reservation.getAll(username).then((reservations)=>{
         res.render("reservations", {
-            username: Username,
+            username,
             reservations
         })
     }, (error)=>{
         res.send(error)
     })
-    
 })
 
 router.post("/delete", urlencoder, function(req, res){
     console.log("POST /reservations/delete")
     
-    var Username = req.body.Username
-    var id = req.body.id
-    console.log(id)
+    var username = req.query.username
+    var id = req.query.id
+    
+    console.log("id: " + id + "username: "+ username )
     
     Reservation.delete(id).then((reservations)=>{
-        console.log(reservations)
+        
         res.render("reservations", {
-            username: Username,
+            username,
             reservations
         })
     }, (error)=>{
@@ -50,12 +51,14 @@ router.post("/delete", urlencoder, function(req, res){
 router.get("/edit", urlencoder, function(req, res){
     console.log("POST /reservation/edit")
     
-    var Username = req.body.Username
-    var id = req.body.id
+    var username = req.query.username
+    var id = req.query.id
     
-    Reservation.edit(id).then((id)=>{
+    console.log("id: " + id + "username: "+username)
+    
+    Reservation.edit(id, room, seat, startTime, endTime, date).then((id)=>{
         res.render("home", {
-            username: Username, 
+            username, 
             id
         })
     }, (error)=>{
@@ -96,7 +99,7 @@ router.get("/back", function(req, res) {
     console.log("GET /reservation/back")
 
     res.render("home", {
-        username: res.locals.username
+        username
     })
 })
 

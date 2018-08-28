@@ -36,7 +36,7 @@ router.get("/home", function(req, res) {
     console.log("GET /home")
 
     res.render("home", {
-        username: req.cookies.username
+        username: req.query.username
     })
 })
 
