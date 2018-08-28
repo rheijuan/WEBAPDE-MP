@@ -34,7 +34,8 @@ exports.get = function(id) {
     })
 }
 
-exports.getAllOccupant = function() {
+
+exports.getAllOccupants = function() {
     return new Promise(function(resolve, reject) {
         Reservation.find().then((reservations) => {
             resolve(reservations)
@@ -44,11 +45,12 @@ exports.getAllOccupant = function() {
     })
 }
 
-exports.getAll = function(occupant){
-    return new Promise(function(resolve, reject){
-        Reservation.find({occupant}).then((reservations)=>{
+
+exports.getAll = function(occupant) {
+    return new Promise(function(resolve, reject) {
+        Reservation.find({occupant}).then((reservations) => {
             resolve(reservations)
-        }, (error)=>{
+        }, (error) => {
             reject(error)
         })
     })
@@ -56,7 +58,7 @@ exports.getAll = function(occupant){
 
 exports.edit = function(id, update) {
     return new Promise(function(resolve, reject) {
-        Reservation.findOneAndUpdate({
+        Reservation.findByIdAndUpdate({
             _id: id
         }, update, {
             new: true
@@ -67,20 +69,6 @@ exports.edit = function(id, update) {
         })
     })
 }
-/*
-exports.edit = function(id, room, seat, startTime, endTime, date){
-    return new Promise(function(resolve, reject){
-          Reservation.findOneAndUpdate({
-            _id: id
-        }, {
-            room, seat, startTime, endTime, date
-          }).then((newReservation) => {
-            resolve(newReservation)
-        }, (error) => {
-            reject(error)
-        })
-    })
-}*/
 
 exports.delete = function(id) {
     return new Promise(function(resolve, reject) {

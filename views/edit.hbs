@@ -1,38 +1,69 @@
-
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" 
               type="text/css" 
               href="../semantic/semantic.min.css">
+        <link rel="stylesheet" 
+              href="../node_modules/semantic-ui-calendar/dist/calendar.min.css" />              
         <link rel="stylesheet"
               type="text/css"
-              href="../css/home.css">
+              href="../css/select.css">
     </head>
 
-    <body> 
-       
+    <body>
         <!-- this is the nav bar part -->
         <div class="header">
             <div class="left">
-                <a href="/home?username={{username}}">
-                    <div class="logo"> LAB.RES.SYS </div>
-                </a>
+                <form action="okay" method="POST">
+                    <input type="submit" id="logo" value="LAB.RES.SYS">
+                </form>
             </div>
             <div class="right">
-                <form class="right-item" method="POST" action="/logout"> 
+                <form>
+                    <div class="right-item">{{username}}</div>
+                </form>
+                <form method="POST" action="logout"> 
                     <input type="submit" class="button" value="Log Out"> 
                 </form>
-                <a href="../reservation/reservations?username={{username}}"> 
-                    <div class="right-item reservations"> My Reservations</div>
-                </a>
-                <div class="right-item name">{{username}}</div>
             </div>
-        </div>
-    
+        </div>       
+
         <div class="container">
             <div class="left-container">
+                <div class="date-container">
+                    <div id="date-title">Edit Reservation</div>
+                     <p class="blurb">Choose the reservation details you want to edit.</p>
+                    <div id="date-title">Select Date</div>
+                    <div class="ui calendar" id="date-picker"> </div>
+                </div>
+
                 <div class="time-container">
-                    <div id="time-title"> Choose Room </div>
+                    <div id="time-title"> Start Time </div>
+                    <div class="ui calendar" id="start-time">
+                        <div class="ui input left icon">
+                            <i class="time icon"></i>
+                            <input type="text" placeholder="Time">
+                        </div>
+                    </div>
+
+                    <div id="time-title"> End Time </div>
+
+                    <div class="ui calendar" id="end-time">
+                        <div class="ui input left icon">
+                            <i class="time icon"></i>
+                            <input type="text" placeholder="Time">
+                        </div>
+                    </div>
+
+                    <div id="time-error"> {{time_error}} </div>
+
+                </div>
+                
+            </div>
+            
+            <div class="right-container">
+                <div class="computer-rows">
                     <div class="ui selection dropdown" id="floors">
                         <input type="hidden" name="laboratory">
                         <i class="dropdown icon"></i>
@@ -42,47 +73,7 @@
                             <div class="item" data-value="2">2nd Floor</div>
                         </div>
                     </div>
-
-                    <div id="date-title">Select Date</div>
-                    <div class="calendar-container">
-                        <div class="ui calendar" id="date-picker"></div>
-                    </div>
-                    
-                    <div class="time-box">
-                        <div class="start-container">
-                            <div id="time-title-start"> Start Time </div>
-                            <div class="ui calendar" id="start-time">
-                                <div class="ui input left icon">
-                                    <i class="time icon"></i>
-                                    <input type="text" placeholder="Time">
-                                </div>
-                            </div> 
-                        </div>
-                        <div class="end-container">
-                            <div id="time-title-start"> End Time </div>
-                            <div class="ui calendar" id="end-time">
-                                <div class="ui input left icon">
-                                    <i class="time icon"></i>
-                                    <input type="text" placeholder="Time">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="time-error"> {{time_error}} </div>
-                </div>
-                <div class="ui button search disable" id="search">Search</div>
-            </div>
-            
-            <div class="right-container">
-                
-                <div class="computer-rows">
-                    
-                    <div class="ui input">
-                        <input type="hidden" placeholder="Enter ID number here...">
-                    </div>
-
                     <br>
-                    
                     <div class="first row">
                         <button class="computer ui button" id="1">
                             <label> 01 </label>
@@ -172,28 +163,27 @@
                             <label> 20   </label>
                             <img src="../img/rentable.png">
                         </button>                    
-                    </div>    
+                    </div>
+
+                    <form method="POST" action="select">
+                        <br>
+                        <button class="button ui fluid green" >Finish Editing</button>
+                    </form>
                 </div>
-                <form id="confirmation" class="reserve-button" method="POST" action="../reservation/select">
-                    <input id="Id" type="hidden" name="id" value="{{_id}}">
-                    <input id="username" type="hidden" name="Username" value="{{username}}">
-                    <input id="floor" type="hidden" name="Floor">
-                    <input id="date" type="hidden" name="Date">
-                    <input id="slot" type="hidden" name="SeatNumber">
-                    <input id="start" type="hidden" name="StartTime">
-                    <input id="end" type="hidden" name="EndTime">
-                    <input id="reserve-button" type="submit" class="button ui fluid green" value="Reserve">
-                </form>
             </div>
         </div>
+
+        
     </body>
 
     <script type="text/javascript"
             src="/../public/jquery-3.3.1.js"></script>
+    </script>
     <script type="text/javascript"
-            src="/../semantic/semantic.min.js"></script>
+            src="../semantic/semantic.min.js"></script>
     <script type="text/javascript" 
             src="../node_modules/semantic-ui-calendar/dist/calendar.min.js"></script>
     <script type="text/javascript" 
-            src="../js/home.js"></script>
+            src="../js/edit.js"></script>
+            
 </html>

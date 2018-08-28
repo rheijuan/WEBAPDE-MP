@@ -12,7 +12,7 @@ const urlencoder = bodyparser.urlencoded({
 
 router.use(urlencoder)
 
-router.get("/reservations", urlencoder, function(req,res) {
+router.get("/reservations", function(req,res) {
     console.log("GET /reservation/reservations")
     
     var username = req.query.username
@@ -34,7 +34,7 @@ router.post("/delete", urlencoder, function(req, res){
     var username = req.query.username
     var id = req.query.id
     
-    console.log("id: " + id + "username: "+ username )
+    console.log("id: " + id + " username: "+ username )
     
     Reservation.delete(id).then((reservations)=>{
         
