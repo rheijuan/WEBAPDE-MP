@@ -70,11 +70,19 @@
                     </div>
                     <div id="time-error"> {{time_error}} </div>
                 </div>
-                <div class="ui button search" id="search">Search</div>
+                <div class="ui button search disable" id="search">Search</div>
             </div>
             
             <div class="right-container">
+                
                 <div class="computer-rows">
+                    
+                    <div class="ui input">
+                        <input type="hidden" placeholder="Enter ID number here...">
+                    </div>
+
+                    <br>
+                    
                     <div class="first row">
                         <button class="computer ui button" id="1">
                             <label> 01 </label>
@@ -173,7 +181,7 @@
                     <input id="slot" type="hidden" name="SeatNumber">
                     <input id="start" type="hidden" name="StartTime">
                     <input id="end" type="hidden" name="EndTime">
-                    <input type="submit" class="button ui fluid green" value="Reserve">
+                    <input id="reserve-button" type="submit" class="button ui fluid green" value="Reserve">
                 </form>
             </div>
         </div>

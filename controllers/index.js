@@ -20,7 +20,6 @@ router.use("/", (req,res, next) => {
 
 router.get("/", function(req, res) {
     console.log("GET /")
-
     if(res.locals.username) {
         res.render("home", {
             username: res.locals.username
