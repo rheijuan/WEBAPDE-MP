@@ -18,8 +18,8 @@ var smtpTransport = nodemailer.createTransport({
     secure: false,
     requireTLS: true,
     auth: {
-        user: "", // replace this with personal gmail account when testing
-        pass: ""  // password of the gmail account ^
+        user: "justinjuan.54@gmail.com", // replace this with personal gmail account when testing
+        pass: "CookieCrisp999"  // password of the gmail account ^
     }
 })
 
@@ -37,7 +37,9 @@ router.post("/log", urlencoder, function(req, res) {
             if(user) {
                 if(email == user.email && password == user.password) {
                     if(user.validated) {
-                        res.locals.username = user.username
+                        res.cookie('labressys', user.username, {maxAge: 1000 * 60 * 60 * 24 * 7 * 3})
+                        
+                        console.log(req.cookies)
                         res.render("home" , {
                             username: user.username
                         })
@@ -69,6 +71,7 @@ router.post("/log", urlencoder, function(req, res) {
 /****  Function used to register  ****/
 router.post("/add", urlencoder, (req, res) => {
     console.log("POST /user/add")
+    console.log(req.cookies.username)
 
     var username = req.body.username
     var email = req.body.email
@@ -139,6 +142,7 @@ router.post("/add", urlencoder, (req, res) => {
 /****  Function used to verify  ****/
  router.get("/verify", function(req, res) {
     console.log("GET /user/verify")
+    console.log(req.cookies.username)
 
     if((req.protocol+"://"+req.get('host'))==("http://"+host)) {
         

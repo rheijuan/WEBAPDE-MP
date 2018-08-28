@@ -10,38 +10,39 @@ const cookieparser = require("cookie-parser")
 router.use("/reservation", require("./reservation"))
 router.use("/user", require("./user"))
 
-router.use("/", (req,res, next) => {
+// router.use("/", (req,res, next) => {
 
-    if(req.cookies.username) 
-        res.locals.username = req.cookies.username
+//     if(req.cookies.username) 
+//         res.locals.username = req.cookies.username
 
-    next()
-})
+//     next()
+// })
 
 router.get("/", function(req, res) {
     console.log("GET /")
-    if(res.locals.username) {
-        res.render("home", {
-            username: res.locals.username
-        })
-    } else 
-        res.render("index")
+    console.log(req.cookies)
+
+
+    res.render("index")
 })
 
 router.get("/register", function(req, res) {
     console.log("GET /register")
+    
     res.render("register.hbs")
 })
 
 router.get("/home", function(req, res) {
     console.log("GET /home")
-    
+
     res.render("home", {
-        username: res.locals.username
+        username: req.cookies.username
     })
 })
 
 router.post("/logout", function(req, res) {
+    req.session.destroy
+
     res.render("index")
 })
 
