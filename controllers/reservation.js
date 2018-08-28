@@ -12,12 +12,54 @@ const urlencoder = bodyparser.urlencoded({
 
 router.use(urlencoder)
 
-router.get("/reservations", function(req,res) {
+router.get("/reservations", urlencoder, function(req,res) {
     console.log("GET /reservation/reservations")
+    
+    var Username = req.body.Username
+    
+    Reservation.getAll().then((reservations)=>{
+        res.render("reservations", {
+            username: Username,
+            reservations
+        })
+    }, (error)=>{
+        res.send(error)
+    })
+    
+})
+
+router.post("/delete", urlencoder, function(req, res){
+    console.log("POST /reservations/delete")
+    
+    var Username = req.body.Username
+    var id = req.body.id
+    console.log(id)
+    
+    Reservation.delete(id).then((reservations)=>{
+        console.log(reservations)
+        res.render("reservations", {
+            username: Username,
+            reservations
+        })
+    }, (error)=>{
+        res.send(error)
+    })
+})
 
 
-    res.render("reservations", {
-        username: res.locals.username
+router.get("/edit", urlencoder, function(req, res){
+    console.log("POST /reservation/edit")
+    
+    var Username = req.body.Username
+    var id = req.body.id
+    
+    Reservation.edit(id).then((id)=>{
+        res.render("home", {
+            username: Username, 
+            id
+        })
+    }, (error)=>{
+        res.send(error)
     })
 })
 
@@ -47,6 +89,8 @@ router.post("/select", urlencoder, function(req,res) {
         res.send(err)
     })
 })
+
+
 
 router.get("/back", function(req, res) {
     console.log("GET /reservation/back")
@@ -79,6 +123,7 @@ router.post("/reserve", urlencoder, function(req,res) {
         res.send(err)
     })
 })
+
 
 router.get("/getslots", (req, res)=> {
     console.log("POST /reservation/getslots")
@@ -119,5 +164,6 @@ router.post("/addslot", urlencoder, (req, res)=> {
         res.send(err)
     })
 })
+
 
 module.exports = router

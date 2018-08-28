@@ -36,96 +36,35 @@
             <div class="description-container">
                 <p>You can see all the reservations you have made here.</p>
             </div>
-            <table class="ui compact table">
-                <thead>
-                  <tr class="center aligned clickable"><th> E-mail Address </th>
-                    <th> Seat Number </th>
-                    <th> Laboratory Number</th>
-                    <th> Date of Request </th>
-                    <th> Time of Request </th>
-                    <th> Date of Reservation </th>
-                    <th> Start Time of Reservation </th>
-                    <th> End Time of Reservation </th>
-                    <th></th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="center aligned clickable">
-                    <td>hogo@dlsu.edu.ph</td>
-                    <td>12</td>
-                    <td>1</td>
-                    <td>07/11/2018</td>
-                    <td>11:23</td>
-                    <td>07/20/2018</td>
-                    <td>11:30</td>
-                    <td>12:00</td>
-                    <td>
-                    <form action="/editPage" method="get"> 
-                        <button class="ui button green">Edit</button>
-                </form>
-                </td>
-                    <td><button class="ui button red">Cancel</button></td>
-                  </tr>
-                  <tr class="center aligned clickable">
-                    <td>hogo@dlsu.edu.ph</td>
-                    <td>20</td>
-                    <td>2</td>
-                    <td>07/13/2018</td>
-                    <td>14:15</td>
-                    <td>07/30/2018</td>
-                    <td>8:00</td>
-                    <td>9:30</td>
-                    <td>
-                     <form action="/editPage" method="get"> 
-
-                        <button class="ui button green">Edit</button>
-                     </form>
-                    </td>
-                    <td><button class="ui button red">Cancel</button></td>
-                  </tr>
-                  <tr class="center aligned clickable">
-                    <td>hogo@dlsu.edu.ph</td>
-                    <td>11</td>
-                    <td>1</td>
-                    <td>08/16/2018</td>
-                    <td>17:30</td>
-                    <td>08/20/2018</td>
-                    <td>14:00</td>
-                    <td>15:00</td>
-                    <td><button class="ui button green">Edit</button></td>
-                    <td><button class="ui button red">Cancel</button></td>
-                  </tr>
-                  <tr class="center aligned clickable">
-                    <td>hogo@dlsu.edu.ph</td>
-                    <td>9</td>
-                    <td>1</td>
-                    <td>07/15/2018</td>
-                    <td>12:03</td>
-                    <td>07/29/2018</td>
-                    <td>7:30</td>
-                    <td>9:00</td>
-                    <td><button class="ui button green">Edit</button></td>
-                    <td><button class="ui button red">Cancel</button></td>
-                  </tr>
-                  <tr class="center aligned clickable">
-                    <td>hogo@dlsu.edu.ph</td>
-                    <td>17</td>
-                    <td>1</td>
-                    <td>07/16/2018</td>
-                    <td>14:22</td>
-                    <td>07/26/2018</td>
-                    <td>12:00</td>
-                    <td>15:00</td>
-                    <td><button class="ui button green">Edit</button></td>
-                    <td><button class="ui button red">Cancel</button></td>
-                  </tr>
-                </tbody>
-            </table>
-            <div class="empty">
-              <div id="cancel">
-                <span id="reserve"></span>
-              </div>
+            
+            
+            <div class="ui cards">
+               {{#each reservations}}
+                  <div class="card"  >
+                    <div class="content">
+                      <img class="right floated mini ui image" src="../img/rentable.png">
+                      <div class="header">
+                        {{date}}
+                      </div>
+                      <div class="meta">
+                        {{startTime}} - {{endTime}}
+                      </div>
+                      <div class="description">
+                        Gokongwei Laboratory: {{room}} <br>
+                          Seat Number: {{seat}}
+                      </div>
+                    </div>
+                    <div class="extra content">
+                    
+                      <div class="ui two buttons">
+                        <a href="../reservation/edit">
+                           <div class="ui button"> Edit</div></a>
+                        <form action="../reservation/delete" method="post">
+                            <input class="ui red button" type="submit" value="Cancel"></form>
+                      </div>
+                    </div>
+                  </div>
+                {{/each }}
             </div>
         </div>
     </body>
@@ -138,4 +77,6 @@
 
     <script type="text/javascript"
             src="../semantic/semantic.min.js"></script>
+    <script type="text/javascript" 
+            src="../js/edit.js"></script>
 </html>
