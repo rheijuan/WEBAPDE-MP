@@ -22,6 +22,44 @@ var SlotBasis = function (date, floor, slot,
 }
 /****************************************/
 
+function disableSlots() {
+    for (var i = 1; i <= 20; i++) {
+        $("#"+i).addClass('disabled');
+    }
+}
+
+function enableSlots() {
+    for (var i = 1; i <= 20; i++) {
+        $("#"+i).removeClass('disabled');
+    }   
+}
+
+function disableSearch() {
+    $("#search").addClass('disabled')
+}
+
+function enableSearch() {
+    $("#search").removeClass('disabled')
+}
+
+function enableReserve() {
+    $("#reserve-button").removeClass('disabled')
+}
+
+function disableReserve() {
+    $("#reserve-button").addClass('disabled')
+}
+
+function checkForInputs() {
+    if (!(year < 0 || month < 0 || day < 0 || startHour < 0
+        && startMinute < 0 || endHour < 0 || selectedFloor < 0)
+        && !(startHour > endHour))
+        enableSearch();
+}
+
+disableSlots();
+disableSearch();
+disableReserve();
 
 function convertTime(hour, minute) {
     var time = parseInt(hour + "" + minute)
@@ -42,9 +80,9 @@ function getSelected() {
     return selected;
 }
 
-function clearSlots() {
+function clearRedSlots() {
     for (var i = 1; i <= 20; i++) {
-        $("#"+i).removeClass('red disabled');
+        $("#"+i).removeClass('red');
     }
 }
 
@@ -54,7 +92,7 @@ function slotsChecker(resultSlots, baseSlot) {
         if (resultSlots[i].date == baseSlot.date && 
             resultSlots[i].room == baseSlot.floor) {
 
-            if (resultSlots[i].endTime <= baseSlot.startTime) {
+            if (resultSlots[i].startTime <= baseSlot.endTime) {
                 $("#"+resultSlots[i].seat).addClass('red disabled')
             } else if (resultSlots[i].startTime >= baseSlot.startTime && resultSlots[i].endTime <= baseSlot.endTime)  {
                 $("#"+resultSlots[i].seat).addClass('red disabled')
@@ -65,7 +103,10 @@ function slotsChecker(resultSlots, baseSlot) {
 
 // For searching of slots
 $("#search").on("click", function() {
-    clearSlots()
+    clearRedSlots();
+    enableSlots();
+    enableReserve();
+
     selectedFloor = parseInt($(".ui.selection.dropdown").dropdown('get value'))
 
     var date = month + "/" + day + "/" + year
@@ -85,21 +126,6 @@ $("#search").on("click", function() {
     var compNumber = selected;
 
     var slotBasis = new SlotBasis(date, selectedFloor, compNumber, startTime, endTime)
-    
-    /*
-    $.ajax({
-        method: "post",
-        url: "../reservation/addslot",
-        data: {
-            date, startTime, endTime, selectedFloor, compNumber
-        },
-    
-        success: function(slots) {           
-            console.log("Success!")
-        }
-    })
-
-    */
     
     $.ajax({
         method: "get",
@@ -134,6 +160,9 @@ $("#date-picker").calendar({
     type: 'date',
     inline: true,
     onChange: function(date) {
+        checkForInputs();
+        disableSlots();
+        clearRedSlots();
         year = parseInt(date.getFullYear());
         month = parseInt(date.getMonth() + 1);
         day = parseInt(date.getDate());
@@ -153,6 +182,11 @@ $("#start-time").calendar({
     ampm : false,
     minuteStep: 30,
     onChange: function (date, text, mode) {
+        checkForInputs();
+        disableSlots();
+        disableReserve();
+        clearRedSlots();
+        
         startHour = parseInt(date.getHours());
         startMinute = parseInt(date.getMinutes());
 
@@ -160,7 +194,7 @@ $("#start-time").calendar({
         if (startHour >= 0 && startMinute >= 0 && 
             endHour >= 0 && endMinute >= 0) {
             if (startHour > endHour) {
-                $("#time-error").text("Invalid time.");
+                $("#time-error").text("Input a valid time.");
             } else {
                 $("#time-error").text(" ");
             }
@@ -173,6 +207,10 @@ $('#end-time').calendar({
     ampm : false,
     minuteStep: 30,
     onChange: function (date, text, mode) {
+        checkForInputs();
+        disableSlots();
+        disableReserve();
+        clearRedSlots();
         endHour = parseInt(date.getHours());
         endMinute = parseInt(date.getMinutes());
         selectedFloor = parseInt($(".ui.selection.dropdown").dropdown('get value'));

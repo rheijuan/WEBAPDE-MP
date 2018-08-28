@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-mongoose.connect("mongodb://localhost:27017/Users", {
+mongoose.connect("mongodb://labressys:mamamokatol2018@ds133152.mlab.com:33152/users", {
     useNewUrlParser: true
 });
 
